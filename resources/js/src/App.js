@@ -1,7 +1,16 @@
-import React from 'react'
+import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+
+import Header from "./components/Header";
 
 function App() {
-    return <h1>Hello React!</h1>;
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Header />
+      </Switch>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
