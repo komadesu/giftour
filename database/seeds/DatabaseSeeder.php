@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
         // $this->call(GiftsTableSeeder::class);
         // $this->call(CategoriesTableSeeder::class);
         // $this->call(ImagesTableSeeder::class);
-        $this->call(RelationshipsTableSeeder::class);
+        // $this->call(RelationshipsTableSeeder::class);
+        $this->call(SituationsTableSeeder::class);
     }
 }
