@@ -21,6 +21,8 @@ const Header = () => {
       <Link className="header__login header__link" to="#">
         Log in
       </Link>
+
+      <img src="../storage/img/hill.jpg" alt="image test" />
     </div>
   );
 };
