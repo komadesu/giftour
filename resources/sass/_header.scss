@@ -28,6 +28,7 @@
   &__navs {
     display: flex;
     justify-content: space-between;
-    width: 25%;
+    width: 30%;
+    min-width: 270px;
   }
 }
