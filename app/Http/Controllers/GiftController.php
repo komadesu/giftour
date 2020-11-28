@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Gift;
+
 class GiftController extends Controller
 {
     /**
@@ -13,7 +15,9 @@ class GiftController extends Controller
      */
     public function index()
     {
-        //
+        // $gifts変数にGiftモデルから全てのレコードを取得して、代入
+        $gifts = Gift::all();
+        return view('gift.index', compact('gifts'));
     }
 
     /**
