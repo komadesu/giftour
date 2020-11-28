@@ -18,7 +18,7 @@ const Header = () => {
           contact
         </Link>
       </div>
-      <Link className="header__login header__link" to="#">
+      <Link className="header__login header__link" to="/login">
         Log in
       </Link>
     </div>
