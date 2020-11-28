@@ -1,0 +1,34 @@
+.header {
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  padding: 0 30px;
+  background-color: rgba(246, 244, 239, 0.6);
+
+  &__link{
+    display: inline;
+    color: $mainNavy;
+    font-family: hellogalleriasans;
+    font-size: 18px;
+
+    &:focus{
+      outline: none;
+    }
+    &:hover{
+      color: $mainNavy;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+
+  &__navs {
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+    min-width: 270px;
+  }
+}
