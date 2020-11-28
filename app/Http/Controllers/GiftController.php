@@ -50,6 +50,10 @@ class GiftController extends Controller
     public function show($id)
     {
         //
+        // 引数で受け取った$idを元にfindでレコードを取得
+        $gift = Gift::find($id);
+        // viewにデータを渡す
+        return view('gift.show', compact('gift'));
     }
 
     /**

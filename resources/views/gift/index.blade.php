@@ -9,5 +9,6 @@
   @foreach($gifts as $gift)
     <h4>{{$gift->name}}</h4>
     <p>{{$gift->price}}</p>
+    <a href="gifts/{{$gift->id}}">詳細を表示</a>
   @endforeach
 @endsection
