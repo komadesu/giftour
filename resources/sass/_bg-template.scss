@@ -4,8 +4,8 @@
 
   &__catchphrases {
     position: absolute;
-    top: 35%;
-    left: 8%;
+    top: 37%;
+    left: 10%;
 
     & .catchphrase {
       color: $fontWhite;
@@ -14,13 +14,14 @@
 
     & .main {
       margin-bottom: 8px;
-      font-size: 40px;
+      font-size: 35px;
     }
     & .sub {
       margin-bottom: 0;
-      font-size: 15px;
+      font-size: 13px;
     }
     & img {
+      width: 250px;
       margin-bottom: 20px;
     }
   }
