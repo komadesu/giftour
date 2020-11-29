@@ -18,7 +18,7 @@ const Login = () => {
             <input className="input" type="password" id="pw" />
           </div>
           <div className="login__btn-wrapper">
-            <input className="btn" type="button" value="SIGN IN" />
+            <input className="btn signin-btn" type="button" value="SIGN IN" />
           </div>
         </form>
         <p className="login__message">
@@ -27,8 +27,8 @@ const Login = () => {
         </p>
         <div className="login__to-signup">
           Don’t have an account?
-          <Link className="link" to="#">
-            SIGN UP
+          <Link className="link" to="/signup">
+            Sign Up
           </Link>
         </div>
       </div>
