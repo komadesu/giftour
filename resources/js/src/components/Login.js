@@ -8,7 +8,7 @@ const Login = () => {
     <div className="login">
       <div className="login__area">
         <h3 className="login__title">Login</h3>
-        <form className="login__form" action="#" method="POST">
+        <form className="login__form">
           <div className="email">
             <label htmlFor="email">Email</label>
             <input className="input" type="mail" id="email" />
