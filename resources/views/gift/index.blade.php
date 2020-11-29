@@ -13,5 +13,6 @@
     <h4>{{$gift->name}}</h4>
     <p>{{$gift->price}}</p>
     <a href="/gifts/{{$gift->id}}">詳細を表示</a>
+    <a href="/gifts/{{$gift->id}}/edit">編集する</a>
   @endforeach
 @endsection

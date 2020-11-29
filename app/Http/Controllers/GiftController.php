@@ -49,21 +49,21 @@ class GiftController extends Controller
         // $image->save();
 
         // give OR get の投稿か条件分岐させる
-        $giveGift = new GiveGift;
+        $gift = new GiveGift;
 
-        $giveGift->name = $request->input('name');
-        $giveGift->price = $request->input('price');
-        $giveGift->brand = $request->input('brand');
-        // $giveGift->image_id = ここにはimageをimagesテーブルに保存した時のidが入る
-        $giveGift->image_id = 1;//とりあえず
-        $giveGift->category_id = $request->input('category');
-        $giveGift->getter_gender_id = $request->input('getter_gender');
-        $giveGift->getter_age = $request->input('getter_age');
-        $giveGift->relationship_id = $request->input('relationship');
-        $giveGift->situation_id = $request->input('situation');
+        $gift->name = $request->input('name');
+        $gift->price = $request->input('price');
+        $gift->brand = $request->input('brand');
+        // $gift->image_id = ここにはimageをimagesテーブルに保存した時のidが入る
+        $gift->image_id = 1;//とりあえず
+        $gift->category_id = $request->input('category');
+        $gift->getter_gender_id = $request->input('getter_gender');
+        $gift->getter_age = $request->input('getter_age');
+        $gift->relationship_id = $request->input('relationship');
+        $gift->situation_id = $request->input('situation');
 
         // 保存
-        $giveGift->save();
+        $gift->save();
 
         // 保存後 一覧ページへリダイレクト
         return redirect('/gifts');
@@ -93,6 +93,8 @@ class GiftController extends Controller
     public function edit($id)
     {
         //
+        $gift = GiveGift::find($id);
+        return view('gift.edit', compact('gift'));
     }
 
     /**
@@ -105,6 +107,24 @@ class GiftController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $gift = GiveGift::find($id);
+
+        $gift->name = $request->input('name');
+        $gift->price = $request->input('price');
+        $gift->brand = $request->input('brand');
+        // $gift->image_id = ここにはimageをimagesテーブルに保存した時のidが入る
+        $gift->image_id = 1;//とりあえず
+        $gift->category_id = $request->input('category');
+        $gift->getter_gender_id = $request->input('getter_gender');
+        $gift->getter_age = $request->input('getter_age');
+        $gift->relationship_id = $request->input('relationship');
+        $gift->situation_id = $request->input('situation');
+
+        // 保存
+        $gift->save();
+
+        // 保存後 一覧ページへリダイレクト
+        return redirect('/gifts/' . $id);
     }
 
     /**

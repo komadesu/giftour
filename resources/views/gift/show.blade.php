@@ -9,5 +9,6 @@
   <h1>{{$gift->name}}</h1>
   <p>{{$gift->price}}</p>
   <br><br>
+  <a href="/gifts/{{$gift->id}}/edit">編集する</a>
   <a href="/gifts">一覧に戻る</a>
 @endsection
