@@ -18,6 +18,14 @@
       <input type="number" name="price" placeholder="ギフトの値段を入れる"></input>
     </div>
     <div>
+      <label for="brand">ブランド名</label>
+      <input type="text" name="brand" placeholder="ブランドの名前を入れる">
+    </div>
+    <div>
+      <label for="image">画像</label>
+      <input type="file" name="image"></input>
+    </div>
+    <div>
       <label for="category">カテゴリー</label>
       <select name="category" id="category">
         <option>選択</option>
@@ -35,12 +43,8 @@
       </select>
     </div>
     <div>
-      <label for="image">画像</label>
-      <input type="file" name="image"></input>
-    </div>
-    <div>
-      <label for="opponent_gender">相手の性別</label>
-      <select name="opponent_gender" id="opponent_gender">
+      <label for="getter_gender">相手の性別</label>
+      <select name="getter_gender" id="getter_gender">
         <option>選択</option>
         <option value="1">男性</option>
         <option value="2">女性</option>
@@ -48,8 +52,8 @@
       </select>
     </div>
     <div>
-      <label for="opponent_age">相手の年齢</label>
-      <select name="opponent_age" id="opponent_age">
+      <label for="getter_age">相手の年齢</label>
+      <select name="getter_age" id="getter_age">
         <option>選択</option>
         <option value="1">~19歳</option>
         <option value="2">20~29歳</option>

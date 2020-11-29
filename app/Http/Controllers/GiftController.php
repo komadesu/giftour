@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Gift;
+use App\Models\GiveGift;
+use App\Models\GetGift;
 use App\Models\Image;
 
 class GiftController extends Controller
@@ -16,8 +17,8 @@ class GiftController extends Controller
      */
     public function index()
     {
-        // $gifts変数にGiftモデルから全てのレコードを取得して、代入
-        $gifts = Gift::all();
+        // $gifts変数にGiveGiftモデルから全てのレコードを取得して、代入
+        $gifts = GiveGift::all();
         return view('gift.index', compact('gifts'));
     }
 
@@ -47,24 +48,22 @@ class GiftController extends Controller
         // その保存先のパスを格納する $image->image_path = 
         // $image->save();
 
-        // モデルからインスタンスを生成
-        $gift = new Gift;
+        // give OR get の投稿か条件分岐させる
+        $giveGift = new GiveGift;
 
-        // $requestにformからのデータが格納されているので、条件分岐等適切な処理をして、以下のようにそれぞれ代入する(とりあえず一時的)バリデーションもあとでRequestを拡張してつける。
-        $gift->name = $request->input('name');
-        $gift->price = $request->input('price');
-        $gift->category_code = $request->input('category');
-        // $gift->image_id = ここにはimageをimagesテーブルに保存した時のidが入る
-        $gift->image_id = 1;//とりあえず
-        $gift->opponent_gender_id = $request->input('opponent_gender');
-        $gift->opponent_age_id = $request->input('opponent_age');
-        $gift->relationship_id = $request->input('relationship');
-        $gift->situation_id = $request->input('situation');
-
-        dd($name, $price, $category_id, $image_id, $opponent_gender_id, $opponent_age_id, $relationship_id, $situation_id);
+        $giveGift->name = $request->input('name');
+        $giveGift->price = $request->input('price');
+        $giveGift->brand = $request->input('brand');
+        // $giveGift->image_id = ここにはimageをimagesテーブルに保存した時のidが入る
+        $giveGift->image_id = 1;//とりあえず
+        $giveGift->category_id = $request->input('category');
+        $giveGift->getter_gender_id = $request->input('getter_gender');
+        $giveGift->getter_age = $request->input('getter_age');
+        $giveGift->relationship_id = $request->input('relationship');
+        $giveGift->situation_id = $request->input('situation');
 
         // 保存
-        $gift->save();
+        $giveGift->save();
 
         // 保存後 一覧ページへリダイレクト
         return redirect('/gifts');
@@ -80,7 +79,7 @@ class GiftController extends Controller
     {
         //
         // 引数で受け取った$idを元にfindでレコードを取得
-        $gift = Gift::find($id);
+        $gift = GiveGift::find($id);
         // viewにデータを渡す
         return view('gift.show', compact('gift'));
     }

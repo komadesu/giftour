@@ -19,7 +19,7 @@ class CreateGetGiftsTable extends Migration
             $table->string('name', 50);
             $table->integer('price');
             $table->string('brand', 50);
-            $table->integer('img_id');
+            $table->integer('image_id');
             $table->integer('category_id');
             $table->integer('giver_gender_id');
             $table->integer('giver_age');
