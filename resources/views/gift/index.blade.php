@@ -6,9 +6,12 @@
 
 {{-- application.blade.phpの@yield('content')に以下のレイアウトを代入 --}}
 @section('content')
+  <div>
+    <a href="{{ route('gifts.create') }}">新規作成</a>
+  </div>
   @foreach($gifts as $gift)
     <h4>{{$gift->name}}</h4>
     <p>{{$gift->price}}</p>
-    <a href="gifts/{{$gift->id}}">詳細を表示</a>
+    <a href="/gifts/{{$gift->id}}">詳細を表示</a>
   @endforeach
 @endsection
