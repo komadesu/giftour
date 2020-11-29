@@ -16,7 +16,7 @@ const Signup = () => {
             </div>
             <div className="gender">
               <label htmlFor="gender">Gender Identities</label>
-              <select id="gender">
+              <select className="input" id="gender">
                 <option></option>
                 <option value="female">female</option>
                 <option value="male">male</option>
