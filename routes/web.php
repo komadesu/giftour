@@ -15,6 +15,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('gifts', 'GiftController');
+// 上記書き換え+prefixとかmiddlewareとか
+//Route::group(['prefix' => 'gifts', 'middleware' => 'auth'], function() {
+//  Route::get('index', 'GiftController@index')->name('gifts.index');
+//  Route::get('create', 'GiftController@create')->name('gifts.create');
+//  Route::post('store', 'GiftController@store')->name('gifts.store');
+//});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+

@@ -2,9 +2,9 @@
 
 use Illuminate\Database\Seeder;
 
-use App\Models\Gift;
+use App\Models\GetGift;
 
-class GiftsTableSeeder extends Seeder
+class GetGiftsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class GiftsTableSeeder extends Seeder
     public function run()
     {
         //
-        factory(Gift::class, 20)->create();
+        factory(GetGift::class, 20)->create();
     }
 }
