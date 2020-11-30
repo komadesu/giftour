@@ -14,5 +14,10 @@
     <p>{{$gift->price}}</p>
     <a href="/gifts/{{$gift->id}}">詳細を表示</a>
     <a href="/gifts/{{$gift->id}}/edit">編集する</a>
+    <form action="/gifts/{{$gift->id}}" method="POST">
+      @csrf
+      <input type="hidden" name="_method" value="delete" />
+      <input type="submit" name="" value="削除する" />
+    </form>
   @endforeach
 @endsection

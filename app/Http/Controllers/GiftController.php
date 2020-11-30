@@ -136,5 +136,10 @@ class GiftController extends Controller
     public function destroy($id)
     {
         //
+        $gift = GiveGift::find($id);
+
+        $gift->delete();
+
+        return redirect('/gifts');
     }
 }
