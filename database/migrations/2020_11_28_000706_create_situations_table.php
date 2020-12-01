@@ -15,9 +15,9 @@ class CreateSituationsTable extends Migration
     {
         Schema::create('situations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('situation');
-            $table->timestamp('updated_at')->useCurrent()->nullable();
+            $table->string('situation', 20);
             $table->timestamp('created_at')->useCurrent()->nullable();
+            $table->timestamp('updated_at')->useCurrent()->nullable();
         });
     }
 

@@ -29,4 +29,16 @@ class GetGift extends Model
     public function gender() {
       return $this->belongsTo('App\Models\Gender', 'giver_gender_id');
     }
+
+    public function category() {
+      return $this->belongsTo('App\Models\Category');
+    }
+
+    public function relationship() {
+      return $this->belongsTo('App\Models\Relationship');
+    }
+
+    public function situation() {
+      return $this->belongsTo('App\Models\Situation');
+    }
 }

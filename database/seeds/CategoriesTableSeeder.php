@@ -13,17 +13,17 @@ class CategoriesTableSeeder extends Seeder
     {
         //
         DB::table('categories')->insert([
-          ['category' => 1], //ファッション
-          ['category' => 2], //スポーツ・アウトドア
-          ['category' => 3], //アクセサリー
-          ['category' => 4], //コスメ・健康
-          ['category' => 5], //香水・フレグランス
-          ['category' => 6], //食品・スイーツ
-          ['category' => 7], //インテリア・家具
-          ['category' => 8], //本
-          ['category' => 9], //財布・小物
-          ['category' => 10], //大物
-          ['category' => 11] //その他
+          ['category' => 'ファッション'],
+          ['category' => 'スポーツ・アウトドア'],
+          ['category' => 'アクセサリー'],
+          ['category' => 'コスメ・健康'],
+          ['category' => '香水・フレグランス'],
+          ['category' => '食品・スイーツ'],
+          ['category' => 'インテリア・家具'],
+          ['category' => '本'],
+          ['category' => '財布・小物'],
+          ['category' => '大物'],
+          ['category' => 'その他']
         ]);
     }
 }

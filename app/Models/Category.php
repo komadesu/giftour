@@ -17,9 +17,11 @@ class Category extends Model
     //    'category', 'created_at', 'updated_at'
     // ];
 
-   // 〇〇モデルとのリレーションを記述する
-    //public function gifts()
-    //{
-    //    return $this->belongsTo('App\Models\Gift');
-    //}
+    public function giveGifts() {
+      return $this->hasMany('App\Models\GiveGift');
+    }
+
+    public function getGifts() {
+      return $this->hasMany('App\Models\GetGift');
+    }
 }

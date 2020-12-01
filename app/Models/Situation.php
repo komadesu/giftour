@@ -12,4 +12,12 @@ class Situation extends Model
     protected $guarded = 'id';
 
     public $timestamps = true;
+
+    public function giveGifts() {
+      return $this->hasMany('App\Models\GiveGift');
+    }
+
+    public function getGifts() {
+      return $this->hasMany('App\Models\GetGift');
+    }
 }
