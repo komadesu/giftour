@@ -18,4 +18,8 @@ class GiveGift extends Model
       'relationship_id' => 'integer',
       'situation_id' => 'integer',
     ];
+
+    public function user() {
+      return $this->belongsTo('App\User');
+    }
 }

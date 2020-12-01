@@ -24,6 +24,7 @@ class CreateGetGiftsTable extends Migration
             $table->integer('giver_age');
             $table->integer('relationship_id');
             $table->integer('situation_id');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

@@ -18,5 +18,6 @@ $factory->define(GiveGift::class, function (Faker $faker) {
         'getter_age' => $faker->numberBetween($min = 0, $max = 80),
         'relationship_id' => $faker->numberBetween($min = 1, $max = 8),
         'situation_id' => $faker->numberBetween($min = 1, $max = 9),
+        'user_id' => $faker->numberBetween($min = 1, $max = 20),
     ];
 });

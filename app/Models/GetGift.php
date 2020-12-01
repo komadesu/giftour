@@ -17,4 +17,8 @@ class GetGift extends Model
       'relationship_id' => 'integer',
       'situation_id' => 'integer',
     ];
+
+    public function user() {
+      return $this->belognsTo('App\User');
+    }
 }
