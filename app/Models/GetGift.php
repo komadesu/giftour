@@ -21,4 +21,8 @@ class GetGift extends Model
     public function user() {
       return $this->belognsTo('App\User');
     }
+
+    public function image() {
+      return $this->belongsTo('App\Models\Image');
+    }
 }

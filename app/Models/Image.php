@@ -12,4 +12,12 @@ class Image extends Model
     protected $guarded = array('id');
 
     public $timestamps = true;
+
+    public function giveGift() {
+      return $this->hasOne('App\Models\GiveGift');
+    }
+
+    public function getGift() {
+      return $this->hasOne('App\Models\GetGift');
+    }
 }
