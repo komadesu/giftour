@@ -42,4 +42,8 @@ class GiveGift extends Model
     public function situation() {
       return $this->belongsTo('App\Models\Situation');
     }
+
+    public function giveGiftBookmarks() {
+      return $this->hasMany('App\Models\GiveGiftBookmark');
+    }
 }
