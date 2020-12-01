@@ -39,22 +39,16 @@ class User extends Authenticatable
 
 
     public function giveGifts() {
-      return $this->hasMany('App\Models\GiveGift');
+      return $this->belongsToMany('App\Models\GiveGift', 'give_gift_bookmarks')
+                  ->as('bookmarks');
     }
 
     public function getGifts() {
-      return $this->hasMany('App\Models\GetGift');
+      return $this->belongsToMany('App\Models\GetGift', 'get_gift_bookmarks')
+                  ->as('bookmarks');
     }
 
     public function gender() {
       return $this->belongsTo('App\Models\Gender');
-    }
-
-    public function giveGiftBookmarks() {
-      return $this->hasMany('App\Models\GiveGiftBookmark');
-    }
-
-    public function getGiftBookmarks() {
-      return $this->hasMany('App\Models\GetGiftBookmark');
     }
 }

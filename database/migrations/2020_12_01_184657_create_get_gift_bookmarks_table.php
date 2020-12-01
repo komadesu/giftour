@@ -14,9 +14,8 @@ class CreateGetGiftBookmarksTable extends Migration
     public function up()
     {
         Schema::create('get_gift_bookmarks', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('user_id');
-            $table->integer('get_gift_id');
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('get_gift_id');
             $table->timestamps();
         });
     }

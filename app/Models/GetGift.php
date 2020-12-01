@@ -18,12 +18,9 @@ class GetGift extends Model
       'situation_id' => 'integer',
     ];
 
-    public function user() {
-      return $this->belognsTo('App\User');
-    }
-
-    public function image() {
-      return $this->belongsTo('App\Models\Image');
+    public function users() {
+      return $this->belongsToMany('App\User', 'get_gift_bookmarks')
+                  ->as('bookmarks');
     }
 
     public function gender() {
@@ -40,9 +37,5 @@ class GetGift extends Model
 
     public function situation() {
       return $this->belongsTo('App\Models\Situation');
-    }
-
-    public function getGiftBookmarks() {
-      return $this->hasMany('App\Models\GetGiftBookmark');
     }
 }
