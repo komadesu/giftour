@@ -26,4 +26,8 @@ class GiveGift extends Model
     public function image() {
       return $this->belongsTo('App\Models\Image');
     }
+
+    public function gender() {
+      return $this->belongsTo('App\Models\Gender', 'getter_gender_id');
+    }
 }
