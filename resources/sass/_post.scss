@@ -1,0 +1,131 @@
+.post {
+  margin: 100px 7% 0 7%;
+
+  &__status {
+    width: 100%;
+    margin-bottom: 10px;
+    padding-bottom: 12px;
+    padding-left: 18px;
+    border-bottom: 1px solid $mainBeige;
+
+    & label {
+      position: relative;
+      margin-bottom: 0;
+      margin-right: 15px;
+      padding-left: 26px;
+      font-size: 24px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        top: 50%;
+        left: 0;
+        width: 16px;
+        height: 16px;
+        background-color: white;
+        border: 1px solid $mainNavy;
+        border-radius: 50%;
+        transform: translateY(-50%);
+      }
+    }
+    & .input:checked {
+      & + label::before {
+        background: $mainNavy;
+      }
+      & + label::after {
+        content: "";
+        position: absolute;
+        display: block;
+        top: 50%;
+        left: 8px;
+        width: 6px;
+        height: 6px;
+        background: white;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    & span {
+      font-size: 18px;
+      margin-left: 20px;
+    }
+  }
+
+  &__preview {
+    & .preview {
+      position: relative;
+      width: 270px;
+      height: 270px;
+      cursor: pointer;
+
+      &__bg-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 1px solid $borderGray;
+        border-radius: 50%;
+        overflow: hidden;
+
+        & img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        &::before {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(246, 244, 239, 0.5);
+          z-index: 50;
+        }
+      }
+
+      &__icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 40px;
+        height: 40px;
+        background-color: $mainNavy;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 100;
+        & img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 13px;
+          height: 12px;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      & input {
+        display: none;
+      }
+    }
+  }
+
+  &__btn-wrapper {
+    & .btn {
+      padding: 5px 70px;
+      color: $mainBeige;
+      font-size: 23px;
+      font-style: italic;
+      border: 1px solid $mainBeige;
+      border-radius: 0;
+    }
+  }
+}

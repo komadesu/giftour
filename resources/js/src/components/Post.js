@@ -5,16 +5,26 @@ class Post extends React.Component {
     return (
       <div className="post">
         <div className="post__status">
-          <label>
-            <input className="input" type="radio" name="status" value="gave" />
-            I gave /
-            <input className="input" type="radio" name="status" value="got" />
-            I got
-          </label>
+          <input
+            className="input"
+            id="gave"
+            type="radio"
+            name="status"
+            value="gave"
+          />
+          <label htmlFor="gave">I gave&nbsp;&nbsp;/</label>
+          <input
+            className="input"
+            id="got"
+            type="radio"
+            name="status"
+            value="got"
+          />
+          <label htmlFor="got">I got</label>
           <span>a present</span>
         </div>
         <div className="post__preview">
-          <label htmlFor="preview">
+          <label className="preview" htmlFor="preview">
             <div className="preview__bg-img">
               <img src="../storage/img/preview-bg.png" alt="preview bg image" />
             </div>
@@ -22,7 +32,6 @@ class Post extends React.Component {
               <img src="../storage/img/camera.svg" />
             </div>
             <input
-              className="img-upload"
               type="file"
               id="preview"
               accept="image/*"
