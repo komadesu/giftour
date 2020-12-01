@@ -45,4 +45,8 @@ class User extends Authenticatable
     public function getGifts() {
       return $this->hasMany('App\Models\GetGift');
     }
+
+    public function gender() {
+      return $this->belongsTo('App\Models\Gender');
+    }
 }

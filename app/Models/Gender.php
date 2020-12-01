@@ -14,4 +14,8 @@ class Gender extends Model
     public function getGifts() {
       return $this->hasMany('App\Models\GetGift', 'giver_gender_id');
     }
+
+    public function users() {
+      return $this->hasMany('App\User');
+    }
 }
