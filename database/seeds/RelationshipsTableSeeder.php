@@ -15,7 +15,7 @@ class RelationshipsTableSeeder extends Seeder
         DB::table('relationships')->insert([
           ['relationship' => '夫婦'],
           ['relationship' => '恋人'],
-          ['relationship' => '家族'],
+          ['relationship' => '親子'],
           ['relationship' => '兄弟・姉妹'],
           ['relationship' => '師弟'],
           ['relationship' => '友達'],
