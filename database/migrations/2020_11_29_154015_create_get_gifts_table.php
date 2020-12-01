@@ -14,10 +14,9 @@ class CreateGetGiftsTable extends Migration
     public function up()
     {
         Schema::create('get_gifts', function (Blueprint $table) {
-          // ギフト名、価格、ブランド、画像ID、カテゴリID、giverの性別ID、giverの年齢、相手との関係ID、シチュエーションID
+          // ギフト名、ブランド、画像ID、カテゴリID、giverの性別ID、giverの年齢、相手との関係ID、シチュエーションID
             $table->bigIncrements('id');
             $table->string('name', 50);
-            $table->integer('price');
             $table->string('brand', 50);
             $table->integer('image_id');
             $table->integer('category_id');

@@ -9,7 +9,6 @@ class GetGift extends Model
     //
     protected $casts = [
       'name' => 'string',
-      'price' => 'integer',
       'brand' => 'string',
       'image_id' => 'integer',
       'category_id' => 'integer',

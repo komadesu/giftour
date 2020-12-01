@@ -10,7 +10,6 @@ $factory->define(GetGift::class, function (Faker $faker) {
     return [
         //
         'name' => $faker->randomElement(['香水', 'ピアス', 'アンパンマンチョコ', 'マフラー', 'ランニングシューズ', 'Tシャツ']),
-        'price' => $faker->numberBetween($min = 500, $max = 60000),
         'brand' => $faker->randomElement(['ドルガバ', 'アガット', '明治', 'バーバリー', 'アディダス', 'ユナイテッドアローズ']),
         'image_id' => $faker->numberBetween($min = 1, $max = 50),
         'category_id' => $faker->numberBetween($min = 1, $max = 11),

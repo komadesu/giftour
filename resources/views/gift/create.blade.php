@@ -2,10 +2,11 @@
 @extends('layouts.gift')
 
 {{-- @yield('title')にテンプレートごとの値を代入 --}}
-@section('title', '新規作成')
+@section('title', 'GiveGift新規作成')
 
 {{-- application.blade.phpの@yield('content')に以下のレイアウトを代入 --}}
 @section('content')
+  <h2>GiveGift レコード新規作成( I gave )</h2>
   <form action="/gifts" method="post" enctype="multipart/form-data">
     {{-- 以下を入れないとエラーになる --}}
     @csrf
