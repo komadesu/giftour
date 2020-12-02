@@ -16,7 +16,7 @@ class AddColumnsToUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             //
             $table->integer('age')->after('name');
-            $table->tinyInteger('gender')->after('age');
+            $table->integer('gender_id')->after('age');
         });
     }
 
@@ -27,10 +27,10 @@ class AddColumnsToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-            $table->dropColumn('age');
-            $table->dropColumn('gender');
-        });
+        // Schema::table('users', function (Blueprint $table) {
+        //     //
+        //     $table->dropColumn('age');
+        //     $table->dropColumn('gender');
+        // });
     }
 }

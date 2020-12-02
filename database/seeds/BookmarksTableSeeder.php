@@ -2,7 +2,9 @@
 
 use Illuminate\Database\Seeder;
 
-class ImagesTableSeeder extends Seeder
+use App\Models\Bookmark;
+
+class BookmarksTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +14,6 @@ class ImagesTableSeeder extends Seeder
     public function run()
     {
         //
-        factory(App\Models\Image::class, 20)->create();
+        factory(Bookmark::class, 20)->create();
     }
 }

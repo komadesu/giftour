@@ -36,4 +36,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function gifts() {
+      return $this->belongsToMany('App\Models\Gift', 'bookmarks')
+                  ->as('bookmarks');
+    }
+
+    public function gender() {
+      return $this->belongsTo('App\Models\Gender');
+    }
 }

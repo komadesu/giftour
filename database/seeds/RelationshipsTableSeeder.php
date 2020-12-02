@@ -13,14 +13,14 @@ class RelationshipsTableSeeder extends Seeder
     {
         //
         DB::table('relationships')->insert([
-          ['relationship' => 1], //夫婦
-          ['relationship' => 2], //恋人
-          ['relationship' => 3], //家族
-          ['relationship' => 4], //兄弟・姉妹
-          ['relationship' => 5], //師弟
-          ['relationship' => 6], //友達
-          ['relationship' => 7], //先輩・後輩
-          ['relationship' => 8] //その他
+          ['relationship' => '夫婦'],
+          ['relationship' => '恋人'],
+          ['relationship' => '親子'],
+          ['relationship' => '兄弟・姉妹'],
+          ['relationship' => '師弟'],
+          ['relationship' => '友達'],
+          ['relationship' => '先輩・後輩'],
+          ['relationship' => 'その他'],
         ]);
     }
 }

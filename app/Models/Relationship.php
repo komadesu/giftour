@@ -12,4 +12,12 @@ class Relationship extends Model
     protected $guarded = array('id');
 
     public $timestamps = true;
+
+    public function giveGifts() {
+      return $this->hasMany('App\Models\GiveGift');
+    }
+
+    public function getGifts() {
+      return $this->hasMany('App\Models\GetGift');
+    }
 }
