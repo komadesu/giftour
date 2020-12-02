@@ -1,5 +1,8 @@
 import React from "react";
 
+import GiveForm from "./GiveForm";
+import GetForm from "./GetForm";
+
 class Post extends React.Component {
   render() {
     return (
@@ -23,24 +26,8 @@ class Post extends React.Component {
           <label htmlFor="got">I got</label>
           <span>a present</span>
         </div>
-        <div className="post__preview">
-          <label className="preview" htmlFor="preview">
-            <div className="preview__bg-img">
-              <img src="../storage/img/preview-bg.png" alt="preview bg image" />
-            </div>
-            <div className="preview__icon">
-              <img src="../storage/img/camera.svg" />
-            </div>
-            <input
-              type="file"
-              id="preview"
-              accept="image/*"
-            />
-          </label>
-        </div>
-        <div className="post__btn-wrapper">
-          <input className="btn post-btn" type="button" value="Upload" />
-        </div>
+        <GiveForm />
+        <GetForm />
       </div>
     );
   }
