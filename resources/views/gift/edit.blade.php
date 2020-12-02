@@ -4,7 +4,7 @@
 {{-- @yield('title')にテンプレートごとの値を代入 --}}
 @section('title', '編集')
 
-{{-- application.blade.phpの@yield('content')に以下のレイアウトを代入 --}}
+{{-- gift.blade.phpの@yield('content')に以下のレイアウトを代入 --}}
 @section('content')
   <form action="/gifts/{{$gift->id}}" method="post">
     @csrf

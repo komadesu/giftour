@@ -39,15 +39,15 @@ class GiftController extends Controller
      */
     public function store(Request $request)
     {
+        $image_path = $request->file('image')->store('public/images');
+        $image_file_name = str_replace('public/images/', '', $image_path);
 
         $gift = new Gift;
 
         $gift->name = $request->input('name');
         $gift->price = $request->input('price');
         $gift->brand = $request->input('brand');
-        // 取れた画像データを保存させて$request->file('image'); 
-        // その保存先のパス(ファイル名)を格納する $image->image_path = 
-        $gift->image_path = 'hero.png';//とりあえず
+        $gift->image_file_name = $image_file_name;
         $gift->category_id = $request->input('category');
         $gift->post_flag = $request->input('post_flag');
         $gift->opponent_gender_id = $request->input('opponent_gender');

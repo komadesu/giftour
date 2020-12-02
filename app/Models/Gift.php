@@ -11,7 +11,7 @@ class Gift extends Model
       'name' => 'string',
       'price' => 'integer',
       'brand' => 'string',
-      'image_path' => 'string',
+      'image_file_name' => 'string',
       'category_id' => 'integer',
       'post_flag' => 'integer',
       'opponent_gender_id' => 'integer',

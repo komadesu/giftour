@@ -1,10 +1,10 @@
-{{-- layoutsフォルダのapplication.blade.phpを継承 --}}
+{{-- layoutsフォルダのgift.blade.phpを継承 --}}
 @extends('layouts.gift')
 
 {{-- @yield('title')にテンプレートごとにtitleタグの値を代入 --}}
 @section('title', 'ギフト一覧')
 
-{{-- application.blade.phpの@yield('content')に以下のレイアウトを代入 --}}
+{{-- gift.blade.phpの@yield('content')に以下のレイアウトを代入 --}}
 @section('content')
   <div>
     <a href="{{ route('gifts.create') }}">新規作成</a>

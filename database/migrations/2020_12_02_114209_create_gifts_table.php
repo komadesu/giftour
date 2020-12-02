@@ -19,7 +19,7 @@ class CreateGiftsTable extends Migration
             $table->string('name', 50);
             $table->integer('price');
             $table->string('brand', 50);
-            $table->string('image_path', 100);
+            $table->string('image_file_name', 100);
             $table->integer('category_id');
             $table->integer('post_flag');
             $table->integer('opponent_gender_id');

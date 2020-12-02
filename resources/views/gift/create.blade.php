@@ -2,29 +2,32 @@
 @extends('layouts.gift')
 
 {{-- @yield('title')にテンプレートごとの値を代入 --}}
-@section('title', 'GiveGift新規作成')
+@section('title', 'Gift新規作成')
 
-{{-- application.blade.phpの@yield('content')に以下のレイアウトを代入 --}}
+{{-- gift.blade.phpの@yield('content')に以下のレイアウトを代入 --}}
 @section('content')
-  <h2>GiveGift レコード新規作成( I gave )</h2>
+  <h2>あげた or もらったプレゼントのレコード新規作成( I gave or I got )</h2>
   <form action="/gifts" method="post" enctype="multipart/form-data">
     {{-- 以下を入れないとエラーになる --}}
     @csrf
+    <input type="hidden" name="post_flag" value="1">{{-- あげた時にこっちつける --}}
+    {{-- <input type="hidden" name="post_flag" value="2"> --}}{{-- もらった時にこっちつける --}}
+    <input type="hidden" name="user" value="7" />{{-- ログイン中のユーザID(React側でこのデータを持たせるかどうかはあとで考える) --}}
     <div>
-      <label for="name">ギフト名</label>
+      <label for="name">ギフト名（あげたもの or もらったもの）</label>
       <input type="text" name="name" placeholder="ギフトの名前を入れる">
     </div>
     <div>
-      <label for="price">値段</label>
-      <input type="number" name="price" placeholder="ギフトの値段を入れる"></input>
+      <label for="price">価格</label>
+      <input type="number" name="price" placeholder="ギフトの値段を入れる">
     </div>
     <div>
-      <label for="brand">ブランド名</label>
+      <label for="brand">ブランド・メーカー等</label>
       <input type="text" name="brand" placeholder="ブランドの名前を入れる">
     </div>
     <div>
       <label for="image">画像</label>
-      <input type="file" name="image"></input>
+      <input type="file" name="image">
     </div>
     <div>
       <label for="category">カテゴリー</label>
@@ -44,8 +47,8 @@
       </select>
     </div>
     <div>
-      <label for="getter_gender">相手の性別</label>
-      <select name="getter_gender" id="getter_gender">
+      <label for="opponent_gender">相手の性別</label>
+      <select name="opponent_gender" id="opponent_gender">
         <option>選択</option>
         <option value="1">男性</option>
         <option value="2">女性</option>
@@ -53,8 +56,8 @@
       </select>
     </div>
     <div>
-      <label for="getter_age">相手の年齢</label>
-      <select name="getter_age" id="getter_age">
+      <label for="opponent_age">相手の年齢</label>
+      <select name="opponent_age" id="opponent_age">
         <option>選択</option>
         <option value="1">~19歳</option>
         <option value="2">20~29歳</option>
@@ -65,7 +68,7 @@
       </select>
     </div>
     <div>
-      <label for="relationship">相手のとの関係性</label>
+      <label for="relationship">関係性</label>
       <select name="relationship" id="relationship">
         <option>選択</option>
         <option value="1">夫婦</option>
