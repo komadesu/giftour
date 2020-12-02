@@ -1,7 +1,7 @@
 import React from "react";
 
 import GiveForm from "./GiveForm";
-import GetForm from "./GetForm";
+// import GetForm from "./GetForm";
 
 class Post extends React.Component {
   render() {
@@ -27,7 +27,7 @@ class Post extends React.Component {
           <span>a present</span>
         </div>
         <GiveForm />
-        <GetForm />
+        {/* <GetForm /> */}
       </div>
     );
   }
