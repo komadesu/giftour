@@ -1,9 +1,9 @@
 import React from "react";
 
-const GiveForm = () => {
+const Form = () => {
   return (
-    <div className="give-form">
-      <div className="get-form__grid-container">
+    <div className="form">
+      <div className="form__grid-container">
         <div className="title input">
           <label htmlFor="title">あげたもの：</label>
           <input type="text" id="title" />
@@ -79,7 +79,7 @@ const GiveForm = () => {
           </select>
         </div>
       </div>
-      <div className="give-form__bottom">
+      <div className="form__bottom">
         <div className="preview-wrapper">
           <label className="preview" htmlFor="preview">
             <div className="preview__bg-img">
@@ -91,12 +91,15 @@ const GiveForm = () => {
             <input type="file" id="preview" accept="image/*" />
           </label>
         </div>
-        <div className="btn-wrapper">
-          <input className="btn give-form-btn" type="button" value="Upload" />
+        <div className="btn-wrapper give-btn">
+          <input className="btn form-btn" type="button" value="Upload" />
+        </div>
+        <div className="btn-wrapper get-btn">
+          <input className="btn form-btn" type="button" value="Upload" />
         </div>
       </div>
     </div>
   );
 };
 
-export default GiveForm;
+export default Form;
