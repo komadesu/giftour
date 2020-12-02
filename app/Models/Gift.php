@@ -4,27 +4,30 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class GetGift extends Model
+class Gift extends Model
 {
     //
     protected $casts = [
       'name' => 'string',
+      'price' => 'integer',
       'brand' => 'string',
-      'image_id' => 'integer',
+      'image_path' => 'string',
       'category_id' => 'integer',
-      'giver_gender_id' => 'integer',
-      'giver_age' => 'integer',
+      'post_flag' => 'integer',
+      'opponent_gender_id' => 'integer',
+      'opponent_age' => 'integer',
       'relationship_id' => 'integer',
       'situation_id' => 'integer',
+      'user_id' => 'integer',
     ];
 
     public function users() {
-      return $this->belongsToMany('App\User', 'get_gift_bookmarks')
+      return $this->belongsToMany('App\User', 'bookmarks')
                   ->as('bookmarks');
     }
 
     public function gender() {
-      return $this->belongsTo('App\Models\Gender', 'giver_gender_id');
+      return $this->belongsTo('App\Models\Gender', 'opponent_gender_id');
     }
 
     public function category() {
