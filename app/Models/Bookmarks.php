@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class GetGiftBookmark extends Model
+class Bookmarks extends Model
 {
     //
 }

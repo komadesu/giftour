@@ -38,13 +38,8 @@ class User extends Authenticatable
     ];
 
 
-    public function giveGifts() {
-      return $this->belongsToMany('App\Models\GiveGift', 'give_gift_bookmarks')
-                  ->as('bookmarks');
-    }
-
-    public function getGifts() {
-      return $this->belongsToMany('App\Models\GetGift', 'get_gift_bookmarks')
+    public function gifts() {
+      return $this->belongsToMany('App\Models\Gift', 'bookmarks')
                   ->as('bookmarks');
     }
 

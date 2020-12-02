@@ -2,13 +2,13 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Models\GetGiftBookmark;
+use App\Models\Bookmark;
 use Faker\Generator as Faker;
 
-$factory->define(GetGiftBookmark::class, function (Faker $faker) {
+$factory->define(Bookmark::class, function (Faker $faker) {
     return [
         //
         'user_id' => $faker->numberBetween($min = 1, $max = 20),
-        'get_gift_id' => $faker->numberBetween($min = 1, $max = 20),
+        'gift_id' => $faker->numberBetween($min = 1, $max = 20),
     ];
 });
