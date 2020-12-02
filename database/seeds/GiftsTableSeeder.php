@@ -14,6 +14,6 @@ class GiftsTableSeeder extends Seeder
     public function run()
     {
         //
-        factory(Gift::class, 5)->create();
+        factory(Gift::class, 20)->create();
     }
 }
