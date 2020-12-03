@@ -11,9 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/{any}', function () {
+  return view('app');
+})->where('any','.*');
 
 Route::resource('gifts', 'GiftController');
 // 上記書き換え+prefixとかmiddlewareとか

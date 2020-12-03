@@ -1,8 +1,8 @@
 import React from "react";
 
-const Form = () => {
+const Form = props => {
   return (
-    <div className="form">
+    <form className="form">
       <div className="form__grid-container">
         <div className="title input">
           <label htmlFor="title">あげたもの：</label>
@@ -32,12 +32,12 @@ const Form = () => {
         </div>
         <div className="gender input">
           <label htmlFor="gender">相手の性別：</label>
-          <div className="checkbox">
-            <input type="checkbox" id="male" />
+          <div className="radio-wrapper">
+            <input type="radio" id="male" name="gender" />
             <label htmlFor="male">Male</label>
-            <input type="checkbox" id="female" />
+            <input type="radio" id="female" name="gender" />
             <label htmlFor="female">Female</label>
-            <input type="checkbox" id="others" />
+            <input type="radio" id="others" name="gender" />
             <label htmlFor="others">Others</label>
           </div>
         </div>
@@ -58,7 +58,11 @@ const Form = () => {
             <option value="11">その他</option>
           </select>
         </div>
-        <div className="price input">
+        <div
+          className={
+            props.formState ? "price input price-appeared" : "price input"
+          }
+        >
           <label htmlFor="price">価格：</label>
           <input type="number" id="price" />
         </div>
@@ -83,22 +87,37 @@ const Form = () => {
         <div className="preview-wrapper">
           <label className="preview" htmlFor="preview">
             <div className="preview__bg-img">
-              <img src="../storage/img/preview-bg.png" alt="preview bg image" />
+              <img
+                src="../storage/images/preview-bg.png"
+                alt="preview bg image"
+              />
             </div>
             <div className="preview__icon">
-              <img src="../storage/img/camera.svg" />
+              <img src="../storage/images/camera.svg" />
             </div>
             <input type="file" id="preview" accept="image/*" />
           </label>
         </div>
-        <div className="btn-wrapper give-btn">
+        <div
+          className={
+            props.formState
+              ? "btn-wrapper give-btn is-appeared"
+              : "btn-wrapper give-btn"
+          }
+        >
           <input className="btn form-btn" type="button" value="Upload" />
         </div>
-        <div className="btn-wrapper get-btn">
+        <div
+          className={
+            props.formState
+              ? "btn-wrapper get-btn"
+              : "btn-wrapper get-btn is-appeared"
+          }
+        >
           <input className="btn form-btn" type="button" value="Upload" />
         </div>
       </div>
-    </div>
+    </form>
   );
 };
 

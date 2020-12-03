@@ -21,10 +21,101 @@
       grid-column: 1 / 3;
     }
 
-    & .gender {
-      & .checkbox {
-        display: inline;
+    & .title,
+    & .brand,
+    & .age,
+    & .price {
+      display: flex;
+
+      & input {
+        flex: 1;
       }
+    }
+
+    & .relation,
+    & .category,
+    & .situation {
+      display: flex;
+      position: relative;
+
+      & label {
+        cursor: default;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 23%;
+        right: 8px;
+        width: 10px;
+        height: 10px;
+        border-left: 1px solid $borderGray;
+        border-bottom: 1px solid $borderGray;
+        transform: rotate(-45deg) translateY(-106%);
+        pointer-events: none;
+        z-index: 10;
+      }
+
+      & select {
+        flex: 1;
+      }
+    }
+
+    & .gender {
+      display: flex;
+      justify-content: space-between;
+
+      & label {
+        cursor: default;
+      }
+
+      & .radio-wrapper {
+        display: inline;
+
+        & label {
+          position: relative;
+          margin-bottom: 0;
+          margin-right: 25px;
+          padding-left: 20px;
+          text-align: right;
+          font-style: italic;
+
+          &::before {
+            content: "";
+            position: absolute;
+            display: block;
+            top: 50%;
+            left: 0;
+            width: 16px;
+            height: 16px;
+            background-color: white;
+            border: 1px solid $mainNavy;
+            border-radius: 50%;
+            transform: translateY(-50%);
+          }
+        }
+        & input:checked {
+          & + label::before {
+            background: $mainNavy;
+          }
+          & + label::after {
+            content: "";
+            position: absolute;
+            display: block;
+            top: 50%;
+            left: 8px;
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+      }
+    }
+
+    & .price {
+      display: none;
     }
 
     & .situation {
@@ -38,7 +129,6 @@
     align-items: center;
 
     & .preview-wrapper {
-
       & .preview {
         position: relative;
         margin-bottom: 0;
@@ -105,6 +195,8 @@
     }
 
     & .btn-wrapper {
+      display: none;
+
       & .btn {
         padding: 5px 70px;
         color: $mainBeige;
@@ -115,4 +207,8 @@
       }
     }
   }
+}
+
+.price-appeared {
+  display: flex !important;
 }
