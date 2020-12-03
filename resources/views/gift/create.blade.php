@@ -10,13 +10,14 @@
   <form action="/gifts" method="post" enctype="multipart/form-data">
     {{-- 以下を入れないとエラーになる --}}
     @csrf
-    <input type="hidden" name="post_flag" value="1">{{-- あげた時にこっちつける --}}
-    {{-- <input type="hidden" name="post_flag" value="2"> --}}{{-- もらった時にこっちつける --}}
+    {{-- <input type="hidden" name="post_flag" value="1"> --}}{{-- あげた時にこっちつける --}}
+    <input type="hidden" name="post_flag" value="2">{{-- もらった時にこっちつける --}}
     <input type="hidden" name="user" value="7" />{{-- ログイン中のユーザID(React側でこのデータを持たせるかどうかはあとで考える) --}}
     <div>
       <label for="name">ギフト名（あげたもの or もらったもの）</label>
       <input type="text" name="name" placeholder="ギフトの名前を入れる">
     </div>
+    {{-- 価格 nullable 対応 ( I got 用) --}}
     <div>
       <label for="price">価格</label>
       <input type="number" name="price" placeholder="ギフトの値段を入れる">
