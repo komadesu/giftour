@@ -100,19 +100,23 @@ class GiftController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $image = $request->file('image');
+        $image_path = $image->store('public/images');
+        $image_file_name = str_replace('public/images/', '', $image_path);
+
         $gift = Gift::find($id);
 
         $gift->name = $request->input('name');
         $gift->price = $request->input('price');
         $gift->brand = $request->input('brand');
-        $gift->image_path = 'mountain.png';//とりあえず
+        $gift->image_file_name = $image_file_name;
         $gift->category_id = $request->input('category');
-        $gift->post_flag = $request->input('post_flag');
+        //$gift->post_flag = $request->input('post_flag'); 更新不要
         $gift->opponent_gender_id = $request->input('opponent_gender');
         $gift->opponent_age = $request->input('opponent_age');
         $gift->relationship_id = $request->input('relationship');
         $gift->situation_id = $request->input('situation');
-        $gift->user_id = $request->input('user_id');
+        //$gift->user_id = $request->input('user_id'); 更新不要
 
         $gift->save();
 
