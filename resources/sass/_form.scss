@@ -153,6 +153,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            z-index: 10;
           }
 
           &::before {
@@ -168,6 +169,27 @@
           }
         }
 
+        &__img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border: 1px solid $borderGray;
+          border-radius: 50%;
+          overflow: hidden;
+          z-index: 100;
+
+          & img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+
         &__icon {
           position: absolute;
           top: 50%;
@@ -177,7 +199,8 @@
           background-color: $mainNavy;
           border-radius: 50%;
           transform: translate(-50%, -50%);
-          z-index: 100;
+          z-index: 200;
+
           & img {
             position: absolute;
             top: 50%;
