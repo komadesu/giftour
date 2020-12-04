@@ -1,13 +1,15 @@
 .search {
   width: 80%;
   margin: 100px auto;
-  padding: 20px 40px;
+  padding: 30px 40px;
   background-color: $mainBeige;
   border-radius: 16px;
   color: $fontWhite;
   font-style: italic;
 
   &__title {
+    margin-bottom: 15px;
+
     & h4 {
       display: inline;
       margin-right: 10px;
@@ -19,23 +21,24 @@
   }
 
   &__form {
-    // display: flex;
-    // justify-content: space-between;
-    // flex-wrap: wrap;
-    display: grid;
-    grid-template-columns: 10px 10px 10px 10px 10px 10px 10px;
-    grid-template-rows: 20px 20px;
-    width: 77%;
+    width: 85%;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 40px 40px;
+    grid-gap: 20px 10px;
+    grid-template-areas:
+      "gender    gender    gender    gender     ......     age     age        ...      price    price    ...   ...."
+      "....      ....    relationship  relationship  relationship   ...   situation  situation  situation   .....    ...    btn";
 
     & .input {
       display: inline;
       font-size: 16px;
+      line-height: 40px;
     }
 
     & .gender {
-      grid-row: 1 / 4;
-      grid-column: 1 / 2;
+      grid-area: gender;
 
       & label {
         position: relative;
@@ -77,26 +80,46 @@
     }
 
     & .age {
-      grid-row: 4 / 6;
-      grid-column: 1 / 2;
+      grid-area: age;
     }
     & .price {
-      grid-row: 6 / 8;
-      grid-column: 1 / 2;
+      grid-area: price;
     }
-
-    & .relation {
-      grid-row: 2 / 4;
-      grid-column: 2 / 3;
+    & .relationship{
+      grid-area: relationship;
     }
-    & .relation {
-      grid-row: 4 / 7;
-      grid-column: 2 / 3;
+    & .situation {
+      grid-area: situation;
     }
 
     & .age,
+      .price,
+      .situation {
+        &::before {
+          content: '';
+          position: absolute;
+          width: 1px;
+          height: 100%;
+          background-color: white;
+          left: -47px;
+        }
+      }
+
+    //& .relationship,
+    //  .situation {
+    //    &::before {
+    //      content: '';
+    //      position: absolute;
+    //      width: 1px;
+    //      height: 100%;
+    //      background-color: white;
+    //      right: -20px;
+    //    }
+    //  }
+
+    & .age,
     & .price,
-    & .relation,
+    & .relationship,
     & .situation {
       position: relative;
 
@@ -120,6 +143,19 @@
 
       & select {
         color: $fontWhite;
+      }
+    }
+
+    & .btn-wrapper {
+      grid-area: btn;
+
+      & .btn {
+        color: white;
+
+        &:hover {
+          background-color: white;
+          color: black;
+        }
       }
     }
   }

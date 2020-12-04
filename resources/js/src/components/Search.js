@@ -1,9 +1,10 @@
 import React from "react";
+
 const Search = () => {
   return (
     <div className="search">
       <div className="search__title">
-        <h4>Who is this present for? </h4>
+        <h4>Who is this present for?</h4>
         <span>誰へのプレゼントですか</span>
       </div>
       <form className="search__form">
@@ -38,9 +39,9 @@ const Search = () => {
             <option value="5">¥20,000〜</option>
           </select>
         </div>
-        <div className="relation input">
-          <label htmlFor="relation">Relation</label>
-          <select id="relation">
+        <div className="relationship input">
+          <label htmlFor="relationship">Relationship</label>
+          <select id="relationship">
             <option></option>
             <option value="1">夫婦</option>
             <option value="2">恋人</option>
