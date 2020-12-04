@@ -46,9 +46,9 @@ class Signup extends React.Component {
                 <label htmlFor="gender">Gender Identities</label>
                 <select className="input" id="gender">
                   <option></option>
-                  <option value="male">male</option>
-                  <option value="female">female</option>
-                  <option value="others">others</option>
+                  <option value="1">male</option>
+                  <option value="2">female</option>
+                  <option value="3">others</option>
                 </select>
               </div>
               <div className="age">

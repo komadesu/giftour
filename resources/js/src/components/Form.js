@@ -49,14 +49,14 @@ class Form extends React.Component {
             <label htmlFor="relation">関係性：</label>
             <select id="relation">
               <option></option>
-              <option value="01">夫婦</option>
-              <option value="02">恋人</option>
-              <option value="03">親子</option>
-              <option value="04">兄弟・姉妹</option>
-              <option value="05">師弟</option>
-              <option value="06">友達</option>
-              <option value="07">先輩・後輩</option>
-              <option value="08">その他</option>
+              <option value="1">夫婦</option>
+              <option value="2">恋人</option>
+              <option value="3">親子</option>
+              <option value="4">兄弟・姉妹</option>
+              <option value="5">師弟</option>
+              <option value="6">友達</option>
+              <option value="7">先輩・後輩</option>
+              <option value="8">その他</option>
             </select>
           </div>
           <div className="gender input">
@@ -74,15 +74,15 @@ class Form extends React.Component {
             <label htmlFor="category">カテゴリー：</label>
             <select id="category">
               <option></option>
-              <option value="01">ファッション</option>
-              <option value="02">スポーツ・アウトドア</option>
-              <option value="03">アクセサリー</option>
-              <option value="04">コスメ・健康</option>
-              <option value="05">香水・フレグランス</option>
-              <option value="06">食品・スイーツ</option>
-              <option value="07">インテリア・家具</option>
-              <option value="08">本</option>
-              <option value="09">財布・小物</option>
+              <option value="1">ファッション</option>
+              <option value="2">スポーツ・アウトドア</option>
+              <option value="3">アクセサリー</option>
+              <option value="4">コスメ・健康</option>
+              <option value="5">香水・フレグランス</option>
+              <option value="6">食品・スイーツ</option>
+              <option value="7">インテリア・家具</option>
+              <option value="8">本</option>
+              <option value="9">財布・小物</option>
               <option value="10">大物</option>
               <option value="11">その他</option>
             </select>
@@ -101,16 +101,16 @@ class Form extends React.Component {
             <label htmlFor="situation">シチュエーション：</label>
             <select id="situation">
               <option></option>
-              <option value="01">記念日</option>
-              <option value="02">誕生日</option>
-              <option value="03">クリスマス</option>
-              <option value="04">結婚式</option>
-              <option value="05">入学式・卒業式</option>
-              <option value="06">バレンタインデー</option>
-              <option value="07">ホワイトデー</option>
-              <option value="08">新居祝い</option>
-              <option value="09">お中元</option>
-              <option value="11">その他</option>
+              <option value="1">記念日</option>
+              <option value="2">誕生日</option>
+              <option value="3">クリスマス</option>
+              <option value="4">結婚式</option>
+              <option value="5">入学式・卒業式</option>
+              <option value="6">バレンタインデー</option>
+              <option value="7">ホワイトデー</option>
+              <option value="8">新居祝い</option>
+              <option value="9">お中元</option>
+              <option value="10">その他</option>
             </select>
           </div>
         </div>
