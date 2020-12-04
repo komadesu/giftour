@@ -14,6 +14,9 @@ const Header = () => {
         <Link className="nav header__link" to="#">
           mypage
         </Link>
+        <Link className="nav header__link" to="/post">
+          post
+        </Link>
         <Link className="nav header__link" to="#">
           contact
         </Link>
