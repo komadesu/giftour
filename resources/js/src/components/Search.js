@@ -31,12 +31,11 @@ const Search = () => {
           <label htmlFor="price">Price</label>
           <select id="price">
             <option></option>
-            <option value="1">〜19</option>
-            <option value="2">20〜29</option>
-            <option value="3">30〜39</option>
-            <option value="4">40〜49</option>
-            <option value="5">50〜59</option>
-            <option value="6">60〜</option>
+            <option value="1">〜¥5,000</option>
+            <option value="2">〜¥10,000</option>
+            <option value="3">〜¥15,000</option>
+            <option value="4">〜¥20,000</option>
+            <option value="5">¥20,000〜</option>
           </select>
         </div>
         <div className="relation input">
