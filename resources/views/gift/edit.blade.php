@@ -91,8 +91,8 @@
         <option value="6" @if ($gift->situation_id === 6) selected @endif>バレンタインデー</option>
         <option value="7" @if ($gift->situation_id === 7) selected @endif>ホワイトデー</option>
         <option value="8" @if ($gift->situation_id === 8) selected @endif>新居祝い</option>
-        <option value="9" @if ($gift->situation_id === 7) selected @endif>お中元</option>
-        <option value="10" @if ($gift->situation_id === 8) selected @endif>その他</option>
+        <option value="9" @if ($gift->situation_id === 9) selected @endif>お中元</option>
+        <option value="10" @if ($gift->situation_id === 10) selected @endif>その他</option>
       </select>
     </div>
     <div>
