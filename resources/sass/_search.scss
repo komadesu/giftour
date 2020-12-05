@@ -24,12 +24,12 @@
     width: 85%;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 40px 40px;
-    grid-gap: 20px 10px;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 30px 30px;
+    grid-gap: 10px 10px;
     grid-template-areas:
-      "gender    gender    gender    gender     ......     age     age        ...      price    price    ...   ...."
-      "....      ....    relationship  relationship  relationship   ...   situation  situation  situation   .....    ...    btn";
+      "gender    gender    gender    gender     ......     age     age        ...      price    price    price   ...."
+      "....      relationship    relationship  relationship  relationship   ...   situation  situation  situation   situation    ...    btn";
 
     & .input {
       display: inline;
@@ -98,29 +98,19 @@
         &::before {
           content: '';
           position: absolute;
+          top: 5px;
+          left: -47px;
           width: 1px;
           height: 100%;
-          background-color: white;
-          left: -47px;
+          background-color: #9f8777;
         }
       }
-
-    //& .relationship,
-    //  .situation {
-    //    &::before {
-    //      content: '';
-    //      position: absolute;
-    //      width: 1px;
-    //      height: 100%;
-    //      background-color: white;
-    //      right: -20px;
-    //    }
-    //  }
 
     & .age,
     & .price,
     & .relationship,
     & .situation {
+      display: flex;
       position: relative;
 
       & label {
@@ -130,7 +120,7 @@
       &::after {
         content: "";
         position: absolute;
-        top: 36%;
+        top: 63%;
         right: 0px;
         width: 8px;
         height: 8px;
@@ -142,6 +132,8 @@
       }
 
       & select {
+        flex: 1;
+        padding-left: 15px;
         color: $fontWhite;
       }
     }
@@ -150,11 +142,13 @@
       grid-area: btn;
 
       & .btn {
-        color: white;
+        border: 1px solid $fontWhite;
+        color: $fontWhite;
+        font-style: normal;
 
         &:hover {
-          background-color: white;
-          color: black;
+          background-color: $fontWhite;
+          color: $mainNavy;
         }
       }
     }
