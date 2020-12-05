@@ -198,6 +198,7 @@ class GiftController extends Controller
     {
       $user_id = $request->user_id;
       $bookmarks = User::find($user_id)->gifts()->with(['category', 'relationship', 'situation'])->get();
+      //$bookmarks = User::find($user_id)->gifts()->get(); Model 側で relation 貼ってれば、このように他テーブルを明記せずとも、各レコードは動的プロパティをたどって、関連したテーブルの情報に簡単にアクセスできる。が、おそらくこれはコレクション型として laravel で view を作成する場合のみ。API としてのみ機能させる場合は、しっかりデータを取得してフロントエンドに返す必要があるのだと思う。
 
       return view('gift.index', ['gifts' => $bookmarks]);
     }
