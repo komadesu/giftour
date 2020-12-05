@@ -21,8 +21,9 @@
       <p>post_flag: {{$gift->post_flag}}</p>
 
       @if ($gift->post_flag === 2)
-        <h4>post_flag が 2 の場合、つまりもらった人の投稿の場合において、もらった人がプレゼントを受け取った側、プレゼントの贈られる対象になる。その人の性別を取得する。</h4>
+        <h4>post_flag が 2 の場合、つまりもらった人の投稿の場合において、もらった人がプレゼントを受け取った側、プレゼントの贈られる対象になる。その人の性別、そして年齢を取得する。</h4>
         <p style="color: red;">my_gender: {{$gift->gender_id}}</p>
+        <p style="color: red;">my_age: {{$gift->age}}</p>
       @endif
 
       <p>opponent_gender_id: {{$gift->opponent_gender_id}}</p>
