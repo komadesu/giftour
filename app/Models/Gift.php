@@ -23,7 +23,7 @@ class Gift extends Model
 
     public function users() {
       return $this->belongsToMany('App\User', 'bookmarks')
-                  ->as('bookmarks');
+                  ->using('App\Models\Bookmark');
     }
 
     public function gender() {

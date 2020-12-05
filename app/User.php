@@ -40,7 +40,7 @@ class User extends Authenticatable
 
     public function gifts() {
       return $this->belongsToMany('App\Models\Gift', 'bookmarks')
-                  ->as('bookmarks');
+                  ->using('App\Models\Bookmark');
     }
 
     public function gender() {
