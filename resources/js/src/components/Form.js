@@ -45,9 +45,9 @@ class Form extends React.Component {
             <label htmlFor="age">相手の年齢：</label>
             <input type="number" id="age" />
           </div>
-          <div className="relation input">
-            <label htmlFor="relation">関係性：</label>
-            <select id="relation">
+          <div className="relationship input">
+            <label htmlFor="relationship">関係性：</label>
+            <select id="relationship">
               <option></option>
               <option value="1">夫婦</option>
               <option value="2">恋人</option>
