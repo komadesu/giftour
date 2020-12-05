@@ -14,13 +14,15 @@
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+Route::resource('gifts', 'GiftController');
+Route::get('gifts/user/{user_id}', 'GiftController@getUserPosts');
+Route::get('gifts/user/{user_id}/bookmark', 'GiftController@getUserBookmarks');
+
+// こっち上にすると、react、こっち下だと上のが先にルーティングに引っかかって laravel
 Route::get('/{any}', function () {
   return view('app');
 })->where('any','.*');
 
-Route::resource('gifts', 'GiftController');
-Route::get('gifts/user/{user_id}', 'GiftController@getUserPosts');
-Route::get('gifts/user/{user_id}/bookmark', 'GiftController@getUserBookmarks');
 // 上記書き換え+prefixとかmiddlewareとか
 //Route::group(['prefix' => 'gifts', 'middleware' => 'auth'], function() {
 //  Route::get('index', 'GiftController@index')->name('gifts.index');
