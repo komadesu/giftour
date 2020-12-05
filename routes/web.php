@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::resource('gifts', 'GiftController');
+Route::get('gifts/user/{user_id}', 'GiftController@getUserPosts');
 // 上記書き換え+prefixとかmiddlewareとか
 //Route::group(['prefix' => 'gifts', 'middleware' => 'auth'], function() {
 //  Route::get('index', 'GiftController@index')->name('gifts.index');

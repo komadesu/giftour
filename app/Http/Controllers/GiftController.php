@@ -177,6 +177,20 @@ class GiftController extends Controller
     }
 
     /**
+     * Display a listing of the resource each user posts.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getUserPosts(Request $request)
+    {
+      $user_id = $request->user_id;
+      $gifts = Gift::where('user_id', $user_id)->get();
+
+      return view('gift.index', compact('gifts'));
+
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
