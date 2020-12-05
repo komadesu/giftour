@@ -19,6 +19,8 @@ Route::get('/{any}', function () {
 })->where('any','.*');
 
 Route::resource('gifts', 'GiftController');
+Route::get('gifts/user/{user_id}', 'GiftController@getUserPosts');
+Route::get('gifts/user/{user_id}/bookmark', 'GiftController@getUserBookmarks');
 // 上記書き換え+prefixとかmiddlewareとか
 //Route::group(['prefix' => 'gifts', 'middleware' => 'auth'], function() {
 //  Route::get('index', 'GiftController@index')->name('gifts.index');

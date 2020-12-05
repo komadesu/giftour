@@ -17,9 +17,9 @@ class CreateGiftsTable extends Migration
           // ギフト名、価格(nullable for give)、ブランド、画像パス、カテゴリID、ポストフラグ(give or get)、相手の性別ID、相手の年齢、相手との関係ID、シチュエーションID, ユーザID
             $table->bigIncrements('id');
             $table->string('name', 50);
-            $table->integer('price');
+            $table->integer('price')->nullable();
             $table->string('brand', 50);
-            $table->string('image_path', 100);
+            $table->string('image_file_name', 100);
             $table->integer('category_id');
             $table->integer('post_flag');
             $table->integer('opponent_gender_id');
