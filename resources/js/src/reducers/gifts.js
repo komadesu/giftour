@@ -8,42 +8,42 @@ const defaultGifts = [
     name: "香水",
     price: 4000,
     brand: "shiro",
-    image_file_name: "preview-bg.png",
+    imageFileName: "preview-bg.png",
     category: "香水・フレグランス",
-    post_flag: 1,
-    opponent_gender: "male",
-    opponent_age: 41,
+    postFlag: 1,
+    opponentGender: "male",
+    opponentAge: 41,
     relationship: "恋人",
     situation: "バレンタインデー",
-    created_at: "2020-12-04 16:32:14"
+    createdAt: "2020-12-04 16:32:14"
   },
   {
     id: 2,
     name: "マフラー",
     price: null,
     brand: "ユナイテッドアローズ",
-    image_file_name: "bg-img.png",
+    imageFileName: "bg-img.png",
     category: "ファッション",
-    post_flag: 2,
-    opponent_gender: "male",
-    opponent_age: 20,
+    postFlag: 2,
+    opponentGender: "male",
+    opponentAge: 20,
     relationship: "親子",
     situation: "誕生日",
-    created_at: "2020-12-04 16:32:14"
+    createdAt: "2020-12-04 16:32:14"
   },
   {
     id: 3,
     name: "アイシャドウパレット",
     price: 12000,
     brand: "Dior",
-    image_file_name: "bg-img.png",
+    imageFileName: "bg-img.png",
     category: "コスメ・健康",
-    post_flag: 1,
-    opponent_gender: "female",
-    opponent_age: 32,
+    postFlag: 1,
+    opponentGender: "female",
+    opponentAge: 32,
     relationship: "先輩・後輩",
     situation: "その他",
-    created_at: "2020-12-04 16:32:14"
+    createdAt: "2020-12-04 16:32:14"
   }
 ];
 
