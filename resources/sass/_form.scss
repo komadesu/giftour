@@ -6,7 +6,7 @@
     display: grid;
     margin-bottom: 50px;
     grid-template-columns: 1fr 1fr;
-    gap: 60px 30px;
+    grid-gap: 60px 30px;
 
     & .input {
       border-bottom: 1px solid $borderGray;

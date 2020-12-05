@@ -35,20 +35,26 @@ class Timeline extends React.Component {
             <button></button>
           </div>
           <h5 className="name">{gift.name}</h5>
-          <div className="img-wrapper">
-            <img src={`../storage/images/${gift.imageFileName}`} />
-          </div>
-          <div className="details">
-            <div className="brand">Brand:&nbsp;{gift.brand}</div>
-            <div className="opponent">
-              For&nbsp;{gift.opponentGender},&nbsp;({gift.opponentAge})
+          <div className="box-bottom">
+            <div className="img-wrapper">
+              <img src={`../storage/images/${gift.imageFileName}`} />
             </div>
-            <div className="price">{this.handlePrice(gift.price)}</div>
-            <div className="retionship">{gift.relationship}</div>
-            <div className="situation">{gift.situation}</div>
-            <div className="category">{gift.category}</div>
-            <div className="post-flag">
-              {this.handlePostFlag(gift.postFlag)}
+            <div className="details">
+              <div className="main-info">
+                <div className="brand">Brand&nbsp;:&nbsp;{gift.brand}</div>
+                <div className="opponent">
+                  For&nbsp;{gift.opponentGender},&nbsp;({gift.opponentAge})
+                </div>
+              </div>
+              <div className="sub-info">
+                <div className="post-flag">
+                  {this.handlePostFlag(gift.postFlag)}
+                </div>
+                <div className="category">{gift.category}</div>
+                <div className="situation">{gift.situation}</div>
+                <div className="relationship">{gift.relationship}</div>
+                <div className="price">{this.handlePrice(gift.price)}</div>
+              </div>
             </div>
           </div>
         </div>
