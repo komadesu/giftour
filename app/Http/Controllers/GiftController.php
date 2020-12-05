@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\User;
 use App\Models\Gift;
-use App\Models\Image;
 
 class GiftController extends Controller
 {
@@ -177,7 +177,7 @@ class GiftController extends Controller
     }
 
     /**
-     * Display a listing of the resource each user posts.
+     * Display a listing of the resource each user posted.
      *
      * @return \Illuminate\Http\Response
      */
@@ -187,7 +187,19 @@ class GiftController extends Controller
       $gifts = Gift::where('user_id', $user_id)->get();
 
       return view('gift.index', compact('gifts'));
+    }
 
+    /**
+     * Display a listing of the resource each user saved.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getUserBookmarks(Request $request)
+    {
+      $user_id = $request->user_id;
+      $bookmarks = User::find($user_id)->gifts()->with(['category', 'relationship', 'situation'])->get();
+
+      return view('gift.index', ['gifts' => $bookmarks]);
     }
 
     /**
