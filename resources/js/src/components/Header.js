@@ -8,7 +8,7 @@ const Header = () => {
         logo
       </Link>
       <div className="header__navs">
-        <Link className="nav header__link" to="#">
+        <Link className="nav header__link" to="/timeline">
           timeline
         </Link>
         <Link className="nav header__link" to="#">
