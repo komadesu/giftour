@@ -156,8 +156,8 @@ class GiftController extends Controller
         }
 
 
-
-        $gifts = Gift::when($opponent_gender_id, function ($query, $opponent_gender_id) {
+        $gifts = Gift::join('users', 'gifts.user_id', 'users.id')
+          ->when($opponent_gender_id, function ($query, $opponent_gender_id) {
           return $query->where('opponent_gender_id', $opponent_gender_id);
         })->when($min_opponent_age, function ($query, $min_opponent_age) {
           return $query->where('opponent_age', '>=', $min_opponent_age);
