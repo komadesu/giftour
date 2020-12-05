@@ -1,0 +1,156 @@
+.search {
+  width: 80%;
+  margin: 100px auto;
+  padding: 30px 40px;
+  background-color: $mainBeige;
+  border-radius: 16px;
+  color: $fontWhite;
+  font-style: italic;
+
+  &__title {
+    margin-bottom: 15px;
+
+    & h4 {
+      display: inline;
+      margin-right: 10px;
+      font-size: 18px;
+    }
+    & span {
+      font-size: 11px;
+    }
+  }
+
+  &__form {
+    width: 85%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 30px 30px;
+    grid-gap: 10px 10px;
+    grid-template-areas:
+      "gender    gender    gender    gender     ......     age     age        ...      price    price    price   ...."
+      "....      relationship    relationship  relationship  relationship   ...   situation  situation  situation   situation    ...    btn";
+
+    & .input {
+      display: inline;
+      font-size: 16px;
+      line-height: 40px;
+    }
+
+    & .gender {
+      grid-area: gender;
+
+      & label {
+        position: relative;
+        margin-bottom: 0;
+        margin-right: 15px;
+        padding-left: 20px;
+
+        &::before {
+          content: "";
+          position: absolute;
+          display: block;
+          top: 50%;
+          left: 0;
+          width: 16px;
+          height: 16px;
+          background-color: $fontWhite;
+          border: 1px solid $mainNavy;
+          border-radius: 50%;
+          transform: translateY(-50%);
+        }
+      }
+      & input:checked {
+        & + label::before {
+          background: $mainNavy;
+        }
+        & + label::after {
+          content: "";
+          position: absolute;
+          display: block;
+          top: 50%;
+          left: 8px;
+          width: 6px;
+          height: 6px;
+          background: $fontWhite;
+          border-radius: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+
+    & .age {
+      grid-area: age;
+    }
+    & .price {
+      grid-area: price;
+    }
+    & .relationship{
+      grid-area: relationship;
+    }
+    & .situation {
+      grid-area: situation;
+    }
+
+    & .age,
+      .price,
+      .situation {
+        &::before {
+          content: '';
+          position: absolute;
+          top: 5px;
+          left: -47px;
+          width: 1px;
+          height: 100%;
+          background-color: #9f8777;
+        }
+      }
+
+    & .age,
+    & .price,
+    & .relationship,
+    & .situation {
+      display: flex;
+      position: relative;
+
+      & label {
+        cursor: default;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 63%;
+        right: 0px;
+        width: 8px;
+        height: 8px;
+        border-left: 1px solid $fontWhite;
+        border-bottom: 1px solid $fontWhite;
+        transform: rotate(-45deg) translateY(-106%);
+        pointer-events: none;
+        z-index: 10;
+      }
+
+      & select {
+        flex: 1;
+        padding-left: 15px;
+        color: $fontWhite;
+      }
+    }
+
+    & .btn-wrapper {
+      grid-area: btn;
+
+      & .btn {
+        border: 1px solid $fontWhite;
+        color: $fontWhite;
+        font-style: normal;
+
+        &:hover {
+          background-color: $fontWhite;
+          color: $mainNavy;
+        }
+      }
+    }
+  }
+}
