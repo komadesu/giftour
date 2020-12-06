@@ -17,9 +17,18 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['middleware' => ['api']], function(){
-  Route::get('bookmarks/{user_id}', 'api\BookmarkController@index');
-  Route::post('bookmarks', 'api\BookmarkController@store');
-  Route::delete('bookmarks', 'api\BookmarkController@destroy');
-  // Route::resource('bookmarks', 'api\BookmarkController')->except(['create', 'show', 'edit', 'update']);
+Route::group(['middleware' => ['api']], function() {
+  Route::get('bookmarks/{user_id}', 'Api\BookmarkController@index');
+  Route::post('bookmarks', 'Api\BookmarkController@store');
+  Route::delete('bookmarks', 'Api\BookmarkController@destroy');
+  // Route::resource('bookmarks', 'Api\BookmarkController')->except(['create', 'show', 'edit', 'update']);
+
+
+  Route::get('gifts', 'Api\GiftController@index');
+  Route::get('gifts/{user_id}', 'Api\GiftController@getUserPosts');
+  Route::get('gifts/{user_id}/bookmarks', 'Api\GiftController@getUserBookmarks');
+  Route::post('gifts', 'Api\GiftController@store');
+  Route::put('gifts/{gift_id}', 'Api\GiftController@update');
+  Route::delete('gifts/{gift_id}', 'Api\GiftController@destroy');
+  //Route::resource('gifts', 'Api\GiftController')->except(['create', 'show', 'edit']);
 });
