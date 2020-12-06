@@ -113,6 +113,17 @@
                 background-color: $mainBeige;
               }
 
+              & .price {
+                position: relative;
+                &::before {
+                  content: "Price";
+                  position: absolute;
+                  top: 0;
+                  left: 50%;
+                  font-size: 12px;
+                  transform: translate(-50%, -50%);
+                }
+              }
               & .relationship {
                 position: relative;
                 &::before {

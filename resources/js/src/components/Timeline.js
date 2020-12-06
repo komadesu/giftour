@@ -23,7 +23,11 @@ class Timeline extends React.Component {
   }
 
   handlePrice(price) {
-    if (price) return `¥${price}`;
+    if (price) {
+      return `¥${price}`;
+    } else {
+      return "¥ ー "
+    }
   }
 
   renderGifts() {
