@@ -1,3 +1,1 @@
-export const READ_GIFTS = "READ_GIFTS";
-
-export const readGifts = () => ({ type: READ_GIFTS });
+export const ROOT_URL = "http://localhost:8000/api";

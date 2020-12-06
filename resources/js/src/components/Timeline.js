@@ -2,7 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 
 import Search from "./Search";
-import { readGifts } from "../actions";
+import { readGifts } from "../actions/gifts";
+import { readBookmarks } from "../actions/bookmarks";
 
 class Timeline extends React.Component {
   constructor(props) {
@@ -11,7 +12,48 @@ class Timeline extends React.Component {
   }
 
   componentDidMount() {
+    const userId = 2;
     this.props.readGifts();
+    this.props.readBookmarks(userId);
+  }
+
+  handleBookmark(giftId) {
+    const { bookmarks } = this.props;
+    return bookmarks.map(bookmark => {
+      if (bookmark.giftId === giftId) {
+        return;
+      }
+    });
+  }
+
+  judgeBookmark(giftId) {
+    const { bookmarks } = this.props;
+    return bookmarks.map(bookmark => {
+      if (bookmark.giftId === giftId) {
+        return (
+          <button
+            key={bookmark.id}
+            className="is-bookmarked"
+            onClick={this.handleBookmark(giftId)}
+          ></button>
+        );
+      } else {
+        return (
+          <button
+            key={bookmark.id}
+            onClick={this.handleBookmark(giftId)}
+          ></button>
+        );
+      }
+    });
+  }
+
+  handlePrice(price) {
+    if (price) {
+      return `¥${price}`;
+    } else {
+      return "¥ ー ";
+    }
   }
 
   handlePostFlag(postFlag) {
@@ -22,22 +64,12 @@ class Timeline extends React.Component {
     }
   }
 
-  handlePrice(price) {
-    if (price) {
-      return `¥${price}`;
-    } else {
-      return "¥ ー "
-    }
-  }
-
   renderGifts() {
     return _.map(this.props.gifts, gift => (
       <div key={gift.id} className="gift">
         <div className="date">&nbsp;{gift.createdAt}</div>
         <div className="gift__box">
-          <div className="bookmark-wrapper">
-            <button></button>
-          </div>
+          <div className="bookmark-wrapper">{this.judgeBookmark(gift.id)}</div>
           <h5 className="name">{gift.name}</h5>
           <div className="box-bottom">
             <div className="img-wrapper">
@@ -76,6 +108,9 @@ class Timeline extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({ gifts: state.gifts });
-const mapDispatchToProps = { readGifts };
+const mapStateToProps = state => ({
+  gifts: state.gifts,
+  bookmarks: state.bookmarks
+});
+const mapDispatchToProps = { readGifts, readBookmarks };
 export default connect(mapStateToProps, mapDispatchToProps)(Timeline);
