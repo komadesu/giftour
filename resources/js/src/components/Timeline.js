@@ -9,6 +9,10 @@ class Timeline extends React.Component {
   constructor(props) {
     super(props);
     this.renderGifts = this.renderGifts.bind(this);
+    this.handleBookmark = this.handleBookmark.bind(this);
+    this.judgeBookmark = this.judgeBookmark.bind(this);
+    this.handlePrice = this.handlePrice.bind(this);
+    this.handlePostFlag = this.handlePostFlag.bind(this);
   }
 
   componentDidMount() {
@@ -28,24 +32,27 @@ class Timeline extends React.Component {
 
   judgeBookmark(giftId) {
     const { bookmarks } = this.props;
-    return bookmarks.map(bookmark => {
+    let isBookmarked = false;
+    bookmarks.forEach(bookmark => {
       if (bookmark.giftId === giftId) {
-        return (
-          <button
-            key={bookmark.id}
-            className="is-bookmarked"
-            onClick={this.handleBookmark(giftId)}
-          ></button>
-        );
-      } else {
-        return (
-          <button
-            key={bookmark.id}
-            onClick={this.handleBookmark(giftId)}
-          ></button>
-        );
+        isBookmarked = true;
       }
     });
+
+    if (isBookmarked) {
+      return (
+        <button
+          className="is-bookmarked"
+          onClick={() => this.handleBookmark(giftId)}
+        ></button>
+      )
+    } else {
+      return (
+        <button
+          onClick={() => this.handleBookmark(giftId)}
+        ></button>
+      )
+    }
   }
 
   handlePrice(price) {
