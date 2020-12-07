@@ -10,6 +10,11 @@
   background-color: rgba(246, 244, 239, 0.6);
   z-index: 300;
 
+  &__logo {
+    width: 80px;
+
+  }
+
   &__link{
     display: inline;
     color: $mainNavy;
