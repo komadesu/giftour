@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 
+use App\Http\Controllers\Controller;
 use App\User;
 use App\Models\Gift;
 
@@ -155,9 +156,7 @@ class GiftController extends Controller
           $situation_id = 10;
         }
 
-
-        $gifts = Gift::join('users', 'gifts.user_id', 'users.id')
-          ->when($opponent_gender_id, function ($query, $opponent_gender_id) {
+        $gifts = Gift::with('user')->when($opponent_gender_id, function ($query, $opponent_gender_id) {
           return $query->where('opponent_gender_id', $opponent_gender_id);
         })->when($min_opponent_age, function ($query, $min_opponent_age) {
           return $query->where('opponent_age', '>=', $min_opponent_age);
@@ -173,7 +172,7 @@ class GiftController extends Controller
           return $query->where('situation_id', $situation_id);
         })->get();
 
-        return view('gift.index', compact('gifts'));
+        return $gifts;
     }
 
     /**
@@ -181,12 +180,11 @@ class GiftController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getUserPosts(Request $request)
+    public function getUserPosts($user_id)
     {
-      $user_id = $request->user_id;
       $gifts = Gift::where('user_id', $user_id)->get();
 
-      return view('gift.index', compact('gifts'));
+      return $gifts;
     }
 
     /**
@@ -194,24 +192,12 @@ class GiftController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getUserBookmarks(Request $request)
+    public function getUserBookmarks($user_id)
     {
-      $user_id = $request->user_id;
       $bookmarks = User::find($user_id)->gifts()->with(['category', 'relationship', 'situation'])->get();
       //$bookmarks = User::find($user_id)->gifts()->get(); Model 側で relation 貼ってれば、このように他テーブルを明記せずとも、各レコードは動的プロパティをたどって、関連したテーブルの情報に簡単にアクセスできる。が、おそらくこれはコレクション型として laravel で view を作成する場合のみ。API としてのみ機能させる場合は、しっかりデータを取得してフロントエンドに返す必要があるのだと思う。
 
-      return view('gift.index', ['gifts' => $bookmarks]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-        return view('gift.create');
+      return $bookmarks;
     }
 
     /**
@@ -241,56 +227,44 @@ class GiftController extends Controller
 
         $gift->save();
 
-        return redirect('/gifts');
+        return redirect('api/gifts');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-        $gift = Gift::find($id);
-        return view('gift.show', compact('gift'));
-    }
+    // ここ api としてはこの処理いらないけど、フロントエンドの実装で同じような条件分岐処理必要だからとりあえずとっとく
+    // /**
+    //  * Show the form for editing the specified resource.
+    //  *
+    //  * @param  int  $id
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function edit($id)
+    // {
+    //     //
+    //     $gift = Gift::find($id);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-        $gift = Gift::find($id);
+    //     $opponent_age = $gift->opponent_age;
+    //     if ($opponent_age <= 19) {
+    //       $opponent_age_id = 1;
+    //     }
+    //     if ($opponent_age >= 20 && $opponent_age <= 29) {
+    //       $opponent_age_id = 2;
+    //     }
+    //     if ($opponent_age >= 30 && $opponent_age <= 39) {
+    //       $opponent_age_id = 3;
+    //     }
+    //     if ($opponent_age >= 40 && $opponent_age <= 49) {
+    //       $opponent_age_id = 4;
+    //     }
+    //     if ($opponent_age >= 50 && $opponent_age <= 59) {
+    //       $opponent_age_id = 5;
+    //     }
+    //     if ($opponent_age >= 60) {
+    //       $opponent_age_id = 6;
+    //     }
+    //     $gift->opponent_age = $opponent_age_id;
 
-        $opponent_age = $gift->opponent_age;
-        if ($opponent_age <= 19) {
-          $opponent_age_id = 1;
-        }
-        if ($opponent_age >= 20 && $opponent_age <= 29) {
-          $opponent_age_id = 2;
-        }
-        if ($opponent_age >= 30 && $opponent_age <= 39) {
-          $opponent_age_id = 3;
-        }
-        if ($opponent_age >= 40 && $opponent_age <= 49) {
-          $opponent_age_id = 4;
-        }
-        if ($opponent_age >= 50 && $opponent_age <= 59) {
-          $opponent_age_id = 5;
-        }
-        if ($opponent_age >= 60) {
-          $opponent_age_id = 6;
-        }
-        $gift->opponent_age = $opponent_age_id;
-
-        return view('gift.edit', compact('gift'));
-    }
+    //     return view('gift.edit', compact('gift'));
+    // }
 
     /**
      * Update the specified resource in storage.
@@ -299,14 +273,14 @@ class GiftController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $gift_id)
     {
         //
         $image = $request->file('image');
         $image_path = $image->store('public/images');
         $image_file_name = str_replace('public/images/', '', $image_path);
 
-        $gift = Gift::find($id);
+        $gift = Gift::find($gift_id);
 
         $gift->name = $request->input('name');
         $gift->price = $request->input('price');
@@ -322,7 +296,7 @@ class GiftController extends Controller
 
         $gift->save();
 
-        return redirect('/gifts/' . $id);
+        return redirect('api/gifts/' . $gift_id);
     }
 
     /**
@@ -331,13 +305,13 @@ class GiftController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($gift_id)
     {
         //
-        $gift = Gift::find($id);
+        $gift = Gift::find($gift_id);
 
         $gift->delete();
 
-        return redirect('/gifts');
+        return redirect('/api/gifts');
     }
 }

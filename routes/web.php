@@ -14,9 +14,9 @@
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::resource('gifts', 'GiftController');
-Route::get('gifts/user/{user_id}', 'GiftController@getUserPosts');
-Route::get('gifts/user/{user_id}/bookmark', 'GiftController@getUserBookmarks');
+// Route::resource('gifts', 'GiftController');
+// Route::get('gifts/user/{user_id}', 'GiftController@getUserPosts');
+// Route::get('gifts/user/{user_id}/bookmark', 'GiftController@getUserBookmarks');
 
 // こっち上にすると、react、こっち下だと上のが先にルーティングに引っかかって laravel
 Route::get('/{any}', function () {
