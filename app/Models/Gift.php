@@ -21,6 +21,10 @@ class Gift extends Model
       'user_id' => 'integer',
     ];
 
+    public function user() {
+      return $this->belongsTo('App\User');
+    }
+
     public function users() {
       return $this->belongsToMany('App\User', 'bookmarks')
                   ->using('App\Models\Bookmark');

@@ -156,9 +156,7 @@ class GiftController extends Controller
           $situation_id = 10;
         }
 
-
-        $gifts = Gift::join('users', 'gifts.user_id', 'users.id')
-          ->when($opponent_gender_id, function ($query, $opponent_gender_id) {
+        $gifts = Gift::with('user')->when($opponent_gender_id, function ($query, $opponent_gender_id) {
           return $query->where('opponent_gender_id', $opponent_gender_id);
         })->when($min_opponent_age, function ($query, $min_opponent_age) {
           return $query->where('opponent_age', '>=', $min_opponent_age);
@@ -229,7 +227,7 @@ class GiftController extends Controller
 
         $gift->save();
 
-        return redirect('/gifts');
+        return redirect('api/gifts');
     }
 
     // ここ api としてはこの処理いらないけど、フロントエンドの実装で同じような条件分岐処理必要だからとりあえずとっとく
@@ -275,14 +273,14 @@ class GiftController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $gift_id)
     {
         //
         $image = $request->file('image');
         $image_path = $image->store('public/images');
         $image_file_name = str_replace('public/images/', '', $image_path);
 
-        $gift = Gift::find($id);
+        $gift = Gift::find($gift_id);
 
         $gift->name = $request->input('name');
         $gift->price = $request->input('price');
@@ -298,7 +296,7 @@ class GiftController extends Controller
 
         $gift->save();
 
-        return redirect('/gifts/' . $id);
+        return redirect('api/gifts/' . $gift_id);
     }
 
     /**
@@ -307,13 +305,13 @@ class GiftController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($gift_id)
     {
         //
-        $gift = Gift::find($id);
+        $gift = Gift::find($gift_id);
 
         $gift->delete();
 
-        return redirect('/gifts');
+        return redirect('/api/gifts');
     }
 }
