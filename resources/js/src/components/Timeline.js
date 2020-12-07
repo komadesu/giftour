@@ -11,23 +11,12 @@ class Timeline extends React.Component {
     this.renderGifts = this.renderGifts.bind(this);
     this.handleBookmark = this.handleBookmark.bind(this);
     this.judgeBookmark = this.judgeBookmark.bind(this);
-    this.handlePrice = this.handlePrice.bind(this);
-    this.handlePostFlag = this.handlePostFlag.bind(this);
   }
 
   componentDidMount() {
     const userId = 2;
     this.props.readGifts();
     this.props.readBookmarks(userId);
-  }
-
-  handleBookmark(giftId) {
-    const { bookmarks } = this.props;
-    return bookmarks.map(bookmark => {
-      if (bookmark.giftId === giftId) {
-        return;
-      }
-    });
   }
 
   judgeBookmark(giftId) {
@@ -43,15 +32,20 @@ class Timeline extends React.Component {
       return (
         <button
           className="is-bookmarked"
-          onClick={() => this.handleBookmark(giftId)}
+          onClick={e => this.handleBookmark(e)}
         ></button>
-      )
+      );
     } else {
-      return (
-        <button
-          onClick={() => this.handleBookmark(giftId)}
-        ></button>
-      )
+      return <button onClick={e => this.handleBookmark(e)}></button>;
+    }
+  }
+
+  handleBookmark(event) {
+    const target = event.target;
+    if (target.classList.contains("is-bookmarked")) {
+      target.classList.remove("is-bookmarked");
+    } else {
+      target.classList.add("is-bookmarked");
     }
   }
 

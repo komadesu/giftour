@@ -25,12 +25,17 @@
         & .bookmark-wrapper {
           & button {
             position: absolute;
+            padding: 0;
             top: 0;
             left: 20px;
             width: 22px;
             height: 20px;
             background-color: $borderGray;
             cursor: pointer;
+
+            &:focus {
+              outline: none;
+            }
 
             &::before {
               content: "";
@@ -170,5 +175,6 @@
 
   &::before {
     border-color: $mainBeige !important;
+    border-bottom: 5px solid transparent !important;
   }
 }
