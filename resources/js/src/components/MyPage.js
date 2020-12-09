@@ -1,5 +1,6 @@
 import React from "react";
 import _ from "lodash";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import Gift from "./Gift";
@@ -20,7 +21,7 @@ class MyPage extends React.Component {
   }
 
   render() {
-    const { user } = this.props
+    const { user } = this.props;
     return (
       <div className="mypage">
         <div className="mypage__archive mypage__area">
@@ -28,6 +29,11 @@ class MyPage extends React.Component {
           <div className="gifts">
             <Gift gift={this.props.gifts[1]} bookmarks={this.props.bookmarks} />
             <Gift gift={this.props.gifts[2]} bookmarks={this.props.bookmarks} />
+            <div className="more">
+              <Link className="more-btn" to="#">
+                +more
+              </Link>
+            </div>
           </div>
         </div>
         <div className="mypage__saved mypage__area">
@@ -41,6 +47,11 @@ class MyPage extends React.Component {
               gift={this.props.bookmarks[1]}
               bookmarks={this.props.bookmarks}
             />
+            <div className="more">
+              <Link className="more-btn" to="#">
+                +more
+              </Link>
+            </div>
           </div>
         </div>
         <div className="mypage__settings mypage__area">

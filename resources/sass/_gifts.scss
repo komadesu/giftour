@@ -1,13 +1,14 @@
 .gifts {
   display: grid;
   margin: 0 auto;
-  margin-top: 80px;
   width: 80%;
   color: $fontWhite;
   grid-template-columns: 1fr 1fr;
   grid-gap: 30px 60px;
 
   & .gift {
+    z-index: 100;
+
     & .date {
       padding-left: 16px;
       color: $mainNavy;
@@ -17,6 +18,7 @@
       position: relative;
       padding: 30px 35px;
       background-color: $mainNavy;
+      border: 1px solid #3f515f;
       border-radius: 16px;
 
       & .bookmark-wrapper {

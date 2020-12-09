@@ -1,0 +1,86 @@
+.mypage {
+  padding: 100px 0;
+
+  &__area {
+    position: relative;
+    margin-top: 60px;
+    padding: 50px 0 35px 0;
+    width: 100%;
+
+    &:nth-child(odd) {
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 95%;
+        height: 100%;
+        box-shadow: 0px 3px 12px rgba(15, 37, 57, 0.5);
+        background-color: $mainBeige;
+        z-index: -10;
+      }
+
+      & .title {
+        position: absolute;
+        top: 15px;
+        left: 17px;
+        margin: 0;
+        color: $fontWhite;
+        font-size: 45px;
+        transform: rotate(-90deg) translateX(-100%);
+        transform-origin: top left;
+      }
+    }
+
+    &:nth-child(even) {
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 95%;
+        height: 100%;
+        box-shadow: 0px 3px 12px rgba(15, 37, 57, 0.5);
+        background-color: $body-bg;
+        z-index: -10;
+      }
+
+      & .title {
+        position: absolute;
+        top: 15px;
+        right: 17px;
+        margin: 0;
+        color: $mainNavy;
+        font-size: 45px;
+        transform: rotate(90deg) translateX(100%);
+        transform-origin: top right;
+      }
+    }
+
+    &:last-child {
+      &::before {
+        background-color: $mainNavy;
+      }
+    }
+
+    & .gifts {
+      grid-gap: 10px 60px;
+
+      & .more {
+        padding-right: 16px;
+        text-align: right;
+        grid-column: 2/3;
+        grid-row: 2/3;
+
+        & .more-btn {
+        color: $mainNavy;
+        font-size: 1.2em;
+        }
+      }
+    }
+  }
+
+  &__settings {
+    color: $fontWhite;
+  }
+}

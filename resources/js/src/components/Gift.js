@@ -57,7 +57,7 @@ class Gift extends Component {
     const { gift } = this.props;
     return (
       <div className="gift">
-        <div className="date">&nbsp;{gift.createdAt}</div>
+        <div className="date">{gift.createdAt}</div>
         <div className="gift__box">
           <div className="bookmark-wrapper">{this.judgeBookmark(gift.id)}</div>
           <h5 className="name">{gift.name}</h5>
