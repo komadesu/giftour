@@ -11,7 +11,7 @@ const Header = () => {
         <Link className="nav header__link" to="/timeline">
           timeline
         </Link>
-        <Link className="nav header__link" to="#">
+        <Link className="nav header__link" to="/mypage">
           mypage
         </Link>
         <Link className="nav header__link" to="/post">
