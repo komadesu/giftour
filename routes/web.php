@@ -30,7 +30,7 @@ Route::get('/{any}', function () {
 //  Route::post('store', 'GiftController@store')->name('gifts.store');
 //});
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
