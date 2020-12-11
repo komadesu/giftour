@@ -18,6 +18,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::group(['middleware' => ['api']], function() {
+  Route::post('users', 'Api\UserController@store');
+
+
   Route::get('bookmarks/{user_id}', 'Api\BookmarkController@index');
   Route::post('bookmarks', 'Api\BookmarkController@store');
   Route::delete('bookmarks', 'Api\BookmarkController@destroy');
