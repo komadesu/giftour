@@ -86,7 +86,7 @@
     & .price {
       grid-area: price;
     }
-    & .relationship{
+    & .relationship {
       grid-area: relationship;
     }
     & .situation {
@@ -94,18 +94,18 @@
     }
 
     & .age,
-      .price,
-      .situation {
-        &::before {
-          content: '';
-          position: absolute;
-          top: 5px;
-          left: -47px;
-          width: 1px;
-          height: 100%;
-          background-color: #9f8777;
-        }
+    .price,
+    .situation {
+      &::before {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: -47px;
+        width: 1px;
+        height: 100%;
+        background-color: #9f8777;
       }
+    }
 
     & .age,
     & .price,
@@ -141,17 +141,19 @@
 
     & .btn-wrapper {
       grid-area: btn;
+    }
+  }
+}
 
-      & .btn {
-        border: 1px solid $fontWhite;
-        color: $fontWhite;
-        font-style: normal;
+.btn {
+  &__reverse {
+    border: 1px solid $fontWhite;
+    color: $fontWhite;
+    font-style: normal;
 
-        &:hover {
-          background-color: $fontWhite;
-          color: $mainNavy;
-        }
-      }
+    &:hover {
+      background-color: $fontWhite;
+      color: $mainNavy;
     }
   }
 }

@@ -227,6 +227,11 @@
         font-style: italic;
         border: 1px solid $mainBeige;
         border-radius: 0;
+
+        &:hover {
+          background-color: $mainBeige;
+          color: $fontWhite;
+        }
       }
     }
   }
