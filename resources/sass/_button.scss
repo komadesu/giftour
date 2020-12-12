@@ -1,0 +1,12 @@
+.btn {
+  &__reverse {
+    border: 1px solid $fontWhite;
+    color: $fontWhite;
+    font-style: normal;
+
+    &:hover {
+      background-color: $fontWhite;
+      color: $mainNavy;
+    }
+  }
+}

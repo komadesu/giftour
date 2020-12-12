@@ -1,8 +1,7 @@
 import React from "react";
-import _ from "lodash";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { HashLink, NavHashLink } from "react-router-hash-link";
+import { NavHashLink } from "react-router-hash-link";
 
 import Gift from "./Gift";
 import { readGifts } from "../actions/gifts";
@@ -33,7 +32,6 @@ class MyPage extends React.Component {
       <div className="mypage">
         <div className="mypage__navs">
           <NavHashLink
-            smooth
             className="mypage__nav"
             to="/MyPage#archive"
             scroll={this.scrollWidthOffset}
@@ -41,7 +39,6 @@ class MyPage extends React.Component {
             Archive
           </NavHashLink>
           <NavHashLink
-            smooth
             className="mypage__nav"
             to="/MyPage#saved"
             scroll={this.scrollWidthOffset}
@@ -49,7 +46,6 @@ class MyPage extends React.Component {
             Saved
           </NavHashLink>
           <NavHashLink
-            smooth
             className="mypage__nav"
             to="/MyPage#settings"
             scroll={this.scrollWidthOffset}

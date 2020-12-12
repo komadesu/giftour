@@ -3,7 +3,6 @@ import React, { Component } from "react";
 class Gift extends Component {
   constructor(props) {
     super(props);
-    this.handleBookmark = this.handleBookmark.bind(this);
     this.judgeBookmark = this.judgeBookmark.bind(this);
   }
 
