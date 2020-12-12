@@ -154,7 +154,7 @@ class Form extends React.Component {
                 : "btn-wrapper get-btn is-appeared"
             }
           >
-            <input className="btn form-btn" type="button" value="Upload" />
+            <input className="btn btn__reverse form-btn" type="button" value="Upload" />
           </div>
         </div>
       </form>

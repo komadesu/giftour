@@ -1,14 +1,33 @@
-import _ from "lodash";
 import { READ_BOOKMARKS } from "../actions/bookmarks";
 
 const defaultBookmarks = [
   {
-    userId: 2,
-    giftId: 1,
+    id: 1,
+    name: "香水",
+    price: 4000,
+    brand: "shiro",
+    imageFileName: "preview-bg.png",
+    category: "香水・フレグランス",
+    postFlag: 1,
+    opponentGender: "male",
+    opponentAge: 41,
+    relationship: "恋人",
+    situation: "バレンタインデー",
+    createdAt: "2020-12-04 16:32:14"
   },
   {
-    userId: 2,
-    giftId: 3,
+    id: 3,
+    name: "アイシャドウパレット",
+    price: 12000,
+    brand: "Dior",
+    imageFileName: "bg-img.png",
+    category: "コスメ・健康",
+    postFlag: 1,
+    opponentGender: "female",
+    opponentAge: 32,
+    relationship: "先輩・後輩",
+    situation: "その他",
+    createdAt: "2020-12-04 16:32:14"
   }
 ];
 
@@ -17,7 +36,6 @@ export default (bookmarks = defaultBookmarks, action) => {
     case READ_BOOKMARKS:
       // console.log(action.response.data);
       return bookmarks;
-      // return _.mapKeys(action.response.data, "id");
     default:
       return bookmarks;
   }

@@ -12,14 +12,14 @@
 
   &__logo {
     width: 80px;
-
   }
 
   &__link{
     display: inline;
     color: $mainNavy;
-    font-family: hellogalleriasans;
-    font-size: 18px;
+    font-family: 'Poiret One', cursive;
+    font-size: 20px;
+    letter-spacing: 1px;
 
     &:focus{
       outline: none;

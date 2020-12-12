@@ -70,7 +70,7 @@ const Search = () => {
           </select>
         </div>
         <div className="btn-wrapper">
-          <input className="btn" type="button" value="Seach" />
+          <input className="btn btn__reverse" type="button" value="Seach" />
         </div>
       </form>
     </div>
@@ -78,4 +78,3 @@ const Search = () => {
 };
 
 export default Search
-  

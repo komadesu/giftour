@@ -9,20 +9,20 @@ const Header = () => {
       </Link>
       <div className="header__navs">
         <Link className="nav header__link" to="/timeline">
-          timeline
+          Timeline
         </Link>
-        <Link className="nav header__link" to="#">
-          mypage
+        <Link className="nav header__link" to="/mypage">
+          Mypage
         </Link>
         <Link className="nav header__link" to="/post">
-          post
+          Post
         </Link>
         <Link className="nav header__link" to="#">
-          contact
+          Contact
         </Link>
       </div>
       <Link className="header__login header__link" to="/login">
-        login
+        Login
       </Link>
     </div>
   );
