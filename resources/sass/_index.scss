@@ -1,0 +1,134 @@
+.index {
+  padding-top: 120px;
+  padding-bottom: 120px;
+
+  &__app-name {
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 50px;
+  }
+
+  &__categories {
+    width: 100%;
+    margin-top: 30px;
+    color: $fontWhite;
+
+    & .category {
+      position: relative;
+      padding: 70px;
+      width: 100%;
+      height: 400px;
+
+      & .choices {
+        display: grid;
+        width: 45%;
+        height: 100%;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-gap: 20px 30px;
+
+        & .choice {
+          position: relative;
+          background-color: $body-bg;
+          border-radius: 10px;
+          overflow: hidden;
+          // z-index: 10;
+
+          &::before {
+            content: "";
+            position: absolute;
+            display: block;
+            top: 0;
+            left: 0;
+            width: 70%;
+            height: 100%;
+            pointer-events: none;
+            // z-index: -10;
+          }
+        }
+      }
+
+      & .img-wrapper {
+        position: absolute;
+        top: 0;
+        width: 55%;
+        height: 100%;
+        overflow: hidden;
+
+        & img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          z-index: 50;
+        }
+      }
+    }
+
+    & .price {
+      background-color: $mainNavy;
+
+      & .choices {
+        margin-left: 50%;
+
+        & .choice {
+          &::before {
+            background-color: $mainBeige;
+          }
+        }
+      }
+
+      & .img-wrapper {
+        left: 0;
+
+        & img {
+          &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(63, 81, 95, 0.66);
+            z-index: 100;
+          }
+        }
+      }
+    }
+
+    & .age {
+      background-color: $mainBeige;
+
+      & .choices {
+        margin-left: 5%;
+
+        & .choice {
+          &::before {
+            background-color: $mainNavy;
+          }
+        }
+      }
+
+      & .img-wrapper {
+        right: 0;
+
+        & img {
+          &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(246, 244, 239, 0.59);
+            z-index: 100;
+          }
+        }
+      }
+    }
+  }
+}
