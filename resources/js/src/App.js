@@ -9,11 +9,12 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import reducer from "./reducers";
 
 import Header from "./components/Header";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
+import Index from "./components/Index";
 import Timeline from "./components/Timeline";
 import MyPage from "./components/MyPage";
 import Post from "./components/Post";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
 
 const enhancer =
   process.env.NODE_ENV === "development"
@@ -27,11 +28,12 @@ const App = () => {
       <BrowserRouter>
         <Header />
         <Switch>
-          <Route path="/timeline" component={Timeline} />
-          <Route path="/mypage" component={MyPage} />
-          <Route path="/post" component={Post} />
+          <Route exact path="/" component={Index} />
+          <Route exact path="/timeline" component={Timeline} />
+          <Route exact path="/mypage" component={MyPage} />
+          <Route exact path="/post" component={Post} />
           <Route exact path="/login" component={Login} />
-          <Route path="/signup" component={Signup} />
+          <Route exact path="/signup" component={Signup} />
         </Switch>
       </BrowserRouter>
     </Provider>
