@@ -170,9 +170,10 @@ class GiftController extends Controller
           return $query->where('relationship_id', $relationship_id);
         })->when($situation_id, function ($query, $situation_id) {
           return $query->where('situation_id', $situation_id);
-        })->get();
+        })->with(['category', 'relationship', 'situation'])
+          ->get();
 
-        return $gifts;
+        return response()->json(['data' => $gifts]);
     }
 
     /**
@@ -182,22 +183,11 @@ class GiftController extends Controller
      */
     public function getUserPosts($user_id)
     {
-      $gifts = Gift::where('user_id', $user_id)->get();
+      $gifts = Gift::where('user_id', $user_id)
+        ->with(['category', 'relationship', 'situation'])
+        ->get();
 
-      return $gifts;
-    }
-
-    /**
-     * Display a listing of the resource each user saved.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function getUserBookmarks($user_id)
-    {
-      $bookmarks = User::find($user_id)->gifts()->with(['category', 'relationship', 'situation'])->get();
-      //$bookmarks = User::find($user_id)->gifts()->get(); Model 側で relation 貼ってれば、このように他テーブルを明記せずとも、各レコードは動的プロパティをたどって、関連したテーブルの情報に簡単にアクセスできる。が、おそらくこれはコレクション型として laravel で view を作成する場合のみ。API としてのみ機能させる場合は、しっかりデータを取得してフロントエンドに返す必要があるのだと思う。
-
-      return $bookmarks;
+      return response()->json(['data' => $gifts]);
     }
 
     /**
@@ -227,7 +217,7 @@ class GiftController extends Controller
 
         $gift->save();
 
-        return redirect('api/gifts');
+        return response()->json(['data' => $gift]);
     }
 
     // ここ api としてはこの処理いらないけど、フロントエンドの実装で同じような条件分岐処理必要だからとりあえずとっとく
@@ -296,7 +286,7 @@ class GiftController extends Controller
 
         $gift->save();
 
-        return redirect('api/gifts/' . $gift_id);
+        return response()->json(['data' => $gift]);
     }
 
     /**
@@ -312,6 +302,6 @@ class GiftController extends Controller
 
         $gift->delete();
 
-        return redirect('/api/gifts');
+        return response()->json(['data' => $gift]);
     }
 }

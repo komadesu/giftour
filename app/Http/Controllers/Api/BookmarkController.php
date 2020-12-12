@@ -6,20 +6,22 @@ use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
 use App\Models\Bookmark;
+use App\User;
 
 class BookmarkController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource each user saved.
      *
      * @return \Illuminate\Http\Response
      */
     public function index($user_id)
     {
         //
-        $bookmarks = Bookmark::where('user_id', $user_id)->get();
+        $user = new User;
+        $bookmarks = $user->find($user_id)->gifts()->with(['category', 'relationship', 'situation'])->get();
 
-        return $bookmarks;
+        return response()->json(['data' => $bookmarks]);
     }
 
     /**
