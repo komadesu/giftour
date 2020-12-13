@@ -13,6 +13,7 @@ import Index from "./components/Index";
 import Timeline from "./components/Timeline";
 import MyPage from "./components/MyPage";
 import Post from "./components/Post";
+import Contact from "./components/Contact";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 
@@ -32,6 +33,7 @@ const App = () => {
           <Route exact path="/timeline" component={Timeline} />
           <Route exact path="/mypage" component={MyPage} />
           <Route exact path="/post" component={Post} />
+          <Route exact path="/contact" component={Contact} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
         </Switch>
