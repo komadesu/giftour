@@ -10,8 +10,7 @@ const Index = () => {
       <Search />
       <div className="index__categories">
         <div className="category price">
-
-          <div className="category__words">
+          <div className="words">
             <h3 className="title">Price</h3>
             <h4 className="sub-title">価格帯から探す</h4>
           </div>
@@ -33,16 +32,13 @@ const Index = () => {
               <span>¥20,000〜</span>
             </Link>
           </div>
-          <h3 className="title">Price</h3>
-          <h4 className="sub-title">価格帯から探す</h4>
           <div className="img-wrapper">
-            <img src="../storage/images/dinner.jpg" />
+            <img src="../storage/images/price-bg.png" />
           </div>
         </div>
 
         <div className="category age">
-
-          <div className="category__words">
+          <div className="words">
             <h3 className="title">Age</h3>
             <h4 className="sub-title">年齢から探す</h4>
           </div>
@@ -67,10 +63,8 @@ const Index = () => {
               <span>60〜</span>
             </Link>
           </div>
-          <h3 className="title">Age</h3>
-          <h4 className="sub-title">年齢から探す</h4>
           <div className="img-wrapper">
-            <img src="../storage/images/mountain.jpg" />
+            <img src="../storage/images/age-bg.png" />
           </div>
         </div>
       </div>
