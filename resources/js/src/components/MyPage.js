@@ -225,6 +225,12 @@ class MyPage extends React.Component {
                     value="Cancel"
                     onClick={this.toggleFormState}
                   />
+                  <input
+                    className="btn btn__reverse"
+                    type="button"
+                    value="Update"
+                    onClick={this.toggleFormState}
+                  />
                 </div>
               </div>
               <div className="logo">GIFTOUR</div>

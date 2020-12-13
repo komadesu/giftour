@@ -206,11 +206,12 @@
           }
 
           & .btn-wrapper {
-            text-align: center;
+            display: flex;
+            justify-content: flex-end;
 
             & .btn {
-              width: 63px;
-              height: 37px;
+              min-width: 65px;
+              margin: 0 10px;
             }
           }
         }
