@@ -8,17 +8,18 @@
 @import '~bootstrap/scss/bootstrap';
 
 // Pages
-@import 'bg-template';
-@import 'sign';
+@import 'index';
 @import 'timeline';
 @import 'mypage';
 @import 'post';
+@import 'bg-template';
+@import 'sign';
 
 // Modules
-@import 'setup';
 @import 'header';
 @import 'search';
 @import 'form-reset';
 @import 'form';
 @import 'button';
 @import 'gifts';
+@import 'setup';
