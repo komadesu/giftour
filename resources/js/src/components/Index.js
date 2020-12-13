@@ -7,6 +7,10 @@ const Index = () => {
   return (
     <div className="index">
       <h2 className="index__app-name">GIFTOUR</h2>
+      <div className="index__hero-img">
+        <span className="slider"></span>
+        <img src="../storage/images/oneline-art.png" alt="hero" />
+      </div>
       <Search />
       <div className="index__categories">
         <div className="category price">
