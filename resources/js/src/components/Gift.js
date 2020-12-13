@@ -56,7 +56,12 @@ class Gift extends Component {
     const { gift } = this.props;
     return (
       <div className="gift">
-        <div className="date">{gift.createdAt}</div>
+
+        <div className="additional-info">
+          <div className="date">{gift.createdAt}</div>
+          <span className="edit" onClick={ this.appearEditPopup }>・・・</span>
+        </div>
+
         <div className="gift__box">
           <div className="bookmark-wrapper">{this.judgeBookmark(gift.id)}</div>
           <h5 className="name">{gift.name}</h5>
@@ -64,6 +69,7 @@ class Gift extends Component {
             <div className="img-wrapper">
               <img src={`../storage/images/${gift.imageFileName}`} />
             </div>
+
             <div className="details">
               <div className="main-info">
                 <div className="brand">Brand&nbsp;:&nbsp;{gift.brand}</div>
@@ -71,6 +77,7 @@ class Gift extends Component {
                   For&nbsp;{gift.opponentGender},&nbsp;({gift.opponentAge})
                 </div>
               </div>
+
               <div className="sub-info">
                 <div className="post-flag">
                   {this.handlePostFlag(gift.postFlag)}
@@ -82,6 +89,7 @@ class Gift extends Component {
               </div>
             </div>
           </div>
+
         </div>
       </div>
     );

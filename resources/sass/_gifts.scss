@@ -9,9 +9,19 @@
   & .gift {
     z-index: 100;
 
-    & .date {
-      padding-left: 16px;
-      color: $mainNavy;
+    & .additional-info {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px;
+
+      & .date {
+        color: $mainNavy;
+      }
+      & .edit {
+        color: $mainNavy;
+        letter-spacing: -7px;
+        cursor: pointer;
+      }
     }
 
     &__box {
