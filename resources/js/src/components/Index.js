@@ -10,54 +10,67 @@ const Index = () => {
       <Search />
       <div className="index__categories">
         <div className="category price">
-          <h3 className="title">Price</h3>
-          <h4 className="sub-title">価格帯から探す</h4>
+
+          <div className="category__words">
+            <h3 className="title">Price</h3>
+            <h4 className="sub-title">価格帯から探す</h4>
+          </div>
+
           <div className="choices">
             <Link className="choice" to="/timeline?price=1">
-              〜¥5,000
+              <span>〜¥5,000</span>
             </Link>
             <Link className="choice" to="/timeline?price=2">
-              〜¥10,000
+              <span>〜¥10,000</span>
             </Link>
             <Link className="choice" to="/timeline?price=3">
-              〜¥15,000
+              <span>〜¥15,000</span>
             </Link>
             <Link className="choice" to="/timeline?price=4">
-              〜¥20,000
+              <span>〜¥20,000</span>
             </Link>
             <Link className="choice" to="/timeline?price=5">
-              ¥20,000〜
+              <span>¥20,000〜</span>
             </Link>
           </div>
+          <h3 className="title">Price</h3>
+          <h4 className="sub-title">価格帯から探す</h4>
           <div className="img-wrapper">
-            <img src="../storage/images/preview-bg.png" />
+            <img src="../storage/images/dinner.jpg" />
           </div>
         </div>
+
         <div className="category age">
-          <h3 className="title">Age</h3>
-          <h4 className="sub-title">年齢から探す</h4>
+
+          <div className="category__words">
+            <h3 className="title">Age</h3>
+            <h4 className="sub-title">年齢から探す</h4>
+          </div>
+
           <div className="choices">
             <Link className="choice" to="/timeline?age=1">
-              〜19
+              <span>〜19</span>
             </Link>
             <Link className="choice" to="/timeline?age=2">
-              20〜29
+              <span>20〜29</span>
             </Link>
             <Link className="choice" to="/timeline?age=3">
-              30〜39
+              <span>30〜39</span>
             </Link>
             <Link className="choice" to="/timeline?age=4">
-              40〜49
+              <span>40〜49</span>
             </Link>
             <Link className="choice" to="/timeline?age=5">
-              50〜59
+              <span>50〜59</span>
             </Link>
             <Link className="choice" to="/timeline?age=6">
-              60〜
+              <span>60〜</span>
             </Link>
           </div>
+          <h3 className="title">Age</h3>
+          <h4 className="sub-title">年齢から探す</h4>
           <div className="img-wrapper">
-            <img src="../storage/images/preview-bg.png" />
+            <img src="../storage/images/mountain.jpg" />
           </div>
         </div>
       </div>

@@ -1,0 +1,149 @@
+.index {
+  padding-top: 120px;
+  padding-bottom: 120px;
+
+  &__app-name {
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 50px;
+  }
+
+  &__categories {
+    width: 100%;
+    margin-top: 30px;
+    color: $fontWhite;
+
+    & .category {
+      position: relative;
+      padding: 70px;
+
+      &__words {
+        position: absolute;
+        z-index: 200;
+      }
+
+      & .choices {
+        position: relative;
+        z-index: 150;
+        display: grid;
+        width: 45%;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px 30px;
+
+        & .choice {
+          position: relative;
+          background-color: $body-bg;
+          border-radius: 10px;
+          overflow: hidden;
+          width: 180px;
+          height: 72px;
+          line-height: 72px;
+          text-align: center;
+          text-decoration: none;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 70%;
+            height: 100%;
+            pointer-events: none;
+          }
+
+          & span {
+            position: relative;
+            z-index: 10;
+            font-size: 1.8em;
+            font-weight: bold;
+          }
+
+        }
+      }
+      & .img-wrapper {
+        position: absolute;
+        top: 0;
+        width: 55%;
+        height: 100%;
+        overflow: hidden;
+
+        & img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+
+      &.price {
+        background-color: $mainNavy;
+
+        & .choices {
+          margin-left: 50%;
+
+          & .choice {
+            &::before {
+              background-color: $mainBeige;
+            }
+
+            & span {
+              color: $mainNavy;
+            }
+          }
+        }
+
+        & .img-wrapper {
+          left: 0;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(63, 81, 95, 0.66);
+            z-index: 100;
+          }
+        }
+      }
+
+      &.age {
+        background-color: $mainBeige;
+
+        & .choices {
+          margin-left: 5%;
+
+          & .choice {
+            &::before {
+              background-color: $mainNavy;
+            }
+
+            & span {
+              color: $fontWhite;
+            }
+          }
+        }
+
+        & .img-wrapper {
+          right: 0;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(246, 244, 239, 0.59);
+            z-index: 100;
+          }
+        }
+      }
+    }
+
+  }
+}
