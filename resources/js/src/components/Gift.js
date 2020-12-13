@@ -3,17 +3,32 @@ import React, { Component } from "react";
 class Gift extends Component {
   constructor(props) {
     super(props);
+    this.judgeOwner = this.judgeOwner.bind(this);
     this.judgeBookmark = this.judgeBookmark.bind(this);
   }
 
+  isIncludedOrNot(targets, targetId) {
+    let isIncluded
+    targets.forEach(target => {
+      if (target.id === targetId) {
+        isIncluded = true
+      }
+    })
+    return isIncluded
+  }
+  judgeOwner(giftId) {
+    const { posts } = this.props;
+    const isOwned = this.isIncludedOrNot(posts, giftId)
+
+    if (isOwned) {
+      return (
+        <span className="edit" onClick={ this.appearEditPopup }>・・・</span>
+      );
+    }
+  }
   judgeBookmark(giftId) {
     const { bookmarks } = this.props;
-    let isBookmarked = false;
-    bookmarks.forEach(bookmark => {
-      if (bookmark.id === giftId) {
-        isBookmarked = true;
-      }
-    });
+    const isBookmarked = this.isIncludedOrNot(bookmarks, giftId)
 
     if (isBookmarked) {
       return (
@@ -35,7 +50,6 @@ class Gift extends Component {
       target.classList.add("is-bookmarked");
     }
   }
-
   handlePrice(price) {
     if (price) {
       return `¥${price}`;
@@ -43,7 +57,6 @@ class Gift extends Component {
       return "¥ ー ";
     }
   }
-
   handlePostFlag(postFlag) {
     if (postFlag === 1) {
       return "I gave";
@@ -53,13 +66,13 @@ class Gift extends Component {
   }
 
   render() {
-    const { gift } = this.props;
+    const { gift, posts } = this.props;
     return (
       <div className="gift">
 
         <div className="additional-info">
           <div className="date">{gift.createdAt}</div>
-          <span className="edit" onClick={ this.appearEditPopup }>・・・</span>
+          { posts ? this.judgeOwner(gift.id) : null }
         </div>
 
         <div className="gift__box">
