@@ -1,0 +1,54 @@
+.about {
+  position: relative;
+  padding-top: 60px;
+
+  &__inner {
+    display: grid;
+    margin: 140px 0;
+    color: $fontWhite;
+    grid-template-columns: 40% 1fr;
+    grid-template-rows: 40% 1fr;
+    grid-gap: 10% 0%;
+
+    & .app-name-area {
+      grid-column: 1 / 2;
+      grid-row: 1 / 3;
+      text-align: center;
+
+      & .app-name {
+        font-size: 50px;
+      }
+    }
+
+    & .contact-area {
+      grid-row: 1 / 2;
+    }
+
+    & .creators-area {
+      grid-row: 2 / 3;
+    }
+
+    & .area {
+      grid-column: 2 / 3;
+      text-align: center;
+
+      & .title {
+        // margin-bottom: 30px;
+        font-size: 30px;
+      }
+
+      & .content {
+        font-size: 16px;
+      }
+    }
+  }
+
+  & .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -10;
+  }
+}
