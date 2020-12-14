@@ -1,6 +1,5 @@
 .index {
   padding-top: 140px;
-  padding-bottom: 120px;
 
   &__app-name {
     margin-bottom: 30px;
@@ -25,9 +24,9 @@
       z-index: 100;
       animation-name: slider;
       animation-duration: 4s;
-      animation-timing-function:  ease-out;
-      animation-delay:  0s;
-      animation-fill-mode:  forwards;
+      animation-timing-function: ease-out;
+      animation-delay: 0s;
+      animation-fill-mode: forwards;
     }
 
     & img {
