@@ -22,10 +22,31 @@ class Gift extends Component {
 
     if (isOwned) {
       return (
-        <span className="edit" onClick={ this.appearEditPopup }>・・・</span>
+        <>
+          <span className="edit__popup-btn" onClick={this.appearEditPopup}>・・・</span>
+          <div className="edit__popup">
+            <div className="edit__btn update" onClick={this.toUpdate}>
+              <span>編集</span>
+              <img src="../storage/images/edit.png" />
+            </div>
+            <div className="edit__btn delete" onClick={this.handleDelete}>
+              <span>削除</span>
+              <img src="../storage/images/trash.png" />
+            </div>
+          </div>
+        </>
       );
     }
   }
+  appearEditPopup(e) {
+    const target = e.target.nextSibling
+    if (!target.classList.contains('appear-popup')) {
+      target.classList.add('appear-popup')
+    } else {
+      target.classList.remove('appear-popup')
+    }
+  }
+
   judgeBookmark(giftId) {
     const { bookmarks } = this.props;
     const isBookmarked = this.isIncludedOrNot(bookmarks, giftId)
@@ -42,8 +63,8 @@ class Gift extends Component {
     }
   }
 
-  handleBookmark(event) {
-    const target = event.target;
+  handleBookmark(e) {
+    const target = e.target;
     if (target.classList.contains("is-bookmarked")) {
       target.classList.remove("is-bookmarked");
     } else {
