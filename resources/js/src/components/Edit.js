@@ -12,6 +12,10 @@ class Edit extends Component {
     }
   }
   handleDelete(giftId) {
+    const result = confirm(`ID${giftId}この投稿を本当に削除してもよろしいですか？`)
+    if (result) {
+      // appropriate code to delete selected one.
+    }
   }
 
 
@@ -26,7 +30,7 @@ class Edit extends Component {
             <span>編集</span>
             <img src="../storage/images/edit.png" />
           </Link>
-          <div className="edit__btn delete" onClick={this.handleDelete(giftId)}>
+          <div className="edit__btn delete" onClick={() => this.handleDelete(giftId)}>
             <span>削除</span>
             <img src="../storage/images/trash.png" />
           </div>
