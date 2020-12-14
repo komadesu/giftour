@@ -17,8 +17,8 @@ const Header = () => {
         <Link className="nav header__link" to="/post">
           Post
         </Link>
-        <Link className="nav header__link" to="/contact">
-          Contact
+        <Link className="nav header__link" to="/about">
+          About
         </Link>
       </div>
       <Link className="header__login header__link" to="/login">
