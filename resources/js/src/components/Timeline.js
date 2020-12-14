@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 import Search from "./Search";
 import Gift from "./Gift";
+import Footer from "./Footer";
 import { readGifts } from "../actions/gifts";
 import { readBookmarks } from "../actions/bookmarks";
 
@@ -11,7 +12,7 @@ class Timeline extends React.Component {
   constructor(props) {
     super(props);
   }
-  
+
   componentDidMount() {
     const userId = 2;
     this.props.readGifts();
@@ -27,6 +28,7 @@ class Timeline extends React.Component {
             <Gift gift={gift} bookmarks={this.props.bookmarks} key={gift.id} />
           ))}
         </div>
+        <Footer />
       </div>
     );
   }

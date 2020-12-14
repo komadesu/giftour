@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import Search from "./Search";
+import Footer from "./Footer";
 
 const Index = () => {
   return (
@@ -72,6 +73,7 @@ const Index = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
