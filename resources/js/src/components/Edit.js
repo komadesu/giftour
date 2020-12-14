@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 class Edit extends Component {
 
@@ -21,10 +22,10 @@ class Edit extends Component {
       <div className="edit">
         <span className="edit__popup-btn" onClick={this.appearEditPopup}>・・・</span>
         <div className="edit__popup">
-          <div className="edit__btn update" onClick={this.toUpdate}>
+          <Link to={`/update/${giftId}`} className="edit__btn update">
             <span>編集</span>
             <img src="../storage/images/edit.png" />
-          </div>
+          </Link>
           <div className="edit__btn delete" onClick={this.handleDelete(giftId)}>
             <span>削除</span>
             <img src="../storage/images/trash.png" />
