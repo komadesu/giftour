@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import Edit from './Edit'
+
 class Gift extends Component {
   constructor(props) {
     super(props);
@@ -20,33 +22,8 @@ class Gift extends Component {
     const { posts } = this.props;
     const isOwned = this.isIncludedOrNot(posts, giftId)
 
-    if (isOwned) {
-      return (
-        <>
-          <span className="edit__popup-btn" onClick={this.appearEditPopup}>・・・</span>
-          <div className="edit__popup">
-            <div className="edit__btn update" onClick={this.toUpdate}>
-              <span>編集</span>
-              <img src="../storage/images/edit.png" />
-            </div>
-            <div className="edit__btn delete" onClick={this.handleDelete}>
-              <span>削除</span>
-              <img src="../storage/images/trash.png" />
-            </div>
-          </div>
-        </>
-      );
-    }
+    return isOwned
   }
-  appearEditPopup(e) {
-    const target = e.target.nextSibling
-    if (!target.classList.contains('appear-popup')) {
-      target.classList.add('appear-popup')
-    } else {
-      target.classList.remove('appear-popup')
-    }
-  }
-
   judgeBookmark(giftId) {
     const { bookmarks } = this.props;
     const isBookmarked = this.isIncludedOrNot(bookmarks, giftId)
@@ -93,7 +70,7 @@ class Gift extends Component {
 
         <div className="additional-info">
           <div className="date">{gift.createdAt}</div>
-          { posts ? this.judgeOwner(gift.id) : null }
+          { posts && this.judgeOwner(gift.id) ? <Edit giftId={gift.id} /> : null }
         </div>
 
         <div className="gift__box">
