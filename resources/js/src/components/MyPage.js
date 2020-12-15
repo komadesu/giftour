@@ -21,7 +21,7 @@ class MyPage extends React.Component {
     this.state = {
       formState: false,
       name: this.props.user.name,
-      radio: null,
+      gender: null,
       age: this.props.user.age,
       email: this.props.user.email,
     };
@@ -43,7 +43,7 @@ class MyPage extends React.Component {
     if (value === 'male') genderState = 1
     if (value === 'female') genderState = 2
     if (value === 'other') genderState = 3
-    this.setState({ radio: genderState })
+    this.setState({ gender: genderState })
   }
 
   onChangeName(e) {
@@ -197,7 +197,7 @@ class MyPage extends React.Component {
                       type="radio"
                       id="male"
                       name="gender"
-                      checked={this.state.radio === 1}
+                      checked={this.state.gender === 1}
                       onChange={this.onChangeGender}
                     />
                     <label htmlFor="male">Male</label>
@@ -205,7 +205,7 @@ class MyPage extends React.Component {
                       type="radio"
                       id="female"
                       name="gender"
-                      checked={this.state.radio === 2}
+                      checked={this.state.gender === 2}
                       onChange={this.onChangeGender}
                     />
                     <label htmlFor="female">Female</label>
@@ -213,7 +213,7 @@ class MyPage extends React.Component {
                       type="radio"
                       id="other"
                       name="gender"
-                      checked={this.state.radio === 3}
+                      checked={this.state.gender === 3}
                       onChange={this.onChangeGender}
                     />
                     <label htmlFor="other">Other</label>
