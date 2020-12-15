@@ -18,12 +18,14 @@ class MyPage extends React.Component {
     this.onChangeGender = this.onChangeGender.bind(this);
     this.onChangeAge = this.onChangeAge.bind(this);
     this.onChangeEmail = this.onChangeEmail.bind(this);
+
+    const { user } = props
     this.state = {
       formState: false,
-      name: this.props.user.name,
+      name: user.name,
       gender: null,
-      age: this.props.user.age,
-      email: this.props.user.email,
+      age: user.age,
+      email: user.email,
     };
   }
 
@@ -187,6 +189,7 @@ class MyPage extends React.Component {
                     type="text"
                     id="form-name"
                     className="content text-truncate"
+                    value={this.state.name}
                     onChange={this.onChangeName}
                   />
                 </div>
@@ -221,11 +224,11 @@ class MyPage extends React.Component {
                 </div>
                 <div className="user-info age">
                   <label htmlFor="form-age" className="label">Age</label>
-                  <input type="number" id="form-age" className="content" onChange={this.onChangeAge} />
+                  <input type="number" id="form-age" className="content" value={this.state.age} onChange={this.onChangeAge} />
                 </div>
                 <div className="user-info email">
                   <label htmlFor="form-email" className="label">Email</label>
-                  <input type="email" id="form-email" className="content text-truncate" onChange={this.onChangeEmail} />
+                  <input type="email" id="form-email" className="content text-truncate" value={this.state.email} onChange={this.onChangeEmail} />
                 </div>
                 <div className="btn-wrapper">
                   <input
