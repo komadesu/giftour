@@ -34,7 +34,7 @@ const App = () => {
           <Route exact path="/timeline" component={Timeline} />
           <Route exact path="/mypage" component={MyPage} />
           <Route exact path="/new" component={New} />
-          <Route path="/update" component={Update} />
+          <Route path="/update/:id" component={Update} />
           <Route exact path="/about" component={About} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
