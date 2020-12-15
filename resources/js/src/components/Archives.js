@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 import Gift from "./Gift";
 import { readArchives } from "../actions/archives";
@@ -19,6 +20,12 @@ class Archives extends React.Component {
   render() {
     return (
       <div className="archives">
+        <div className="archives__navs">
+          <Link className="back-btn" to="/mypage">
+            <span></span>
+          </Link>
+          <h4 className="title">Archive</h4>
+        </div>
         <div className="gifts">
           {this.props.archives.map(gift => (
             <Gift
