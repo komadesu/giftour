@@ -1,6 +1,7 @@
-import { READ_POSTS } from "../actions/posts";
+import { READ_ARCHIVES } from "../actions/archives";
+import _ from "lodash";
 
-const defaultPosts = [
+const defaultArchives = [
   {
     id: 1,
     name: "香水",
@@ -31,12 +32,12 @@ const defaultPosts = [
   }
 ];
 
-export default (posts = defaultPosts, action) => {
+export default (archives = defaultArchives, action) => {
   switch (action.type) {
-    case READ_POSTS:
+    case READ_ARCHIVES:
       // console.log(action.response.data);
-      return posts;
+      return archives;
     default:
-      return posts;
+      return archives;
   }
 };

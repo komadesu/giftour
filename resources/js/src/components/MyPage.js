@@ -6,7 +6,7 @@ import { NavHashLink } from "react-router-hash-link";
 import Gift from "./Gift";
 import Footer from "./Footer";
 import { readGifts } from "../actions/gifts";
-import { readPosts } from "../actions/posts";
+import { readArchives } from "../actions/archives";
 import { readBookmarks } from "../actions/bookmarks";
 import { readUser } from "../actions/user";
 
@@ -32,7 +32,7 @@ class MyPage extends React.Component {
   componentDidMount() {
     const userId = 2;
     this.props.readGifts();
-    this.props.readPosts(userId);
+    this.props.readArchives(userId);
     this.props.readBookmarks(userId);
     this.props.readUser();
 
@@ -111,12 +111,12 @@ class MyPage extends React.Component {
             <div className="gifts">
               <Gift
                 gift={this.props.gifts[1]}
-                posts={this.props.posts}
+                archives={this.props.archives}
                 bookmarks={this.props.bookmarks}
               />
               <Gift
                 gift={this.props.gifts[2]}
-                posts={this.props.posts}
+                archives={this.props.archives}
                 bookmarks={this.props.bookmarks}
               />
               <div className="more">
@@ -132,12 +132,12 @@ class MyPage extends React.Component {
             <div className="gifts">
               <Gift
                 gift={this.props.bookmarks[0]}
-                posts={this.props.posts}
+                archives={this.props.archives}
                 bookmarks={this.props.bookmarks}
               />
               <Gift
                 gift={this.props.bookmarks[1]}
-                posts={this.props.posts}
+                archives={this.props.archives}
                 bookmarks={this.props.bookmarks}
               />
               <div className="more">
@@ -272,9 +272,9 @@ class MyPage extends React.Component {
 
 const mapStateToProps = (state) => ({
   gifts: state.gifts,
-  posts: state.posts,
+  archives: state.archives,
   bookmarks: state.bookmarks,
   user: state.user,
 });
-const mapDispatchToProps = { readGifts, readPosts, readBookmarks, readUser };
+const mapDispatchToProps = { readGifts, readArchives, readBookmarks, readUser };
 export default connect(mapStateToProps, mapDispatchToProps)(MyPage);

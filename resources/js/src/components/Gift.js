@@ -19,8 +19,8 @@ class Gift extends Component {
     return isIncluded
   }
   judgeOwner(giftId) {
-    const { posts } = this.props;
-    const isOwned = this.isIncludedOrNot(posts, giftId)
+    const { archives } = this.props;
+    const isOwned = this.isIncludedOrNot(archives, giftId)
 
     return isOwned
   }
@@ -64,13 +64,13 @@ class Gift extends Component {
   }
 
   render() {
-    const { gift, posts } = this.props;
+    const { gift, archives } = this.props;
     return (
       <div className="gift">
 
         <div className="additional-info">
           <div className="date">{gift.createdAt}</div>
-          { posts && this.judgeOwner(gift.id) ? <Edit giftId={gift.id} /> : null }
+          { archives && this.judgeOwner(gift.id) ? <Edit giftId={gift.id} /> : null }
         </div>
 
         <div className="gift__box">
