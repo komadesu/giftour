@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { NavHashLink } from "react-router-hash-link";
 
 import Gift from "./Gift";
+import Footer from "./Footer";
 import { readGifts } from "../actions/gifts";
 import { readPosts } from "../actions/posts";
 import { readBookmarks } from "../actions/bookmarks";
@@ -245,6 +246,7 @@ class MyPage extends React.Component {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

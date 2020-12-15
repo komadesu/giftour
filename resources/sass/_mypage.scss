@@ -1,6 +1,6 @@
 .mypage {
   position: relative;
-  padding: 200px 0 40px 0;
+  padding-top: 200px;
 
   &__navs {
     position: fixed;
@@ -107,12 +107,15 @@
       }
 
       &:last-child {
+        margin-bottom: 0;
+
         &::before {
           background-color: $mainNavy;
         }
       }
 
       & .gifts {
+        margin-top: 0;
         grid-gap: 10px 60px;
 
         & .more {
