@@ -4,7 +4,7 @@ import _ from "lodash";
 const defaultArchives = [
   {
     id: 1,
-    name: "香水",
+    name: "香水(archives)",
     price: 4000,
     brand: "shiro",
     imageFileName: "preview-bg.png",
@@ -18,7 +18,7 @@ const defaultArchives = [
   },
   {
     id: 3,
-    name: "アイシャドウパレット",
+    name: "アイシャドウパレット(archives)",
     price: 12000,
     brand: "Dior",
     imageFileName: "bg-img.png",

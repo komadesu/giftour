@@ -1,9 +1,7 @@
 import React from "react";
-import _ from "lodash";
 import { connect } from "react-redux";
 
 import Gift from "./Gift";
-import Footer from "./Footer";
 import { readArchives } from "../actions/archives";
 import { readBookmarks } from "../actions/bookmarks";
 
