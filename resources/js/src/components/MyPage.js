@@ -120,7 +120,7 @@ class MyPage extends React.Component {
                 bookmarks={this.props.bookmarks}
               />
               <div className="more">
-                <Link className="more-btn" to="#">
+                <Link className="more-btn" to="/mypage/archives">
                   +more
                 </Link>
               </div>
@@ -141,7 +141,7 @@ class MyPage extends React.Component {
                 bookmarks={this.props.bookmarks}
               />
               <div className="more">
-                <Link className="more-btn" to="#">
+                <Link className="more-btn" to="/mypage/bookmarks">
                   +more
                 </Link>
               </div>
@@ -152,7 +152,6 @@ class MyPage extends React.Component {
             <h4 className="title">Settings</h4>
 
             <div className="user-infos-wrapper">
-
               <div className={formState ? "user-infos" : "user-infos display"}>
                 <div className="user-info name">
                   <span className="label">Name</span>
@@ -220,15 +219,31 @@ class MyPage extends React.Component {
                       onChange={this.onChangeGender}
                     />
                     <label htmlFor="other">Other</label>
-                    </div>
+                  </div>
                 </div>
                 <div className="user-info age">
-                  <label htmlFor="form-age" className="label">Age</label>
-                  <input type="number" id="form-age" className="content" value={this.state.age} onChange={this.onChangeAge} />
+                  <label htmlFor="form-age" className="label">
+                    Age
+                  </label>
+                  <input
+                    type="number"
+                    id="form-age"
+                    className="content"
+                    value={this.state.age}
+                    onChange={this.onChangeAge}
+                  />
                 </div>
                 <div className="user-info email">
-                  <label htmlFor="form-email" className="label">Email</label>
-                  <input type="email" id="form-email" className="content text-truncate" value={this.state.email} onChange={this.onChangeEmail} />
+                  <label htmlFor="form-email" className="label">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="form-email"
+                    className="content text-truncate"
+                    value={this.state.email}
+                    onChange={this.onChangeEmail}
+                  />
                 </div>
                 <div className="btn-wrapper">
                   <input
