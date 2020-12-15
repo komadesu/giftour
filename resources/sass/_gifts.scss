@@ -10,9 +10,15 @@
   & .gift {
     z-index: 100;
 
-    & .date {
-      padding-left: 16px;
-      color: $mainNavy;
+    & .additional-info {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px;
+
+      & .date {
+        color: $mainNavy;
+      }
     }
 
     &__box {

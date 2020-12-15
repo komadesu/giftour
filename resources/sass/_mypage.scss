@@ -141,43 +141,92 @@
         margin: 0 auto;
         width: 80%;
         justify-content: space-around;
+        align-items: center;
 
         & .user-infos {
+          display: none;
           text-align: right;
           font-size: 18px;
 
           & .user-info {
             margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            width: 400px;
+            height: 36px;
 
             & .label {
-              margin-right: 20px;
+              width: 15%;
             }
 
             & .content {
-              display: inline-block;
+              width: 80%;
               padding: 0 20px;
-              width: 300px;
               border-bottom: 1px solid $borderGray;
               text-align: center;
+              color: $fontWhite;
+            }
+            & .radio-content {
+              display: flex;
+              justify-content: space-between;
+              padding: 0 20px;
+              width: 72%;
+              color: $fontWhite;
+
+              & label {
+                position: relative;
+                font-size: .9em;
+                line-height: 36px;
+                margin-bottom: 0;
+
+                &::before {
+                  content: '';
+                  position: absolute;
+                  left: 0;
+                  top: 50%;
+                  transform: translate(-120%, -57%);
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 50%;
+                  border: 1px solid $fontWhite;
+                }
+              }
+
+              & input:checked {
+                & + label::after {
+                  content: '';
+                  position: absolute;
+                  left: 0;
+                  top: 50%;
+                  transform: translate(-190%, -64%);
+                  width: 7px;
+                  height: 7px;
+                  border-radius: 50%;
+                  background-color: $fontWhite;
+                }
+              }
             }
           }
 
           & .btn-wrapper {
-            text-align: center;
+            display: flex;
+            justify-content: flex-end;
 
             & .btn {
-              width: 63px;
-              height: 37px;
+              min-width: 65px;
+              margin: 0 10px;
             }
           }
         }
 
         & .logo {
-          height: 289px;
-          line-height: 289px;
           font-size: 50px;
         }
       }
     }
   }
+}
+
+.display {
+  display: block !important;
 }

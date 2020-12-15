@@ -1,19 +1,32 @@
 import React, { Component } from "react";
 
+import Edit from './Edit'
+
 class Gift extends Component {
   constructor(props) {
     super(props);
+    this.judgeOwner = this.judgeOwner.bind(this);
     this.judgeBookmark = this.judgeBookmark.bind(this);
   }
 
+  isIncludedOrNot(targets, targetId) {
+    let isIncluded
+    targets.forEach(target => {
+      if (target.id === targetId) {
+        isIncluded = true
+      }
+    })
+    return isIncluded
+  }
+  judgeOwner(giftId) {
+    const { posts } = this.props;
+    const isOwned = this.isIncludedOrNot(posts, giftId)
+
+    return isOwned
+  }
   judgeBookmark(giftId) {
     const { bookmarks } = this.props;
-    let isBookmarked = false;
-    bookmarks.forEach(bookmark => {
-      if (bookmark.id === giftId) {
-        isBookmarked = true;
-      }
-    });
+    const isBookmarked = this.isIncludedOrNot(bookmarks, giftId)
 
     if (isBookmarked) {
       return (
@@ -27,15 +40,14 @@ class Gift extends Component {
     }
   }
 
-  handleBookmark(event) {
-    const target = event.target;
+  handleBookmark(e) {
+    const target = e.target;
     if (target.classList.contains("is-bookmarked")) {
       target.classList.remove("is-bookmarked");
     } else {
       target.classList.add("is-bookmarked");
     }
   }
-
   handlePrice(price) {
     if (price) {
       return `¥${price}`;
@@ -43,7 +55,6 @@ class Gift extends Component {
       return "¥ ー ";
     }
   }
-
   handlePostFlag(postFlag) {
     if (postFlag === 1) {
       return "I gave";
@@ -53,10 +64,15 @@ class Gift extends Component {
   }
 
   render() {
-    const { gift } = this.props;
+    const { gift, posts } = this.props;
     return (
       <div className="gift">
-        <div className="date">{gift.createdAt}</div>
+
+        <div className="additional-info">
+          <div className="date">{gift.createdAt}</div>
+          { posts && this.judgeOwner(gift.id) ? <Edit giftId={gift.id} /> : null }
+        </div>
+
         <div className="gift__box">
           <div className="bookmark-wrapper">{this.judgeBookmark(gift.id)}</div>
           <h5 className="name">{gift.name}</h5>
@@ -64,6 +80,7 @@ class Gift extends Component {
             <div className="img-wrapper">
               <img src={`../storage/images/${gift.imageFileName}`} />
             </div>
+
             <div className="details">
               <div className="main-info">
                 <div className="brand">Brand&nbsp;:&nbsp;{gift.brand}</div>
@@ -71,6 +88,7 @@ class Gift extends Component {
                   For&nbsp;{gift.opponentGender},&nbsp;({gift.opponentAge})
                 </div>
               </div>
+
               <div className="sub-info">
                 <div className="post-flag">
                   {this.handlePostFlag(gift.postFlag)}
@@ -82,6 +100,7 @@ class Gift extends Component {
               </div>
             </div>
           </div>
+
         </div>
       </div>
     );
