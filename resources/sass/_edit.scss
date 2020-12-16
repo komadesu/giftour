@@ -39,12 +39,12 @@
       object-position: center;
     }
 
-    &.update {
+    &.update-btn {
       & span {
         color: $mainNavy;
       }
     }
-    &.delete {
+    &.delete-btn {
       & span {
         color: red;
       }
