@@ -16,7 +16,7 @@
       width: 100%;
       opacity: 0;
       z-index: 200;
-      animation-name: kf-apper;
+      animation-name: kf-appear;
       animation-duration: 2000ms;
       animation-timing-function: ease-out;
       animation-delay: 500ms;
@@ -242,7 +242,7 @@
   }
 }
 
-@keyframes kf-apper {
+@keyframes kf-appear {
   0% {
     opacity: 0;
   }
