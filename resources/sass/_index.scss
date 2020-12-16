@@ -2,38 +2,59 @@
   padding-top: 140px;
 
   &__app-name {
-    margin-bottom: 30px;
     text-align: center;
     font-size: 50px;
   }
 
-  &__hero-img {
+  &__hero-wrapper {
     position: relative;
     margin: 0 auto;
     width: 80%;
-    height: 180px;
-    overflow: hidden;
+
+    & .rose-img {
+      position: relative;
+      width: 100%;
+      opacity: 0;
+      z-index: 200;
+      animation-name: kf-apper;
+      animation-duration: 2000ms;
+      animation-timing-function: ease-out;
+      animation-delay: 500ms;
+      animation-fill-mode: forwards;
+    }
 
     & .slider {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      background-color: $body-bg;
+      z-index: 100;
+      animation-name: kf-slider;
+      animation-duration: 3500ms;
+      animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      animation-fill-mode: forwards;
+
+      &--left {
+        left: 0;
+        width: 52%;
+        animation-delay: 1800ms;
+        transform-origin: right;
+      }
+      &--right {
+        right: 0;
+        width: 48%;
+        animation-delay: 500ms;
+        transform-origin: left;
+      }
+    }
+
+    　 & .hands-img {
       position: absolute;
       top: 0;
       right: 0;
       width: 100%;
       height: 100%;
-      background-color: $body-bg;
-      z-index: 100;
-      animation-name: slider;
-      animation-duration: 4s;
-      animation-timing-function: ease-out;
-      animation-delay: 0s;
-      animation-fill-mode: forwards;
-    }
-
-    & img {
-      width: 100%;
-      object-fit: cover;
-      object-position: 50% -80px;
-      // z-index: 50;
+      z-index: 50;
     }
   }
 
@@ -212,11 +233,20 @@
   }
 }
 
-@keyframes slider {
+@keyframes kf-slider {
   0% {
     transform: scaleX(1);
   }
   100% {
     transform: scaleX(0);
+  }
+}
+
+@keyframes kf-apper {
+  0% {
+    opacity: 0;
+  }
+  100% {
+        opacity: 1;
   }
 }

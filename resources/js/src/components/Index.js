@@ -8,9 +8,19 @@ const Index = () => {
   return (
     <div className="index">
       <h2 className="index__app-name">GIFTOUR</h2>
-      <div className="index__hero-img">
-        <span className="slider"></span>
-        <img src="../storage/images/oneline-art.png" alt="hero" />
+      <div className="index__hero-wrapper">
+        <img
+          src="../storage/images/hero-rose.png"
+          className="img rose-img"
+          alt="hero"
+        />
+        <span className="slider slider--left"></span>
+        <span className="slider slider--right"></span>
+        <img
+          src="../storage/images/hero-hands.png"
+          className="img hands-img"
+          alt="hero"
+        />
       </div>
       <Search />
       <div className="index__categories">
