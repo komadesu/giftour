@@ -32,7 +32,7 @@ class Update extends React.Component {
 
   toggleFormState() {
     const currentState = this.state.formState
-    const nextState = !currentState
+    const nextFormState = !currentState
 
     this.setState({
       formState: nextFormState
