@@ -6,7 +6,7 @@ import { NavHashLink } from "react-router-hash-link";
 import Gift from "./Gift";
 import Footer from "./Footer";
 import { readGifts } from "../actions/gifts";
-import { readPosts } from "../actions/posts";
+import { readArchives } from "../actions/archives";
 import { readBookmarks } from "../actions/bookmarks";
 import { readUser } from "../actions/user";
 
@@ -32,7 +32,7 @@ class MyPage extends React.Component {
   componentDidMount() {
     const userId = 2;
     this.props.readGifts();
-    this.props.readPosts(userId);
+    this.props.readArchives(userId);
     this.props.readBookmarks(userId);
     this.props.readUser();
 
@@ -111,16 +111,16 @@ class MyPage extends React.Component {
             <div className="gifts">
               <Gift
                 gift={this.props.gifts[1]}
-                posts={this.props.posts}
+                archives={this.props.archives}
                 bookmarks={this.props.bookmarks}
               />
               <Gift
                 gift={this.props.gifts[2]}
-                posts={this.props.posts}
+                archives={this.props.archives}
                 bookmarks={this.props.bookmarks}
               />
               <div className="more">
-                <Link className="more-btn" to="#">
+                <Link className="more-btn" to="/mypage/archives">
                   +more
                 </Link>
               </div>
@@ -132,16 +132,16 @@ class MyPage extends React.Component {
             <div className="gifts">
               <Gift
                 gift={this.props.bookmarks[0]}
-                posts={this.props.posts}
+                archives={this.props.archives}
                 bookmarks={this.props.bookmarks}
               />
               <Gift
                 gift={this.props.bookmarks[1]}
-                posts={this.props.posts}
+                archives={this.props.archives}
                 bookmarks={this.props.bookmarks}
               />
               <div className="more">
-                <Link className="more-btn" to="#">
+                <Link className="more-btn" to="/mypage/bookmarks">
                   +more
                 </Link>
               </div>
@@ -152,7 +152,6 @@ class MyPage extends React.Component {
             <h4 className="title">Settings</h4>
 
             <div className="user-infos-wrapper">
-
               <div className={formState ? "user-infos" : "user-infos display"}>
                 <div className="user-info name">
                   <span className="label">Name</span>
@@ -220,15 +219,31 @@ class MyPage extends React.Component {
                       onChange={this.onChangeGender}
                     />
                     <label htmlFor="other">Other</label>
-                    </div>
+                  </div>
                 </div>
                 <div className="user-info age">
-                  <label htmlFor="form-age" className="label">Age</label>
-                  <input type="number" id="form-age" className="content" value={this.state.age} onChange={this.onChangeAge} />
+                  <label htmlFor="form-age" className="label">
+                    Age
+                  </label>
+                  <input
+                    type="number"
+                    id="form-age"
+                    className="content"
+                    value={this.state.age}
+                    onChange={this.onChangeAge}
+                  />
                 </div>
                 <div className="user-info email">
-                  <label htmlFor="form-email" className="label">Email</label>
-                  <input type="email" id="form-email" className="content text-truncate" value={this.state.email} onChange={this.onChangeEmail} />
+                  <label htmlFor="form-email" className="label">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="form-email"
+                    className="content text-truncate"
+                    value={this.state.email}
+                    onChange={this.onChangeEmail}
+                  />
                 </div>
                 <div className="btn-wrapper">
                   <input
@@ -257,9 +272,9 @@ class MyPage extends React.Component {
 
 const mapStateToProps = (state) => ({
   gifts: state.gifts,
-  posts: state.posts,
+  archives: state.archives,
   bookmarks: state.bookmarks,
   user: state.user,
 });
-const mapDispatchToProps = { readGifts, readPosts, readBookmarks, readUser };
+const mapDispatchToProps = { readGifts, readArchives, readBookmarks, readUser };
 export default connect(mapStateToProps, mapDispatchToProps)(MyPage);
