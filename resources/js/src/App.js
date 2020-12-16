@@ -12,6 +12,8 @@ import Header from "./components/Header";
 import Index from "./components/Index";
 import Timeline from "./components/Timeline";
 import MyPage from "./components/MyPage";
+import Archives from "./components/Archives";
+import Bookmarks from "./components/Bookmarks";
 import Post from "./components/Post";
 import About from "./components/About";
 import Login from "./components/Login";
@@ -32,6 +34,8 @@ const App = () => {
           <Route exact path="/" component={Index} />
           <Route exact path="/timeline" component={Timeline} />
           <Route exact path="/mypage" component={MyPage} />
+          <Route exact path="/mypage/archives" component={Archives} />
+          <Route exact path="/mypage/bookmarks" component={Bookmarks} />
           <Route exact path="/post" component={Post} />
           <Route exact path="/about" component={About} />
           <Route exact path="/login" component={Login} />

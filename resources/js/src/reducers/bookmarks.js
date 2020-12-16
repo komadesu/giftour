@@ -3,7 +3,7 @@ import { READ_BOOKMARKS } from "../actions/bookmarks";
 const defaultBookmarks = [
   {
     id: 1,
-    name: "香水",
+    name: "香水(bookmarks)",
     price: 4000,
     brand: "shiro",
     imageFileName: "preview-bg.png",
@@ -17,7 +17,7 @@ const defaultBookmarks = [
   },
   {
     id: 3,
-    name: "アイシャドウパレット",
+    name: "アイシャドウパレット(bookmarks)",
     price: 12000,
     brand: "Dior",
     imageFileName: "bg-img.png",
