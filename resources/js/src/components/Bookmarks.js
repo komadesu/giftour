@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 import Gift from "./Gift";
+import { readArchives } from "../actions/archives";
 import { readBookmarks } from "../actions/bookmarks";
 
 class Bookmarks extends React.Component {
@@ -12,6 +13,7 @@ class Bookmarks extends React.Component {
 
   componentDidMount() {
     const userId = 2;
+    this.props.readArchives();
     this.props.readBookmarks(userId);
   }
 
@@ -28,6 +30,7 @@ class Bookmarks extends React.Component {
           {this.props.bookmarks.map(gift => (
             <Gift
               gift={gift}
+              archives={this.props.archives}
               bookmarks={this.props.bookmarks}
               key={gift.id}
             />
@@ -39,7 +42,8 @@ class Bookmarks extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  archives: state.archives,
   bookmarks: state.bookmarks
 });
-const mapDispatchToProps = { readBookmarks };
+const mapDispatchToProps = { readArchives, readBookmarks };
 export default connect(mapStateToProps, mapDispatchToProps)(Bookmarks);
