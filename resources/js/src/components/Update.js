@@ -26,7 +26,6 @@ class Update extends React.Component {
     const { posts } = this.props
     const newPosts = _.mapKeys(posts, 'id')
     const post = newPosts[id] ? newPosts[id] : null
-    console.log(post)
     return post
   }
 
