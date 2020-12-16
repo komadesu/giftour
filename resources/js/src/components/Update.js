@@ -4,7 +4,7 @@ import _ from 'lodash'
 
 import Post from './Post'
 import Form from "./Form";
-import { readPosts } from '../actions/posts'
+import { readArchives } from '../actions/archives'
 import { readUser } from '../actions/user'
 
 class Update extends React.Component {
@@ -23,9 +23,9 @@ class Update extends React.Component {
 
   readPost() {
     const { id } = this.props.match.params
-    const { posts } = this.props
-    const newPosts = _.mapKeys(posts, 'id')
-    const post = newPosts[id] ? newPosts[id] : null
+    const { archives } = this.props
+    const newArchives = _.mapKeys(archives, 'id')
+    const post = newArchives[id] ? newArchives[id] : null
     return post
   }
 
@@ -50,9 +50,9 @@ class Update extends React.Component {
 
 
 const mapStateToProps = state => ({
-  posts: state.posts,
+  archives: state.archives,
   user: state.user
 })
-const mapDispatchToProps = { readPosts, readUser }
+const mapDispatchToProps = { readArchives, readUser }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Update)
