@@ -41,7 +41,6 @@ class Update extends React.Component {
   render() {
     return (
       <div className="update">
-        hello
         <Post formState={this.state.formState} toggleFormState={this.toggleFormState.bind()} />
         <Form gift={this.state.gift} formState={this.state.formState} />
       </div>
