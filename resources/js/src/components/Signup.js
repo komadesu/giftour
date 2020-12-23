@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 import BgTemplate from "./BgTemplate";
 import { createUser } from "../actions/auth";
+import { readUser } from "../actions/user";
 
 class Signup extends React.Component {
   constructor(props) {
@@ -48,11 +49,14 @@ class Signup extends React.Component {
   onChangeConfirmPassword(e) {
     this.setState({ confirmPassword: e.target.value });
   }
-  handleSubmit(e) {
+  async handleSubmit(e) {
     e.preventDefault()
-    const { createUser } = this.props
+    const { createUser, readUser } = this.props;
     const { name, gender, age, email, password, confirmPassword } = this.state
-    createUser(name, gender, age, email, password, confirmPassword)
+    await createUser(name, gender, age, email, password, confirmPassword)
+
+    const { accessToken } = this.props;
+    readUser(accessToken);
   }
 
   goToNextForm() {
@@ -192,5 +196,8 @@ class Signup extends React.Component {
   }
 }
 
-const mapDispatchToProps = { createUser };
-export default connect(null, mapDispatchToProps)(Signup);
+const mapStateToProps = state => ({
+  accessToken: state.auth.access_token
+});
+const mapDispatchToProps = { createUser, readUser };
+export default connect(mapStateToProps, mapDispatchToProps)(Signup);
