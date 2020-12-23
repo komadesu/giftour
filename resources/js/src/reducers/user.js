@@ -1,11 +1,12 @@
 import { READ_USER } from "../actions/user";
 
 const defaultUser = {
-  id: 1,
+  id: 2,
   name: "Taro",
   age: 20,
   gender: "male",
-  email: "xxx@xxx.com"
+  email: "xxx@xxx.com",
+  isLoggedIn: true
 };
 
 export default (user = defaultUser, action) => {
