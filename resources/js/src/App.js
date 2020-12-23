@@ -5,9 +5,9 @@ import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 
-
 import reducer from "./reducers";
 
+import Auth from "./components/Auth";
 import Header from "./components/Header";
 import Index from "./components/Index";
 import Timeline from "./components/Timeline";
@@ -34,14 +34,18 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={Index} />
           <Route exact path="/timeline" component={Timeline} />
-          <Route exact path="/mypage" component={MyPage} />
-          <Route exact path="/new" component={New} />
-          <Route path="/update/:id" component={Update} />
-          <Route exact path="/mypage/archives" component={Archives} />
-          <Route exact path="/mypage/bookmarks" component={Bookmarks} />
           <Route exact path="/about" component={About} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
+          <Auth>
+            <Switch>
+              <Route exact path="/mypage" component={MyPage} />
+              <Route exact path="/new" component={New} />
+              <Route path="/update/:id" component={Update} />
+              <Route exact path="/mypage/archives" component={Archives} />
+              <Route exact path="/mypage/bookmarks" component={Bookmarks} />
+            </Switch>
+          </Auth>
         </Switch>
       </BrowserRouter>
     </Provider>
