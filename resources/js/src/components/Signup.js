@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 import BgTemplate from "./BgTemplate";
+import { createUser } from "../actions/auth";
 
 class Signup extends React.Component {
   constructor(props) {
@@ -15,15 +17,16 @@ class Signup extends React.Component {
     this.onChangeEmail = this.onChangeEmail.bind(this);
     this.onChangePassword = this.onChangePassword.bind(this);
     this.onChangeConfirmPassword = this.onChangeConfirmPassword.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
 
     this.state = {
       isFirstOrSecond: true,
-      name: '',
-      gender: '',
-      age: '',
-      email: '',
-      password: '',
-      confirmPassword: ''
+      name: "",
+      gender: "",
+      age: "",
+      email: "",
+      password: "",
+      confirmPassword: ""
     };
   }
 
@@ -45,6 +48,11 @@ class Signup extends React.Component {
   onChangeConfirmPassword(e) {
     this.setState({ confirmPassword: e.target.value });
   }
+  handleSubmit() {
+    const { createUser } = this.props
+    const { name, gender, age, email, password, confirmPassword } = this.state
+    createUser(name, gender, age, email, password, confirmPassword)
+  }
 
   goToNextForm() {
     this.setState({
@@ -63,7 +71,7 @@ class Signup extends React.Component {
       <div className="signup">
         <div className="signup__area">
           <h3 className="signup__title">Signup</h3>
-          <form className="signup__form">
+          <form className="signup__form" onSubmit={this.handleSubmit}>
             <div
               className={
                 this.state.isFirstOrSecond
@@ -160,7 +168,7 @@ class Signup extends React.Component {
               <div className="signup__btn-wrapper">
                 <input
                   className="btn signup-btn"
-                  type="button"
+                  type="submit"
                   value="SIGN UP"
                 />
               </div>
@@ -183,4 +191,5 @@ class Signup extends React.Component {
   }
 }
 
-export default Signup;
+const mapDispatchToProps = { createUser };
+export default connect(null, mapDispatchToProps)(Signup);
