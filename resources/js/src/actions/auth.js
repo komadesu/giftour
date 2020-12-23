@@ -18,7 +18,7 @@ export const createUser = (
     age,
     email,
     password,
-    confirmPassword,
+    password_confirm: confirmPassword,
     grant_type: process.env.MIX_GRANT_TYPE,
     client_id: process.env.MIX_CLIENT_ID,
     client_secret: process.env.MIX_CLIENT_SECRET,

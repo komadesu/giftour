@@ -48,7 +48,8 @@ class Signup extends React.Component {
   onChangeConfirmPassword(e) {
     this.setState({ confirmPassword: e.target.value });
   }
-  handleSubmit() {
+  handleSubmit(e) {
+    e.preventDefault()
     const { createUser } = this.props
     const { name, gender, age, email, password, confirmPassword } = this.state
     createUser(name, gender, age, email, password, confirmPassword)
