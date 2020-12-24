@@ -12,7 +12,7 @@ class Timeline extends React.Component {
   componentDidMount() {
     const { userId, accessToken } = this.props
 
-    console.log(accessToken)
+    console.log(userId, accessToken)
     this.props.readGifts();
     this.props.readBookmarks(userId, accessToken);
   }
