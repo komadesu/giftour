@@ -9,20 +9,19 @@ import { readGifts } from "../actions/gifts";
 import { readBookmarks } from "../actions/bookmarks";
 
 class Timeline extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
-    const userId = 2;
+    const { userId, accessToken } = this.props
+
     this.props.readGifts();
-    this.props.readBookmarks(userId);
+    this.props.readBookmarks(userId, accessToken);
   }
 
   render() {
+    const { userId, accessToken, readGifts, readBookmarks } = this.props
+
     return (
       <div className="timeline">
-        <Search />
+        <Search userId={userId} accessToken={accessToken} readGifts={readGifts} readBookmarks={readBookmarks} />
         <div className="gifts">
           {_.map(this.props.gifts, gift => (
             <Gift gift={gift} bookmarks={this.props.bookmarks} key={gift.id} />
@@ -35,6 +34,8 @@ class Timeline extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  accessToken: state.auth.access_token,
+  userId: state.user.id,
   gifts: state.gifts,
   bookmarks: state.bookmarks
 });
