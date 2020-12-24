@@ -373,8 +373,8 @@ class Form extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = state => ({
   userId: state.user.id
-}
+})
 const mapDispatchToProps = { createGift }
 export default connect(mapStateToProps, mapDispatchToProps)(Form);

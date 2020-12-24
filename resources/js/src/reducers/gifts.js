@@ -54,7 +54,7 @@ export default (gifts = defaultGifts, action) => {
       return _.mapKeys(gifts, "id");
     // return _.mapKeys(action.response.data, "id");
     case CREATE_GIFT:
-      return;
+      return _.mapKeys(gifts, "id");
     default:
       return gifts;
   }
