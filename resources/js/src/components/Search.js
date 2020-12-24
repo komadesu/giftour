@@ -11,6 +11,8 @@ class Search extends Component {
     this.onChangeRelationship = this.onChangeRelationship.bind(this);
     this.onChangeSituation = this.onChangeSituation.bind(this);
 
+    this.handleSearch = this.handleSearch.bind(this)
+
     this.state = {
       opponentGender: '',
       opponentAge: '',
@@ -49,6 +51,14 @@ class Search extends Component {
     console.log(e.target.value)
   }
 
+  async handleSearch(e) {
+    e.preventDefault()
+
+    const { userId } = this.props
+    await Promise.all([this.props.readGifts(), this.props.readBookmarks(userId)])
+
+    console.log('read gifts and read bookmarks!')
+  }
 
   render() {
     return (
@@ -120,7 +130,7 @@ class Search extends Component {
             </select>
           </div>
           <div className="btn-wrapper">
-            <input className="btn btn__reverse" type="button" value="Seach" />
+            <input className="btn btn__reverse" type="button" value="Seach" onClick={this.handleSearch} />
           </div>
         </form>
       </div>

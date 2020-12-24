@@ -18,7 +18,7 @@ class Timeline extends React.Component {
   render() {
     return (
       <div className="timeline">
-        <Search />
+        <Search userId={this.props.userId} readGifts={this.props.readGifts} readBookmarks={this.props.readBookmarks} />
         <div className="gifts">
           {_.map(this.props.gifts, gift => (
             <Gift gift={gift} bookmarks={this.props.bookmarks} key={gift.id} />
@@ -31,6 +31,7 @@ class Timeline extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  userId: state.user.id,
   gifts: state.gifts,
   bookmarks: state.bookmarks
 });
