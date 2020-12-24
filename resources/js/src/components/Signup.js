@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 import BgTemplate from "./BgTemplate";
@@ -56,7 +56,9 @@ class Signup extends React.Component {
     await createUser(name, gender, age, email, password, confirmPassword)
 
     const { accessToken } = this.props;
-    readUser(accessToken);
+    await readUser(accessToken);
+
+    this.props.history.push("/mypage");
   }
 
   goToNextForm() {
@@ -200,4 +202,4 @@ const mapStateToProps = state => ({
   accessToken: state.auth.access_token
 });
 const mapDispatchToProps = { createUser, readUser };
-export default connect(mapStateToProps, mapDispatchToProps)(Signup);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Signup));
