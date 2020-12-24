@@ -12,15 +12,16 @@ class Timeline extends React.Component {
   componentDidMount() {
     const { userId, accessToken } = this.props
 
-    console.log(userId, accessToken)
     this.props.readGifts();
     this.props.readBookmarks(userId, accessToken);
   }
 
   render() {
+    const { userId, accessToken, readGifts, readBookmarks } = this.props
+
     return (
       <div className="timeline">
-        <Search userId={this.props.userId} readGifts={this.props.readGifts} readBookmarks={this.props.readBookmarks} />
+        <Search userId={userId} accessToken={accessToken} readGifts={readGifts} readBookmarks={readBookmarks} />
         <div className="gifts">
           {_.map(this.props.gifts, gift => (
             <Gift gift={gift} bookmarks={this.props.bookmarks} key={gift.id} />

@@ -54,8 +54,12 @@ class Search extends Component {
   async handleSearch(e) {
     e.preventDefault()
 
-    const { userId } = this.props
-    await Promise.all([this.props.readGifts(), this.props.readBookmarks(userId)])
+    const { opponentGender, opponentAge, price, relationship, situation } = this.state
+    const { userId, accessToken } = this.props
+    await Promise.all([
+      this.props.readGifts(opponentGender, opponentAge, price, relationship, situation),
+      this.props.readBookmarks(userId, accessToken)
+    ])
 
     console.log('read gifts and read bookmarks!')
   }

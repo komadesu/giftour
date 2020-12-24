@@ -6,7 +6,7 @@ export const READ_BOOKMARKS = "READ_BOOKMARKS";
 
 export const readBookmarks = (userId, accessToken) => async dispatch => {
   const response = await axios.get(
-    `${ROOT_URL}api/bookmarks/8`,
+    `${ROOT_URL}api/bookmarks/${userId}`,
     {
       headers: {
         ContentType: 'application/json',

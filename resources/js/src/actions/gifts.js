@@ -4,8 +4,44 @@ import { ROOT_URL } from "./index";
 
 export const READ_GIFTS = "READ_GIFTS";
 
-export const readGifts = () => async dispatch => {
-  const response = await axios.get(`${ROOT_URL}api/gifts`)
+export const readGifts = (
+  opponentGender,
+  opponentAge,
+  price,
+  relationship,
+  situation
+) => async dispatch => {
+  const searchParams = new URLSearchParams()
+  if (opponentGender) {
+    switch (opponentGender) {
+      case 1:
+        opponentGender = 'male'
+      break
+      case 2:
+        opponentGender = 'female'
+      break
+      case 3:
+        opponentGender = 'others'
+      break
+    }
+    searchParams.append('opponent_gender', opponentGender)
+  }
+  if (opponentAge) {
+    searchParams.append('opponent_age', opponentAge)
+  }
+  if (price) {
+    searchParams.append('price', price)
+  }
+  if (relationship) {
+    searchParams.append('relationship', relationship)
+  }
+  if (situation) {
+    searchParams.append('situation', situation)
+  }
+  const searchParamString = searchParams.toString()
+  console.log(searchParamString)
+
+  const response = await axios.get(`${ROOT_URL}api/gifts?${searchParamString}`)
 
   dispatch({ type: READ_GIFTS, response });
 }
