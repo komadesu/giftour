@@ -32,7 +32,7 @@ class Login extends React.Component {
     await judgeUser(email, password)
 
     const { accessToken } = this.props
-    readUser(accessToken)
+    await readUser(accessToken)
   }
 
   render() {
