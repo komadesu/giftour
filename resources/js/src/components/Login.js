@@ -35,6 +35,7 @@ class Login extends React.Component {
     await readUser(accessToken)
 
     this.props.history.push('/mypage')
+    alert("ログインしました！");
   }
 
   render() {
