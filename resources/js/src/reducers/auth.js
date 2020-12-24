@@ -1,4 +1,4 @@
-import { CREATE_USER, JUDGE_USER } from "../actions/auth";
+import { CREATE_USER, JUDGE_USER, DELETE_AUTH } from "../actions/auth";
 
 const defaultAuth = {};
 
@@ -8,6 +8,8 @@ export default (auth = defaultAuth, action) => {
       return action.response.data;
     case JUDGE_USER:
       return action.response.data;
+    case DELETE_AUTH:
+      return action.response;
     default:
       return auth;
   }

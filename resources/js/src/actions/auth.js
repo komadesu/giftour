@@ -4,6 +4,7 @@ import { ROOT_URL } from "./index";
 
 export const CREATE_USER = "CREATE_USER";
 export const JUDGE_USER = "JUDGE_USER";
+export const DELETE_AUTH = "DELETE_AUTH";
 
 export const createUser = (
   name,
@@ -44,3 +45,9 @@ export const judgeUser = (
 
   dispatch({ type: JUDGE_USER, response });
 };
+
+export const deleteAuth = () => dispatch => {
+  const response = {}
+
+  dispatch({ type: DELETE_AUTH, response })
+}

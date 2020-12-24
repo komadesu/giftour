@@ -59,6 +59,7 @@ class Signup extends React.Component {
     await readUser(accessToken);
 
     this.props.history.push("/mypage");
+    alert("アカウントが作成されました！");
   }
 
   goToNextForm() {
