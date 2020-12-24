@@ -34,7 +34,6 @@ class MyPage extends React.Component {
     this.props.readGifts();
     this.props.readArchives(userId);
     this.props.readBookmarks(userId);
-    this.props.readUser();
 
     const { gender } = this.props.user
     this.setGenderState(gender)
