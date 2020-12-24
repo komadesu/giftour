@@ -2,7 +2,7 @@ import _ from "lodash";
 
 import { READ_GIFTS } from "../actions/gifts";
 
-const defaultGifts = {}
+const defaultGifts = []
 
 export default (gifts = defaultGifts, action) => {
   switch (action.type) {
