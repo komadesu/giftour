@@ -47,7 +47,5 @@ export const judgeUser = (
 };
 
 export const deleteAuth = () => dispatch => {
-  const response = {}
-
-  dispatch({ type: DELETE_AUTH, response })
+  dispatch({ type: DELETE_AUTH })
 }

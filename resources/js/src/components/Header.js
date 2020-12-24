@@ -47,7 +47,7 @@ class Header extends React.Component {
     return (
       <div className="header">
         <Link className="header__logo header__link" to="/">
-          <img src="../storage/images/giftour-logo1.svg" />
+          <img src="../storage/images/giftour-logo2.png" />
         </Link>
         <div className="header__navs">
           <Link className="nav header__link" to="/timeline">

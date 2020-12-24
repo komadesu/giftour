@@ -17,7 +17,5 @@ export const readUser = (accessToken) => async dispatch => {
 }
 
 export const deleteUser = () => dispatch => {
-  const response = {};
-
-  dispatch({ type: DELETE_USER, response });
+  dispatch({ type: DELETE_USER });
 };

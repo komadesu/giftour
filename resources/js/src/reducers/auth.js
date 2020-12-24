@@ -9,7 +9,7 @@ export default (auth = defaultAuth, action) => {
     case JUDGE_USER:
       return action.response.data;
     case DELETE_AUTH:
-      return action.response;
+      return {};
     default:
       return auth;
   }

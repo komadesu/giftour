@@ -7,7 +7,7 @@ export default (user = defaultUser, action) => {
     case READ_USER:
       return action.response.data;
     case DELETE_USER:
-      return action.response;
+      return {};
     default:
       return user;
   }
