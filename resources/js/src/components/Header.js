@@ -24,6 +24,9 @@ const Header = () => {
       <Link className="header__login header__link" to="/login">
         Login
       </Link>
+      <Link className="header__login header__link" to="/timeline">
+        Logout
+      </Link>
     </div>
   );
 };
