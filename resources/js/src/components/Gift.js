@@ -63,13 +63,22 @@ class Gift extends Component {
     }
   }
 
+  judgeOpponentGender(genderId) {
+    let opponentGender
+    if (genderId === 1) opponentGender = 'male'
+    if (genderId === 2) opponentGender = 'female'
+    if (genderId === 3) opponentGender = 'others'
+    return opponentGender
+  }
+
   render() {
     const { gift, archives } = this.props;
+
     return (
       <div className="gift">
 
         <div className="additional-info">
-          <div className="date">{gift.createdAt}</div>
+          <div className="date">{gift.created_at}</div>
           { archives && this.judgeOwner(gift.id) ? <Edit giftId={gift.id} /> : null }
         </div>
 
@@ -78,24 +87,24 @@ class Gift extends Component {
           <h5 className="name">{gift.name}</h5>
           <div className="box-bottom">
             <div className="img-wrapper">
-              <img src={`../storage/images/${gift.imageFileName}`} />
+              <img src={`../storage/images/${gift.image_file_name}`} />
             </div>
 
             <div className="details">
               <div className="main-info">
                 <div className="brand">Brand&nbsp;:&nbsp;{gift.brand}</div>
                 <div className="opponent">
-                  For&nbsp;{gift.opponentGender},&nbsp;({gift.opponentAge})
+                  For&nbsp;{this.judgeOpponentGender(gift.opponent_gender_id)},&nbsp;({gift.opponent_age})
                 </div>
               </div>
 
               <div className="sub-info">
                 <div className="post-flag">
-                  {this.handlePostFlag(gift.postFlag)}
+                  {this.handlePostFlag(gift.post_flag)}
                 </div>
-                <div className="category">{gift.category}</div>
-                <div className="situation">{gift.situation}</div>
-                <div className="relationship">{gift.relationship}</div>
+                <div className="category">{gift.category.category}</div>
+                <div className="situation">{gift.situation.situation}</div>
+                <div className="relationship">{gift.relationship.relationship}</div>
                 <div className="price">{this.handlePrice(gift.price)}</div>
               </div>
             </div>

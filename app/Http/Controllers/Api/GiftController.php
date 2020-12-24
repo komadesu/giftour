@@ -173,7 +173,7 @@ class GiftController extends Controller
         })->with(['category', 'relationship', 'situation'])
           ->get();
 
-        return response()->json(['data' => $gifts]);
+        return response()->json($gifts);
     }
 
     /**
@@ -187,7 +187,7 @@ class GiftController extends Controller
         ->with(['category', 'relationship', 'situation'])
         ->get();
 
-      return response()->json(['data' => $gifts]);
+      return response()->json($gifts);
     }
 
     /**
