@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 import BgTemplate from "./BgTemplate";
@@ -32,7 +32,9 @@ class Login extends React.Component {
     await judgeUser(email, password)
 
     const { accessToken } = this.props
-    readUser(accessToken)
+    await readUser(accessToken)
+
+    this.props.history.push('/mypage')
   }
 
   render() {
@@ -57,6 +59,7 @@ class Login extends React.Component {
                 className="input"
                 type="password"
                 id="pw"
+                autoComplete="current-password"
                 value={this.state.password}
                 onChange={this.onChangePassword}
               />
@@ -86,4 +89,4 @@ const mapStateToProps = state => ({
   accessToken: state.auth.access_token
 })
 const mapDispatchToProps = { judgeUser, readUser };
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));
