@@ -73,6 +73,7 @@ class Gift extends Component {
 
   render() {
     const { gift, archives } = this.props;
+    console.log(gift)
 
     return (
       <div className="gift">

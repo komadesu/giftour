@@ -4,10 +4,16 @@ import { ROOT_URL } from "./index"
 
 export const READ_BOOKMARKS = "READ_BOOKMARKS";
 
-// export const readBookmarks = userId => async dispatch => {
-//   const response = await axios.get(`${ROOT_URL}/bookmarks/${userId}`);
-//   dispatch({ type: READ_BOOKMARKS, response });
-// };
-export const readBookmarks = userId => dispatch => {
-  dispatch({ type: READ_BOOKMARKS });
+export const readBookmarks = (userId, accessToken) => async dispatch => {
+  const response = await axios.get(
+    `${ROOT_URL}api/bookmarks/8`,
+    {
+      headers: {
+        ContentType: 'application/json',
+        Authorization: `Bearer ${accessToken}`
+      }
+    }
+  );
+
+  dispatch({ type: READ_BOOKMARKS, response });
 };

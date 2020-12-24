@@ -21,7 +21,7 @@ class BookmarkController extends Controller
         $user = new User;
         $bookmarks = $user->find($user_id)->gifts()->with(['category', 'relationship', 'situation'])->get();
 
-        return response()->json(['data' => $bookmarks]);
+        return response()->json($bookmarks);
     }
 
     /**

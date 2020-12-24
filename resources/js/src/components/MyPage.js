@@ -30,13 +30,17 @@ class MyPage extends React.Component {
   }
 
   componentDidMount() {
-    const userId = 2;
+    const { userId, accessToken } = this.props
+    console.log(userId, accessToken)
+
     this.props.readGifts();
-    this.props.readArchives(userId);
-    this.props.readBookmarks(userId);
+    this.props.readArchives(userId, accessToken);
+    this.props.readBookmarks(userId, accessToken);
 
     const { gender } = this.props.user
     this.setGenderState(gender)
+
+    console.log(this.props.gifts, this.props.bookmarks)
   }
 
   setGenderState(value) {
@@ -74,8 +78,44 @@ class MyPage extends React.Component {
     window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" });
   }
 
+  renderArchives(gifts) {
+    console.log('giftは', gifts)
+    if (Object.keys(gifts).length === 0) {
+      return '投稿がありません'
+    } else {
+      return (
+        <Gift
+          gift={this.props.gifts[1]}
+          archives={this.props.archives}
+          bookmarks={this.props.bookmarks}
+        />
+      )
+    }
+  }
+  renderBookmarks(bookmarks) {
+    console.log('bookmarkは', bookmarks)
+    if (!bookmarks.length) {
+      return 'ブックマークがありません'
+    } else if (bookmarks.length >= 2) {
+      return (
+        <>
+          <Gift
+            gift={this.props.bookmarks[0]}
+            archives={this.props.archives}
+            bookmarks={this.props.bookmarks}
+          />
+          <Gift
+            gift={this.props.bookmarks[1]}
+            archives={this.props.archives}
+            bookmarks={this.props.bookmarks}
+          />
+        </>
+      )
+    }
+  }
+
   render() {
-    const { user } = this.props;
+    const { user, gifts, bookmarks } = this.props;
     const { formState } = this.state;
 
     return (
@@ -108,16 +148,7 @@ class MyPage extends React.Component {
           <div className="area" id="archive">
             <h4 className="title">Archive</h4>
             <div className="gifts">
-              <Gift
-                gift={this.props.gifts[1]}
-                archives={this.props.archives}
-                bookmarks={this.props.bookmarks}
-              />
-              <Gift
-                gift={this.props.gifts[2]}
-                archives={this.props.archives}
-                bookmarks={this.props.bookmarks}
-              />
+              {this.renderArchives(gifts)}
               <div className="more">
                 <Link className="more-btn" to="/mypage/archives">
                   +more
@@ -129,16 +160,7 @@ class MyPage extends React.Component {
           <div className="area" id="saved">
             <h4 className="title">Saved</h4>
             <div className="gifts">
-              <Gift
-                gift={this.props.bookmarks[0]}
-                archives={this.props.archives}
-                bookmarks={this.props.bookmarks}
-              />
-              <Gift
-                gift={this.props.bookmarks[1]}
-                archives={this.props.archives}
-                bookmarks={this.props.bookmarks}
-              />
+              {this.renderBookmarks(bookmarks)}
               <div className="more">
                 <Link className="more-btn" to="/mypage/bookmarks">
                   +more
@@ -270,6 +292,8 @@ class MyPage extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
+  accessToken: state.auth.access_token,
+  userId: state.user.id,
   gifts: state.gifts,
   archives: state.archives,
   bookmarks: state.bookmarks,

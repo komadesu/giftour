@@ -10,9 +10,11 @@ import { readBookmarks } from "../actions/bookmarks";
 
 class Timeline extends React.Component {
   componentDidMount() {
-    const userId = 2;
+    const { userId, accessToken } = this.props
+
+    console.log(accessToken)
     this.props.readGifts();
-    this.props.readBookmarks(userId);
+    this.props.readBookmarks(userId, accessToken);
   }
 
   render() {
@@ -31,6 +33,7 @@ class Timeline extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  accessToken: state.auth.access_token,
   userId: state.user.id,
   gifts: state.gifts,
   bookmarks: state.bookmarks
