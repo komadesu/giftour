@@ -9,10 +9,6 @@ import { readGifts } from "../actions/gifts";
 import { readBookmarks } from "../actions/bookmarks";
 
 class Timeline extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     const userId = 2;
     this.props.readGifts();
