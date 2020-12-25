@@ -39,6 +39,7 @@ class Form extends React.Component {
       category: "",
       price: "",
       situation: "",
+      image: '',
       imageData: ""
     };
   }
@@ -170,6 +171,9 @@ class Form extends React.Component {
     if (!files.length) {
       this.setState({ imageData: null });
     }
+
+    this.setState({ image: file })
+
     this.previewFile(file);
   }
   previewFile(file) {
@@ -182,17 +186,17 @@ class Form extends React.Component {
   }
 
   submitGift() {
-    const { name, price, brand, imageData, category, postFlag, opponentGender, opponentAge, relationship, situation, userID } = this.state
+    const { name, price, brand, image, category, postFlag, opponentGender, opponentAge, relationship, situation, userID } = this.state
     const { userId, accessToken, createGift } = this.props
 
-    createGift( name, price, brand, imageData, category, postFlag, opponentGender, opponentAge, relationship, situation, userId, accessToken);
+    createGift(name, price, brand, image, category, postFlag, opponentGender, opponentAge, relationship, situation, userId, accessToken);
   }
 
   render() {
     const { gift } = this.props;
 
     return (
-      <form className="form">
+      <form className="form" encType="multipart/form-data">
         <div className="form__grid-container">
           <div className="title input">
             <label htmlFor="title">あげたもの：</label>

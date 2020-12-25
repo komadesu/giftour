@@ -52,7 +52,7 @@ export const createGift = (
   name,
   price,
   brand,
-  imageData,
+  image,
   category,
   postFlag,
   opponentGender,
@@ -62,32 +62,31 @@ export const createGift = (
   userId,
   accessToken
 ) => async dispatch => {
+
+  const data = new FormData();
+  data.append('name', name ? name : '');
+  data.append('price', price ? price : '');
+  data.append('brand', brand ? brand : '');
+  data.append('image', image ? image : '')
+  data.append('category', category ? category : '');
+  data.append('post_flag', postFlag ? postFlag : '');
+  data.append('opponent_gender', opponentGender ? opponentGender : '');
+  data.append('opponent_age', opponentAge ? opponentAge : '');
+  data.append('relationship', relationship ? relationship : '');
+  data.append('situation', situation ? situation : '');
+  data.append('user', userId ? userId : '');
+
   const response = await axios.post(
     `${ROOT_URL}api/gifts`,
-    {
-      name,
-      price,
-      brand,
-      image: imageData,
-      category,
-      post_flag: postFlag,
-      opponent_gender: opponentGender,
-      opponent_age: opponentAge,
-      relationship,
-      situation,
-      user: userId
-    },
+    data,
     {
       headers: {
-        ContentType: 'application/json',
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${accessToken}`
       }
     }
   );
 
-  console.log(response)
-
   dispatch({ type: CREATE_GIFT, response });
 };
-
 
