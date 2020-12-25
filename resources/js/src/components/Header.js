@@ -25,7 +25,7 @@ class Header extends React.Component {
 
   judgeUserState() {
     const { user } = this.props;
-    if (0 !== Object.keys(user).length) {
+    if (Object.keys(user).length) {
       this.setState({
         isLoggedIn: true
       });
