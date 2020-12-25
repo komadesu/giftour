@@ -26,6 +26,8 @@ class Form extends React.Component {
     this.onFileChange = this.onFileChange.bind(this);
     this.previewFile = this.previewFile.bind(this);
 
+    this.submitGift = this.submitGift.bind(this);
+
     const gift = props.gift;
     this.state = {
       postFlag: "",
@@ -141,7 +143,7 @@ class Form extends React.Component {
     this.setState({ brand: e.target.value });
   }
   onChangeOpponentAge(e) {
-    this.setState({ age: e.target.value });
+    this.setState({ opponentAge: e.target.value });
   }
   onChangeRelationship(e) {
     this.setState({ relationship: e.target.value });
@@ -180,22 +182,10 @@ class Form extends React.Component {
   }
 
   submitGift() {
-    const { postFlag, name, brand, age, relationship, opponentGender, category, price, situation, imageData } = this.state
-    const { createGift, userId } = this.props
+    const { name, price, brand, imageData, category, postFlag, opponentGender, opponentAge, relationship, situation, userID } = this.state
+    const { userId, accessToken, createGift } = this.props
 
-    createGift(
-      postFlag,
-      name,
-      brand,
-      age,
-      relationship,
-      opponentGender,
-      category,
-      price,
-      situation,
-      imageData,
-      userId
-    );
+    createGift( name, price, brand, imageData, category, postFlag, opponentGender, opponentAge, relationship, situation, userId, accessToken);
   }
 
   render() {
@@ -374,6 +364,7 @@ class Form extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  accessToken: state.auth.access_token,
   userId: state.user.id
 })
 const mapDispatchToProps = { createGift }

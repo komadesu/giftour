@@ -56,24 +56,36 @@ export const createGift = (
   category,
   postFlag,
   opponentGender,
-  age,
+  opponentAge,
   relationship,
   situation,
-  userId
+  userId,
+  accessToken
 ) => async dispatch => {
-  const response = await axios.post(`${ROOT_URL}api/gifts`, {
-    name,
-    price,
-    brand,
-    image: imageData,
-    category,
-    post_flag: postFlag,
-    opponent_gender: opponentGender,
-    opponent_age: age,
-    relationship,
-    situation,
-    user: userId
-  });
+  const response = await axios.post(
+    `${ROOT_URL}api/gifts`,
+    {
+      name,
+      price,
+      brand,
+      image: imageData,
+      category,
+      post_flag: postFlag,
+      opponent_gender: opponentGender,
+      opponent_age: opponentAge,
+      relationship,
+      situation,
+      user: userId
+    },
+    {
+      headers: {
+        ContentType: 'application/json',
+        Authorization: `Bearer ${accessToken}`
+      }
+    }
+  );
+
+  console.log(response)
 
   dispatch({ type: CREATE_GIFT, response });
 };
