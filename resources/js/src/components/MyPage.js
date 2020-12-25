@@ -5,7 +5,6 @@ import { NavHashLink } from "react-router-hash-link";
 
 import Gift from "./Gift";
 import Footer from "./Footer";
-import { readGifts } from "../actions/gifts";
 import { readArchives } from "../actions/archives";
 import { readBookmarks } from "../actions/bookmarks";
 import { readUser } from "../actions/user";
@@ -31,16 +30,12 @@ class MyPage extends React.Component {
 
   componentDidMount() {
     const { userId, accessToken } = this.props
-    console.log(userId, accessToken)
 
-    this.props.readGifts();
     this.props.readArchives(userId, accessToken);
     this.props.readBookmarks(userId, accessToken);
 
     const { gender } = this.props.user
     this.setGenderState(gender)
-
-    console.log(this.props.gifts, this.props.bookmarks)
   }
 
   setGenderState(value) {
@@ -78,24 +73,41 @@ class MyPage extends React.Component {
     window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" });
   }
 
-  renderArchives(gifts) {
-    console.log('giftは', gifts)
-    if (Object.keys(gifts).length === 0) {
+  renderArchives(archives) {
+    if (!archives.length) {
       return '投稿がありません'
-    } else {
-      return (
+    } else if (archives.length === 1) {
         <Gift
-          gift={this.props.gifts[1]}
+          gift={this.props.archives[0]}
           archives={this.props.archives}
           bookmarks={this.props.bookmarks}
         />
+    } else if (archives.length >= 2) {
+      return (
+        <>
+          <Gift
+            gift={this.props.archives[0]}
+            archives={this.props.archives}
+            bookmarks={this.props.bookmarks}
+          />
+          <Gift
+            gift={this.props.archives[1]}
+            archives={this.props.archives}
+            bookmarks={this.props.bookmarks}
+          />
+        </>
       )
     }
   }
   renderBookmarks(bookmarks) {
-    console.log('bookmarkは', bookmarks)
     if (!bookmarks.length) {
       return 'ブックマークがありません'
+    } else if (bookmarks.length === 1) {
+      <Gift
+        gift={this.props.bookmarks[0]}
+        archives={this.props.archives}
+        bookmarks={this.props.bookmarks}
+      />
     } else if (bookmarks.length >= 2) {
       return (
         <>
@@ -115,7 +127,7 @@ class MyPage extends React.Component {
   }
 
   render() {
-    const { user, gifts, bookmarks } = this.props;
+    const { user, archives, bookmarks } = this.props;
     const { formState } = this.state;
 
     return (
@@ -148,7 +160,7 @@ class MyPage extends React.Component {
           <div className="area" id="archive">
             <h4 className="title">Archive</h4>
             <div className="gifts">
-              {this.renderArchives(gifts)}
+              {this.renderArchives(archives)}
               <div className="more">
                 <Link className="more-btn" to="/mypage/archives">
                   +more
@@ -294,10 +306,9 @@ class MyPage extends React.Component {
 const mapStateToProps = (state) => ({
   accessToken: state.auth.access_token,
   userId: state.user.id,
-  gifts: state.gifts,
   archives: state.archives,
   bookmarks: state.bookmarks,
   user: state.user,
 });
-const mapDispatchToProps = { readGifts, readArchives, readBookmarks, readUser };
+const mapDispatchToProps = { readArchives, readBookmarks, readUser };
 export default connect(mapStateToProps, mapDispatchToProps)(MyPage);
