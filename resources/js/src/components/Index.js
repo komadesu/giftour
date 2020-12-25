@@ -5,8 +5,10 @@ import Search from "./Search";
 import Footer from "./Footer";
 
 const Index = () => {
+
   return (
     <div className="index">
+
       <h2 className="index__app-name">GIFTOUR</h2>
       <div className="index__hero-wrapper">
         <img
@@ -22,7 +24,9 @@ const Index = () => {
           alt="hero"
         />
       </div>
-      <Search />
+
+      <Search fromIndex={true} />
+
       <div className="index__categories">
         <div className="category price">
           <div className="words">
@@ -59,22 +63,22 @@ const Index = () => {
           </div>
 
           <div className="choices">
-            <Link className="choice" to="/timeline?age=1">
+            <Link className="choice" to="/timeline?opponentAge=1">
               <span>〜19</span>
             </Link>
-            <Link className="choice" to="/timeline?age=2">
+            <Link className="choice" to="/timeline?opponentAge=2">
               <span>20〜29</span>
             </Link>
-            <Link className="choice" to="/timeline?age=3">
+            <Link className="choice" to="/timeline?opponentAge=3">
               <span>30〜39</span>
             </Link>
-            <Link className="choice" to="/timeline?age=4">
+            <Link className="choice" to="/timeline?opponentAge=4">
               <span>40〜49</span>
             </Link>
-            <Link className="choice" to="/timeline?age=5">
+            <Link className="choice" to="/timeline?opponentAge=5">
               <span>50〜59</span>
             </Link>
-            <Link className="choice" to="/timeline?age=6">
+            <Link className="choice" to="/timeline?opponentAge=6">
               <span>60〜</span>
             </Link>
           </div>
@@ -88,4 +92,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Index

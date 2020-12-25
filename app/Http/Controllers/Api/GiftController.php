@@ -34,7 +34,7 @@ class GiftController extends Controller
         if ($opponent_gender === 'female') {
           $opponent_gender_id = 2;
         }
-        if ($opponent_gender === 'other') {
+        if ($opponent_gender === 'others') {
           $opponent_gender_id = 3;
         }
 
