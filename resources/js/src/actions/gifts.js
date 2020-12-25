@@ -16,13 +16,13 @@ export const readGifts = (
   const searchParams = new URLSearchParams()
   if (opponentGender) {
     switch (opponentGender) {
-      case 1:
+      case '1':
         opponentGender = 'male'
       break
-      case 2:
+      case '2':
         opponentGender = 'female'
       break
-      case 3:
+      case '3':
         opponentGender = 'others'
       break
     }
@@ -41,7 +41,6 @@ export const readGifts = (
     searchParams.append('situation', situation)
   }
   const searchParamString = searchParams.toString()
-  console.log(searchParamString)
 
   const response = await axios.get(`${ROOT_URL}api/gifts?${searchParamString}`)
 

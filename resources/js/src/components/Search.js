@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from 'react-router-dom'
 
 class Search extends Component {
   constructor(props) {
@@ -24,9 +25,9 @@ class Search extends Component {
 
   setOpponentGenderState(value) {
     let opponentGenderState
-    if (value === 'male') opponentGenderState = 1
-    if (value === 'female') opponentGenderState = 2
-    if (value === 'others') opponentGenderState = 3
+    if (value === 'male') opponentGenderState = '1'
+    if (value === 'female') opponentGenderState = '2'
+    if (value === 'others') opponentGenderState = '3'
     this.setState({ opponentGender: opponentGenderState })
   }
 
@@ -36,32 +37,47 @@ class Search extends Component {
   }
   onChangeOpponentAge(e) {
     this.setState({ opponentAge: e.target.value })
-    console.log(e.target.value)
   }
   onChangePrice(e) {
     this.setState({ price: e.target.value })
-    console.log(e.target.value)
   }
   onChangeRelationship(e) {
     this.setState({ relationship: e.target.value })
-    console.log(e.target.value)
   }
   onChangeSituation(e) {
     this.setState({ situation: e.target.value })
-    console.log(e.target.value)
   }
 
   async handleSearch(e) {
     e.preventDefault()
 
     const { opponentGender, opponentAge, price, relationship, situation } = this.state
-    const { userId, accessToken } = this.props
-    await Promise.all([
-      this.props.readGifts(opponentGender, opponentAge, price, relationship, situation),
-      this.props.readBookmarks(userId, accessToken)
-    ])
 
-    console.log('read gifts and read bookmarks!')
+    if (this.props.fromIndex) {
+      const searchParams = new URLSearchParams()
+
+      if (opponentGender) {
+        searchParams.append('opponentGender', opponentGender)
+      }
+      if (opponentAge) {
+        searchParams.append('opponentAge', opponentAge)
+      }
+      if (price) {
+        searchParams.append('price', price)
+      }
+      if (relationship) {
+        searchParams.append('relationship', relationship)
+      }
+      if (situation) {
+        searchParams.append('situation', situation)
+      }
+
+      const searchParamString = searchParams.toString()
+      this.props.history.push(`/timeline?${searchParamString}`)
+
+    } else {
+      this.props.searchGifts(opponentGender, opponentAge, price, relationship, situation)
+    }
   }
 
   render() {
@@ -71,13 +87,15 @@ class Search extends Component {
           <h4>Who is this present for?</h4>
           <span>誰へのプレゼントですか</span>
         </div>
+
         <form className="search__form">
+
           <div className="gender input">
-            <input type="radio" id="male" name="gender" checked={this.state.opponentGender === 1} onChange={this.onChangeOpponentGender} />
+            <input type="radio" id="male" name="gender" checked={this.state.opponentGender === '1'} onChange={this.onChangeOpponentGender} />
             <label htmlFor="male">Male</label>
-            <input type="radio" id="female" name="gender" checked={this.state.opponentGender === 2} onChange={this.onChangeOpponentGender} />
+            <input type="radio" id="female" name="gender" checked={this.state.opponentGender === '2'} onChange={this.onChangeOpponentGender} />
             <label htmlFor="female">Female</label>
-            <input type="radio" id="others" name="gender" checked={this.state.opponentGender === 3} onChange={this.onChangeOpponentGender} />
+            <input type="radio" id="others" name="gender" checked={this.state.opponentGender === '3'} onChange={this.onChangeOpponentGender} />
             <label htmlFor="others">Others</label>
           </div>
           <div className="age input">
@@ -133,6 +151,7 @@ class Search extends Component {
               <option value="10">その他</option>
             </select>
           </div>
+
           <div className="btn-wrapper">
             <input className="btn btn__reverse" type="button" value="Seach" onClick={this.handleSearch} />
           </div>
@@ -142,4 +161,4 @@ class Search extends Component {
   }
 };
 
-export default Search
+export default withRouter(Search)
