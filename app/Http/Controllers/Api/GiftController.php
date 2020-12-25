@@ -198,15 +198,58 @@ class GiftController extends Controller
      */
     public function store(Request $request)
     {
-        $image_path = $request->file('image')->store('public/images');
-        $image_file_name = str_replace('public/images/', '', $image_path);
-
         $gift = new Gift;
+
+        $image = $request->file('image');
+        if ($image === null) {
+          $category_id = $request->input('category');
+
+          if ($category_id === '1') {
+            $image_file_name = 'fashion.png';
+          }
+          if ($category_id === '2') {
+            $image_file_name = 'sports.png';
+          }
+          if ($category_id === '3') {
+            $image_file_name = 'accessory.png';
+          }
+          if ($category_id === '4') {
+            $image_file_name = 'beauty_cosme.png';
+          }
+          if ($category_id === '5') {
+            $image_file_name = 'perfume.png';
+          }
+          if ($category_id === '6') {
+            $image_file_name = 'food.png';
+          }
+          if ($category_id === '7') {
+            $image_file_name = 'interior.png';
+          }
+          if ($category_id === '8') {
+            $image_file_name = 'book.png';
+          }
+          if ($category_id === '9') {
+            $image_file_name = 'komono.png';
+          }
+          if ($category_id === '10') {
+            $image_file_name = 'others1.png';
+          }
+          if ($category_id === '11') {
+            $image_file_name = 'others2.png';
+          }
+          $gift->image_file_name = $image_file_name;
+
+        } else {
+          $image_path = $image->store('public/images');
+          $image_file_name = str_replace('public/images/', '', $image_path);
+          $gift->image_file_name = $image_file_name;
+
+        }
 
         $gift->name = $request->input('name');
         $gift->price = $request->input('price');
         $gift->brand = $request->input('brand');
-        $gift->image_file_name = $image_file_name;
+
         $gift->category_id = $request->input('category');
         $gift->post_flag = $request->input('post_flag');
         $gift->opponent_gender_id = $request->input('opponent_gender');
@@ -217,7 +260,7 @@ class GiftController extends Controller
 
         $gift->save();
 
-        return response()->json(['data' => $gift]);
+        return response()->json($gift);
     }
 
     // ここ api としてはこの処理いらないけど、フロントエンドの実装で同じような条件分岐処理必要だからとりあえずとっとく
