@@ -17,6 +17,7 @@ export const readBookmarks = (userId, accessToken) => async dispatch => {
   dispatch({ type: READ_BOOKMARKS, response });
 };
 
+
 export const createBookmark = (
   giftId,
   userId,
@@ -49,16 +50,17 @@ export const deleteBookmark = (
   accessToken
 ) => async dispatch => {
 
-  const searchParams = new URLSearchParams()
-  searchParams.append('user_id', userId)
-  searchParams.append('gift_id', giftId)
-  const searchParamString = searchParams.toString()
+  const data = new FormData()
+  data.append('user_id', userId)
+  data.append('gift_id', giftId)
+  data.append('_method', 'delete')
 
-  const response = await axios.delete(
-    `${ROOT_URL}api/bookmarks?${searchParamString}`,
+  const response = await axios.post(
+    `${ROOT_URL}api/bookmarks`,
+    data,
     {
       headers: {
-        'Content-Type': "application/json",
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${accessToken}`
       }
     }
