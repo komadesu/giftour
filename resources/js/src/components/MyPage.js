@@ -77,11 +77,13 @@ class MyPage extends React.Component {
     if (!archives.length) {
       return <div className="empty-message">投稿がありません</div>;
     } else if (archives.length === 1) {
-      <Gift
-        gift={this.props.archives[0]}
-        archives={this.props.archives}
-        bookmarks={this.props.bookmarks}
-      />;
+      return (
+        <Gift
+          gift={this.props.archives[0]}
+          archives={this.props.archives}
+          bookmarks={this.props.bookmarks}
+        />
+      )
     } else if (archives.length >= 2) {
       return (
         <>
@@ -103,11 +105,13 @@ class MyPage extends React.Component {
     if (!bookmarks.length) {
       return <div className="empty-message">Saveした投稿がありません</div>;
     } else if (bookmarks.length === 1) {
-      <Gift
-        gift={this.props.bookmarks[0]}
-        archives={this.props.archives}
-        bookmarks={this.props.bookmarks}
-      />;
+      return (
+        <Gift
+          gift={this.props.bookmarks[0]}
+          archives={this.props.archives}
+          bookmarks={this.props.bookmarks}
+        />
+      )
     } else if (bookmarks.length >= 2) {
       return (
         <>
