@@ -18,7 +18,7 @@ class Archives extends React.Component {
     this.props.readBookmarks(userId, accessToken);
   }
 
-  readArchives(archives) {
+  renderArchives(archives) {
     if (!archives.length) {
       return <div className="empty-message">投稿がありません</div>;
     } else {
@@ -44,7 +44,7 @@ class Archives extends React.Component {
           </Link>
           <h4 className="title">Archive</h4>
         </div>
-        <div className="gifts">{this.readArchives(archives)}</div>
+        <div className="gifts">{this.renderArchives(archives)}</div>
       </div>
     );
   }
