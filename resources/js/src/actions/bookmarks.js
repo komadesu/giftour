@@ -24,14 +24,13 @@ export const createBookmark = (
   accessToken
 ) => async dispatch => {
 
-  const searchParams = new URLSearchParams()
-  searchParams.append('user_id', userId)
-  searchParams.append('gift_id', giftId)
-  const searchParamString = searchParams.toString()
+  const data = new FormData()
+  data.append('user_id', userId)
+  data.append('gift_id', giftId)
 
   const response = await axios.post(
-    `${ROOT_URL}api/bookmarks?${searchParamString}`,
-    null,
+    `${ROOT_URL}api/bookmarks`,
+    data,
     {
       headers: {
         'Content-Type': "application/json",
