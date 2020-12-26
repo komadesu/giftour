@@ -15,7 +15,5 @@ export const readArchives = (userId, accessToken) => async dispatch => {
     }
   );
 
-  console.log(response)
-
   dispatch({ type: READ_ARCHIVES, response });
 };
