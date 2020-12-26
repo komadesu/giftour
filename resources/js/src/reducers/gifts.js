@@ -12,7 +12,7 @@ export default (gifts = defaultGifts, action) => {
       return _.mapKeys(gifts, "id");
     case DELETE_GIFT:
       if (gifts[action.giftId]) {
-        delete gifts[action.giftId]
+        gifts = _.omit(gifts, action.giftId)
       }
       return { ...gifts }
     default:
