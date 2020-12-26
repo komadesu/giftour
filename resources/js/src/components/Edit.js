@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+
+import { deleteGift } from '../actions/gifts'
+import { deleteArchive } from '../actions/archives'
 
 class Edit extends Component {
 
@@ -11,10 +15,13 @@ class Edit extends Component {
       target.classList.remove('appear-popup')
     }
   }
-  handleDelete(giftId) {
+  async handleDelete(giftId) {
     const result = confirm(`ID${giftId}この投稿を本当に削除してもよろしいですか？`)
     if (result) {
-      // appropriate code to delete selected one.
+      const { deleteGift, deleteArchive, accessToken } = this.props
+      await deleteGift(giftId, accessToken);
+      await deleteArchive(giftId);
+      // this.props.history.push("/mypage")
     }
   }
 
@@ -40,4 +47,8 @@ class Edit extends Component {
   }
 }
 
-export default Edit
+const mapStateToProps = state => ({
+  accessToken: state.auth.access_token
+});
+const mapDispatchToProps = { deleteGift, deleteArchive };
+export default connect(mapStateToProps, mapDispatchToProps)(Edit);
