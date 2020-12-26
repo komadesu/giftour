@@ -1,7 +1,6 @@
 import _ from "lodash";
 
-import { READ_GIFTS } from "../actions/gifts";
-import { CREATE_GIFT } from "../actions/gifts";
+import { READ_GIFTS, CREATE_GIFT, DELETE_GIFT } from "../actions/gifts";
 
 const defaultGifts = []
 
@@ -11,6 +10,11 @@ export default (gifts = defaultGifts, action) => {
       return _.mapKeys(action.response.data, "id");
     case CREATE_GIFT:
       return _.mapKeys(gifts, "id");
+    case DELETE_GIFT:
+      if (gifts[action.giftId]) {
+        gifts = _.omit(gifts, action.giftId)
+      }
+      return { ...gifts }
     default:
       return gifts;
   }

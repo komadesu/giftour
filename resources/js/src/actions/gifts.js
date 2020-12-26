@@ -4,6 +4,7 @@ import { ROOT_URL } from "./index";
 
 export const READ_GIFTS = "READ_GIFTS";
 export const CREATE_GIFT = "CREATE_GIFT";
+export const DELETE_GIFT = "DELETE_GIFT";
 
 
 export const readGifts = (
@@ -90,3 +91,14 @@ export const createGift = (
   dispatch({ type: CREATE_GIFT, response });
 };
 
+
+export const deleteGift = (giftId, accessToken) => async dispatch => {
+  await axios.delete(`${ROOT_URL}api/gifts/${giftId}`, {
+    headers: {
+      'Content-Type': "application/json",
+      Authorization: `Bearer ${accessToken}`
+    }
+  });
+
+  dispatch({ type: DELETE_GIFT, giftId })
+}

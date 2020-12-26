@@ -18,53 +18,53 @@ class MyPage extends React.Component {
     this.onChangeAge = this.onChangeAge.bind(this);
     this.onChangeEmail = this.onChangeEmail.bind(this);
 
-    const { user } = props
+    const { user } = props;
     this.state = {
       formState: false,
       name: user.name,
       gender: null,
       age: user.age,
-      email: user.email,
+      email: user.email
     };
   }
 
   componentDidMount() {
-    const { userId, accessToken } = this.props
+    const { userId, accessToken } = this.props;
 
     this.props.readArchives(userId, accessToken);
     this.props.readBookmarks(userId, accessToken);
 
-    const { gender } = this.props.user
-    this.setGenderState(gender)
+    const { gender } = this.props.user;
+    this.setGenderState(gender);
   }
 
   setGenderState(value) {
-    let genderState
-    if (value === 'male') genderState = 1
-    if (value === 'female') genderState = 2
-    if (value === 'other') genderState = 3
-    this.setState({ gender: genderState })
+    let genderState;
+    if (value === "male") genderState = 1;
+    if (value === "female") genderState = 2;
+    if (value === "other") genderState = 3;
+    this.setState({ gender: genderState });
   }
 
   onChangeName(e) {
-    this.setState({ name: e.target.value })
+    this.setState({ name: e.target.value });
   }
   onChangeGender(e) {
-    const gender = e.target.id
-    this.setGenderState(gender)
+    const gender = e.target.id;
+    this.setGenderState(gender);
   }
   onChangeAge(e) {
-    this.setState({ age: e.target.value })
+    this.setState({ age: e.target.value });
   }
   onChangeEmail(e) {
-    this.setState({ email: e.target.value })
+    this.setState({ email: e.target.value });
   }
 
   toggleFormState() {
     const { formState } = this.state;
     const nextFormState = !formState ? true : false;
     this.setState({
-      formState: nextFormState,
+      formState: nextFormState
     });
   }
   scrollWidthOffset(el) {
@@ -75,13 +75,13 @@ class MyPage extends React.Component {
 
   renderArchives(archives) {
     if (!archives.length) {
-      return '投稿がありません'
+      return "投稿がありません";
     } else if (archives.length === 1) {
-        <Gift
-          gift={this.props.archives[0]}
-          archives={this.props.archives}
-          bookmarks={this.props.bookmarks}
-        />
+      <Gift
+        gift={this.props.archives[0]}
+        archives={this.props.archives}
+        bookmarks={this.props.bookmarks}
+      />;
     } else if (archives.length >= 2) {
       return (
         <>
@@ -96,18 +96,18 @@ class MyPage extends React.Component {
             bookmarks={this.props.bookmarks}
           />
         </>
-      )
+      );
     }
   }
   renderBookmarks(bookmarks) {
     if (!bookmarks.length) {
-      return 'ブックマークがありません'
+      return "ブックマークがありません";
     } else if (bookmarks.length === 1) {
       <Gift
         gift={this.props.bookmarks[0]}
         archives={this.props.archives}
         bookmarks={this.props.bookmarks}
-      />
+      />;
     } else if (bookmarks.length >= 2) {
       return (
         <>
@@ -122,7 +122,7 @@ class MyPage extends React.Component {
             bookmarks={this.props.bookmarks}
           />
         </>
-      )
+      );
     }
   }
 
@@ -303,12 +303,12 @@ class MyPage extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   accessToken: state.auth.access_token,
   userId: state.user.id,
   archives: state.archives,
   bookmarks: state.bookmarks,
-  user: state.user,
+  user: state.user
 });
 const mapDispatchToProps = { readArchives, readBookmarks, readUser };
 export default connect(mapStateToProps, mapDispatchToProps)(MyPage);
