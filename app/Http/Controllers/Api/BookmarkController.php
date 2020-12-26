@@ -42,7 +42,7 @@ class BookmarkController extends Controller
 
         $bookmark->save();
 
-        return redirect('api/bookmarks');
+        return redirect("api/bookmarks/${user_id}");
     }
 
     /**
@@ -64,6 +64,6 @@ class BookmarkController extends Controller
           ['gift_id', $gift_id]
         ])->delete();
 
-        return redirect('api/bookmarks');
+        return redirect("api/bookmarks/${user_id}");
     }
 }
