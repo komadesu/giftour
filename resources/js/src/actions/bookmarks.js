@@ -33,7 +33,7 @@ export const createBookmark = (
     null,
     {
       headers: {
-        'Conten-Type': "application/json",
+        'Content-Type': "application/json",
         Authorization: `Bearer ${accessToken}`
       }
     }
@@ -41,6 +41,7 @@ export const createBookmark = (
 
   dispatch({ type: CREATE_BOOKMARK, response })
 };
+
 
 export const deleteBookmark = (
   giftId,
@@ -57,7 +58,7 @@ export const deleteBookmark = (
     `${ROOT_URL}api/bookmarks?${searchParamString}`,
     {
       headers: {
-        'Conten-Type': "application/json",
+        'Content-Type': "application/json",
         Authorization: `Bearer ${accessToken}`
       }
     }
