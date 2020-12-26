@@ -12,13 +12,30 @@ class Bookmarks extends React.Component {
   }
 
   componentDidMount() {
-    const { userId, accessToken } = this.props
+    const { userId, accessToken } = this.props;
 
     this.props.readArchives(userId, accessToken);
     this.props.readBookmarks(userId, accessToken);
   }
 
+  renderBookmarks(bookmarks) {
+    if (!bookmarks.length) {
+      return <div className="empty-message">Saveした投稿がありません</div>;
+    } else {
+      return bookmarks.map(gift => (
+        <Gift
+          gift={gift}
+          archives={this.props.archives}
+          bookmarks={bookmarks}
+          key={gift.id}
+        />
+      ));
+    }
+  }
+
   render() {
+    const { bookmarks } = this.props
+
     return (
       <div className="bookmarks">
         <div className="bookmarks__navs">
@@ -27,16 +44,7 @@ class Bookmarks extends React.Component {
           </Link>
           <h4 className="title">Saved</h4>
         </div>
-        <div className="gifts">
-          {this.props.bookmarks.map(gift => (
-            <Gift
-              gift={gift}
-              archives={this.props.archives}
-              bookmarks={this.props.bookmarks}
-              key={gift.id}
-            />
-          ))}
-        </div>
+        <div className="gifts">{this.renderBookmarks(bookmarks)}</div>
       </div>
     );
   }
