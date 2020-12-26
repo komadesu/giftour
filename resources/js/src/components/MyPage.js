@@ -37,15 +37,6 @@ class MyPage extends React.Component {
     const { gender } = this.props.user;
     this.setGenderState(gender);
   }
-  componentDidUpdate(prevProps) {
-    if (prevProps.archives !== this.props.archives) {
-      const { userId, accessToken } = this.props;
-
-      console.log('this is componentDidUpdate')
-      //this.props.readArchives(userId, accessToken);
-      //this.props.readBookmarks(userId, accessToken);
-    }
-  }
 
   setGenderState(value) {
     let genderState;

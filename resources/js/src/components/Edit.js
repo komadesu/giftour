@@ -21,7 +21,6 @@ class Edit extends Component {
       const { deleteGift, deleteArchive, accessToken } = this.props
       await deleteGift(giftId, accessToken);
       await deleteArchive(giftId);
-      // this.props.history.push("/mypage")
     }
   }
 
