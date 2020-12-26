@@ -126,12 +126,12 @@
 
               & label {
                 position: relative;
-                font-size: .9em;
+                font-size: 0.9em;
                 line-height: 36px;
                 margin-bottom: 0;
 
                 &::before {
-                  content: '';
+                  content: "";
                   position: absolute;
                   left: 0;
                   top: 50%;
@@ -145,7 +145,7 @@
 
               & input:checked {
                 & + label::after {
-                  content: '';
+                  content: "";
                   position: absolute;
                   left: 0;
                   top: 50%;
@@ -180,4 +180,13 @@
 
 .display {
   display: block !important;
+}
+
+.empty-message {
+  height: 150px;
+  line-height: 150px;
+  text-align: center;
+  color: $mainNavy;
+  font-size: 16px;
+  grid-column: 1/3;
 }

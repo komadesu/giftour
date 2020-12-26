@@ -12,13 +12,30 @@ class Archives extends React.Component {
   }
 
   componentDidMount() {
-    const { userId, accessToken } = this.props
+    const { userId, accessToken } = this.props;
 
     this.props.readArchives(userId, accessToken);
     this.props.readBookmarks(userId, accessToken);
   }
 
+  renderArchives(archives) {
+    if (!archives.length) {
+      return <div className="empty-message">投稿がありません</div>;
+    } else {
+      return archives.map(gift => (
+        <Gift
+          gift={gift}
+          archives={archives}
+          bookmarks={this.props.bookmarks}
+          key={gift.id}
+        />
+      ));
+    }
+  }
+
   render() {
+    const { archives } = this.props;
+
     return (
       <div className="archives">
         <div className="archives__navs">
@@ -27,16 +44,7 @@ class Archives extends React.Component {
           </Link>
           <h4 className="title">Archive</h4>
         </div>
-        <div className="gifts">
-          {this.props.archives.map(gift => (
-            <Gift
-              gift={gift}
-              archives={this.props.archives}
-              bookmarks={this.props.bookmarks}
-              key={gift.id}
-            />
-          ))}
-        </div>
+        <div className="gifts">{this.renderArchives(archives)}</div>
       </div>
     );
   }

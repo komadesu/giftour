@@ -75,7 +75,7 @@ class MyPage extends React.Component {
 
   renderArchives(archives) {
     if (!archives.length) {
-      return "投稿がありません";
+      return <div className="empty-message">投稿がありません</div>;
     } else if (archives.length === 1) {
       <Gift
         gift={this.props.archives[0]}
@@ -101,7 +101,7 @@ class MyPage extends React.Component {
   }
   renderBookmarks(bookmarks) {
     if (!bookmarks.length) {
-      return "ブックマークがありません";
+      return <div className="empty-message">Saveした投稿がありません</div>;
     } else if (bookmarks.length === 1) {
       <Gift
         gift={this.props.bookmarks[0]}
