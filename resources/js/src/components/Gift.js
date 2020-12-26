@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 import Edit from './Edit'
+import { createBookmark, deleteBookmark } from "../actions/bookmarks"
 
 class Gift extends Component {
   constructor(props) {
@@ -32,20 +34,31 @@ class Gift extends Component {
       return (
         <button
           className="is-bookmarked"
-          onClick={e => this.handleBookmark(e)}
+          onClick={e => this.handleBookmark(e, giftId)}
         ></button>
       );
     } else {
-      return <button onClick={e => this.handleBookmark(e)}></button>;
+      return <button onClick={e => this.handleBookmark(e, giftId)}></button>;
     }
   }
 
-  handleBookmark(e) {
+  handleBookmark(e, giftId) {
     const target = e.target;
-    if (target.classList.contains("is-bookmarked")) {
-      target.classList.remove("is-bookmarked");
+    const { deleteBookmark, createBookmark, user, accessToken } = this.props;
+
+    if (Object.keys(user).length) {
+      const userId = user.id
+
+      if (target.classList.contains("is-bookmarked")) {
+        deleteBookmark(giftId, userId, accessToken)
+        target.classList.remove("is-bookmarked");
+      } else {
+        createBookmark(giftId, userId, accessToken);
+        target.classList.add("is-bookmarked");
+      }
+
     } else {
-      target.classList.add("is-bookmarked");
+      alert("ブックマークは、ログインしたユーザーのみ使用可能です")
     }
   }
   handlePrice(price) {
@@ -116,4 +129,9 @@ class Gift extends Component {
   }
 }
 
-export default Gift
+const mapStateToProps = state => ({
+  accessToken: state.auth.access_token,
+  user: state.user
+})
+const mapDispatchToProps = { createBookmark, deleteBookmark };
+export default connect(mapStateToProps, mapDispatchToProps)(Gift);

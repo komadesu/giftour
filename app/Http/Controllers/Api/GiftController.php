@@ -345,6 +345,6 @@ class GiftController extends Controller
 
         $gift->delete();
 
-        return response()->json(['data' => $gift]);
+        return response()->json($gift);
     }
 }
