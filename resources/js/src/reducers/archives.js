@@ -7,11 +7,7 @@ export default (archives = defaultArchives, action) => {
     case READ_ARCHIVES:
       return action.response.data;
     case DELETE_ARCHIVE:
-      archives.forEach((archive, index) => {
-        if (archive.id === action.giftId) {
-          archives.splice(index)
-        }
-      })
+      archives.filter(archive => archive.id !== action.giftId)
       return [ ...archives ]
     default:
       return archives;
