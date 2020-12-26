@@ -1,5 +1,6 @@
 import React from "react";
-import { connect } from "react-redux"
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 import { createGift } from "../actions/gifts";
 
@@ -39,7 +40,7 @@ class Form extends React.Component {
       category: "",
       price: "",
       situation: "",
-      image: '',
+      image: "",
       imageData: ""
     };
   }
@@ -172,7 +173,7 @@ class Form extends React.Component {
       this.setState({ imageData: null });
     }
 
-    this.setState({ image: file })
+    this.setState({ image: file });
 
     this.previewFile(file);
   }
@@ -185,15 +186,40 @@ class Form extends React.Component {
     reader.readAsDataURL(file);
   }
 
-  submitGift() {
-    const { name, price, brand, image, category, postFlag, opponentGender, opponentAge, relationship, situation, userID } = this.state
-    const { userId, accessToken, createGift } = this.props
+  async submitGift() {
+    const {
+      name,
+      price,
+      brand,
+      image,
+      category,
+      postFlag,
+      opponentGender,
+      opponentAge,
+      relationship,
+      situation
+    } = this.state;
+    const { userId, accessToken, createGift } = this.props;
 
-    createGift(name, price, brand, image, category, postFlag, opponentGender, opponentAge, relationship, situation, userId, accessToken);
+    await createGift(
+      name,
+      price,
+      brand,
+      image,
+      category,
+      postFlag,
+      opponentGender,
+      opponentAge,
+      relationship,
+      situation,
+      userId,
+      accessToken
+    );
+
+    this.props.history.push('/timeline');
   }
 
   render() {
-    const { gift } = this.props;
 
     return (
       <form className="form" encType="multipart/form-data">
@@ -353,7 +379,7 @@ class Form extends React.Component {
               />
             </label>
           </div>
-          <div className= "btn-wrapper give-btn">
+          <div className="btn-wrapper give-btn">
             <input
               className="btn form-btn"
               onClick={this.submitGift}
@@ -370,6 +396,6 @@ class Form extends React.Component {
 const mapStateToProps = state => ({
   accessToken: state.auth.access_token,
   userId: state.user.id
-})
-const mapDispatchToProps = { createGift }
-export default connect(mapStateToProps, mapDispatchToProps)(Form);
+});
+const mapDispatchToProps = { createGift };
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Form));
