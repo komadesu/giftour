@@ -1,4 +1,8 @@
 .mypage {
+  position: relative;
+  padding-bottom: 120px;
+  min-height: 100vh;
+
   &__areas {
     & .area {
       position: relative;

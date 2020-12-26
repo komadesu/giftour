@@ -1,5 +1,8 @@
 .index {
+  position: relative;
   padding-top: 140px;
+  padding-bottom: 140px;
+  min-height: 100vh;
 
   &__app-name {
     text-align: center;

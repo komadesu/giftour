@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 import Gift from "./Gift";
+import Footer from "./Footer";
 import { readArchives } from "../actions/archives";
 import { readBookmarks } from "../actions/bookmarks";
 
@@ -45,6 +46,7 @@ class Archives extends React.Component {
           <h4 className="title">Archive</h4>
         </div>
         <div className="gifts">{this.renderArchives(archives)}</div>
+        <Footer />
       </div>
     );
   }
