@@ -12,9 +12,10 @@ class Bookmarks extends React.Component {
   }
 
   componentDidMount() {
-    const userId = 2;
-    this.props.readArchives();
-    this.props.readBookmarks(userId);
+    const { userId, accessToken } = this.props
+
+    this.props.readArchives(userId, accessToken);
+    this.props.readBookmarks(userId, accessToken);
   }
 
   render() {
@@ -42,6 +43,8 @@ class Bookmarks extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  accessToken: state.auth.access_token,
+  userId: state.user.id,
   archives: state.archives,
   bookmarks: state.bookmarks
 });
