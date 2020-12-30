@@ -2,4 +2,7 @@
 Giftour
 
 URL: http://giftour.work/
-機能動かなくなってるけど一応アクセス可能
+こちらは運用停止します
+
+URL: https://gms.gdl.jp/giftour/
+こちらになりました
