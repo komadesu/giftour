@@ -1,0 +1,192 @@
+.mypage {
+  &__areas {
+    & .area {
+      position: relative;
+      margin-bottom: 80px;
+      padding: 50px 0 35px 0;
+      width: 100%;
+
+      &:nth-child(odd) {
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 95%;
+          height: 100%;
+          box-shadow: 0px 3px 12px rgba(15, 37, 57, 0.5);
+          background-color: $mainBeige;
+          z-index: -10;
+        }
+
+        & .title {
+          position: absolute;
+          top: 15px;
+          left: 17px;
+          margin: 0;
+          color: $fontWhite;
+          font-size: 45px;
+          transform: rotate(-90deg) translateX(-100%);
+          transform-origin: top left;
+        }
+      }
+
+      &:nth-child(even) {
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 95%;
+          height: 100%;
+          box-shadow: 0px 3px 12px rgba(15, 37, 57, 0.5);
+          background-color: $body-bg;
+          z-index: -10;
+        }
+
+        & .title {
+          position: absolute;
+          top: 15px;
+          right: 17px;
+          margin: 0;
+          color: $mainNavy;
+          font-size: 45px;
+          transform: rotate(90deg) translateX(100%);
+          transform-origin: top right;
+        }
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+
+        &::before {
+          background-color: $mainNavy;
+        }
+      }
+
+      & .gifts {
+        margin-top: 0;
+        grid-gap: 10px 60px;
+
+        & .more {
+          padding-right: 16px;
+          text-align: right;
+          grid-column: 2/3;
+          grid-row: 2/3;
+
+          & .more-btn {
+            color: $mainNavy;
+            font-size: 1.2em;
+          }
+        }
+      }
+    }
+
+    & #settings {
+      padding: 80px 0;
+      color: $fontWhite;
+
+      & .user-infos-wrapper {
+        display: flex;
+        margin: 0 auto;
+        width: 80%;
+        justify-content: space-around;
+        align-items: center;
+
+        & .user-infos {
+          display: none;
+          text-align: right;
+          font-size: 18px;
+
+          & .user-info {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            width: 400px;
+            height: 36px;
+            line-height: 36px;
+
+            & .label {
+              width: 15%;
+            }
+
+            & .content {
+              width: 80%;
+              padding: 0 20px;
+              border-bottom: 1px solid $borderGray;
+              text-align: center;
+              color: $fontWhite;
+            }
+            & .radio-content {
+              display: flex;
+              justify-content: space-between;
+              padding: 0 20px;
+              width: 72%;
+              color: $fontWhite;
+
+              & label {
+                position: relative;
+                font-size: 0.9em;
+                line-height: 36px;
+                margin-bottom: 0;
+
+                &::before {
+                  content: "";
+                  position: absolute;
+                  left: 0;
+                  top: 50%;
+                  transform: translate(-120%, -57%);
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 50%;
+                  border: 1px solid $fontWhite;
+                }
+              }
+
+              & input:checked {
+                & + label::after {
+                  content: "";
+                  position: absolute;
+                  left: 0;
+                  top: 50%;
+                  transform: translate(-190%, -64%);
+                  width: 7px;
+                  height: 7px;
+                  border-radius: 50%;
+                  background-color: $fontWhite;
+                }
+              }
+            }
+          }
+
+          & .btn-wrapper {
+            display: flex;
+            justify-content: flex-end;
+
+            & .btn {
+              min-width: 65px;
+              margin: 0 10px;
+            }
+          }
+        }
+
+        & .logo {
+          font-size: 50px;
+        }
+      }
+    }
+  }
+}
+
+.display {
+  display: block !important;
+}
+
+.empty-message {
+  height: 150px;
+  line-height: 150px;
+  text-align: center;
+  color: $mainNavy;
+  font-size: 16px;
+  grid-column: 1/3;
+}

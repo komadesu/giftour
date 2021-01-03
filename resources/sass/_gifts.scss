@@ -1,0 +1,185 @@
+.gifts {
+  display: grid;
+  margin: 0 auto;
+  margin-top: 80px;
+  width: 80%;
+  color: $fontWhite;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px 60px;
+
+  & .gift {
+    z-index: 100;
+
+    & .additional-info {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px;
+
+      & .date {
+        color: $mainNavy;
+      }
+    }
+
+    &__box {
+      position: relative;
+      padding: 30px 35px;
+      background-color: $mainNavy;
+      border: 1px solid #3f515f;
+      border-radius: 16px;
+
+      & .bookmark-wrapper {
+        & button {
+          position: absolute;
+          padding: 0;
+          top: 0;
+          left: 20px;
+          width: 22px;
+          height: 20px;
+          background-color: $borderGray;
+          cursor: pointer;
+
+          &:focus {
+            outline: none;
+          }
+
+          &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 100%;
+            height: 0;
+            width: 0;
+            border-left: 11px solid $borderGray;
+            border-right: 11px solid $borderGray;
+            border-bottom: 5px solid transparent;
+          }
+        }
+      }
+
+      & .name {
+        margin-bottom: 25px;
+        padding: 0 8px 8px 0;
+        width: 100%;
+        border-bottom: 1px solid #3f515f;
+        text-align: right;
+        font-size: 22px;
+      }
+
+      & .box-bottom {
+        display: grid;
+        grid-template-columns: 150px 1fr;
+
+        & .img-wrapper {
+          position: relative;
+          width: 150px;
+          height: 150px;
+          border-radius: 50%;
+          overflow: hidden;
+
+          & img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+
+        & .details {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          & .brand,
+          & .opponent {
+            text-align: center;
+            font-size: 18px;
+            font-style: italic;
+          }
+          & .brand {
+            margin-bottom: 8px;
+          }
+
+          & .sub-info {
+            display: flex;
+            font-size: 12px;
+            justify-content: space-around;
+            flex-direction: row-reverse;
+            flex-wrap: wrap-reverse;
+            align-content: space-between;
+
+            & .price,
+            & .relationship,
+            & .situation,
+            & .category,
+            & .post-flag {
+              margin: 10px 0 0 8px;
+              padding: 5px 10px;
+              border: 1px solid $mainBeige;
+              border-radius: 25px;
+            }
+            & .post-flag {
+              background-color: $mainBeige;
+            }
+
+            & .price {
+              position: relative;
+              &::before {
+                content: "Price";
+                position: absolute;
+                top: 0;
+                left: 50%;
+                font-size: 12px;
+                transform: translate(-50%, -50%);
+              }
+            }
+            & .relationship {
+              position: relative;
+              &::before {
+                content: "Relation";
+                position: absolute;
+                top: 0;
+                left: 50%;
+                font-size: 12px;
+                transform: translate(-50%, -50%);
+              }
+            }
+            & .situation {
+              position: relative;
+              &::before {
+                content: "Situation";
+                position: absolute;
+                top: 0;
+                left: 50%;
+                font-size: 12px;
+                transform: translate(-50%, -50%);
+              }
+            }
+            & .category {
+              position: relative;
+              &::before {
+                content: "Category";
+                position: absolute;
+                top: 0;
+                left: 50%;
+                font-size: 12px;
+                transform: translate(-50%, -50%);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.is-bookmarked {
+  background-color: $mainBeige !important;
+
+  &::before {
+    border-color: $mainBeige !important;
+    border-bottom: 5px solid transparent !important;
+  }
+}

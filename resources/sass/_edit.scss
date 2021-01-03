@@ -1,0 +1,58 @@
+.edit {
+
+  &__popup-btn {
+    color: $mainNavy;
+    letter-spacing: -7px;
+    cursor: pointer;
+  }
+
+  &__popup {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 28px;
+    z-index: 300;
+
+    width: 150px;
+    height: 84px;
+    border-radius: 12px;
+    -webkit-backdrop-filter: blur(30px);
+    backdrop-filter: blur(30px);
+    background-color: rgba(237, 237, 237, 0.8);
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50%;
+    padding: 0 15px;
+    cursor: pointer;
+
+    &:first-child {
+      border-bottom: 1px solid $borderGray;
+    }
+    & img {
+      width: 16px;
+      height: 16px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    &.update-btn {
+      & span {
+        color: $mainNavy;
+      }
+    }
+    &.delete-btn {
+      & span {
+        color: red;
+      }
+    }
+  }
+}
+
+.appear-popup {
+  display: block !important;
+}
+
