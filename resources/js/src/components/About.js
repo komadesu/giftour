@@ -28,7 +28,7 @@ const About = () => {
 
       <div className="bg">
         <div className="bg__cover">
-          <img src="../storage/images/bg-img.png" alt="background image" />
+          <img src="storage/images/bg-img.png" alt="background image" />
         </div>
       </div>
     </div>
