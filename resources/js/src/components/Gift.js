@@ -100,7 +100,7 @@ class Gift extends Component {
           <h5 className="name">{gift.name}</h5>
           <div className="box-bottom">
             <div className="img-wrapper">
-              <img src={`../storage/images/${gift.image_file_name}`} />
+              <img src={`storage/images/${gift.image_file_name}`} />
             </div>
 
             <div className="details">
