@@ -12,14 +12,14 @@ const Index = () => {
       <h2 className="index__app-name">GIFTOUR</h2>
       <div className="index__hero-wrapper">
         <img
-          src="../storage/images/hero-rose.png"
+          src="storage/images/hero-rose.png"
           className="img rose-img"
           alt="hero"
         />
         <span className="slider slider--left"></span>
         <span className="slider slider--right"></span>
         <img
-          src="../storage/images/hero-hands.png"
+          src="storage/images/hero-hands.png"
           className="img hands-img"
           alt="hero"
         />
@@ -52,7 +52,7 @@ const Index = () => {
             </Link>
           </div>
           <div className="img-wrapper">
-            <img src="../storage/images/price-bg.png" />
+            <img src="storage/images/price-bg.png" />
           </div>
         </div>
 
@@ -83,7 +83,7 @@ const Index = () => {
             </Link>
           </div>
           <div className="img-wrapper">
-            <img src="../storage/images/age-bg.png" />
+            <img src="storage/images/age-bg.png" />
           </div>
         </div>
       </div>

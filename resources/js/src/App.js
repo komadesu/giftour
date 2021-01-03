@@ -29,7 +29,7 @@ const store = createStore(reducer, enhancer);
 const App = () => {
   return (
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter basename="/giftour">
         <Header />
         <Switch>
           <Route exact path="/" component={Index} />

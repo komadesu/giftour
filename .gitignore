@@ -1,6 +1,6 @@
 /node_modules
-/public/hot
-/public/storage
+# /public/hot
+# /public/storage
 /storage/*.key
 /vendor
 .env
@@ -11,10 +11,18 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 
-#追記
-public/js/app.js
-public/css/app.css
+# 追記
+# public/js/app.js
+# public/css/app.css
 
 #ゼミサーバで追記
 bootstrap/*/.gitignore
 storage/*/.gitignore
+
+
+# change public directory to htdocs
+/htdocs/hot
+/htdocs/storage
+
+htdocs/js/app.js
+htdocs/css/app.css

@@ -11,5 +11,10 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.react('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css');
+// mix.react('resources/js/app.js', 'public/js')
+//    .sass('resources/sass/app.scss', 'public/css');
+
+// added by koma to set public path from default public to htdocs.
+mix.react('resources/js/app.js', 'js')
+   .sass('resources/sass/app.scss', 'css')
+   .setPublicPath('htdocs');

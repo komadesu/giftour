@@ -41,6 +41,11 @@ $app->singleton(
     App\Exceptions\Handler::class
 );
 
+// added by koma to set htdocs as a public folder, instead of public.
+$app->bind('path.public', function() {
+    return base_path('htdocs');
+});
+
 /*
 |--------------------------------------------------------------------------
 | Return The Application
