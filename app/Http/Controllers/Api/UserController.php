@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    public function user(Request $request) {
+        return $request->user();
+    }
+
     public function store(Request $request)
     {
       if ($request->password_confirm !== $request->password) {

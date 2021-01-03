@@ -11,6 +11,8 @@
 |
 */
 
+Route::view('/', 'app');
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -19,9 +21,9 @@
 // Route::get('gifts/user/{user_id}/bookmark', 'GiftController@getUserBookmarks');
 
 // こっち上にすると、react、こっち下だと上のが先にルーティングに引っかかって laravel
-Route::get('/{any}', function () {
-  return view('app');
-})->where('any','.*');
+//Route::get('/{any}', function () {
+//  return view('app');
+//})->where('any','.*');
 
 // 上記書き換え+prefixとかmiddlewareとか
 //Route::group(['prefix' => 'gifts', 'middleware' => 'auth'], function() {

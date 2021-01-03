@@ -20,9 +20,7 @@ Route::group(['middleware' => ['api']], function () {
 
 
   Route::middleware('auth:api')->group(function () {
-    Route::get('/user', function (Request $request) {
-      return $request->user();
-    });
+    Route::get('/user', 'Api\UserController@user');
 
     Route::get('/bookmarks/{user_id}', 'Api\BookmarkController@index');
     Route::post('/bookmarks', 'Api\BookmarkController@store');
