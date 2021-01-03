@@ -360,7 +360,7 @@ class Form extends React.Component {
             <label className="preview" htmlFor="preview">
               <div className="preview__bg-img">
                 <img
-                  src="../storage/images/preview-bg.png"
+                  src="storage/images/preview-bg.png"
                   alt="preview bg image"
                 />
               </div>
@@ -368,7 +368,7 @@ class Form extends React.Component {
                 <img src={this.state.imageData} />
               </div>
               <div className="preview__icon">
-                <img src="../storage/images/camera.svg" />
+                <img src="storage/images/camera.svg" />
               </div>
               <input
                 className="preview__input"

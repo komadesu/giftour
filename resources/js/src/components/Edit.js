@@ -34,11 +34,11 @@ class Edit extends Component {
         <div className="edit__popup">
           <Link to={`/update/${giftId}`} className="edit__btn update-btn">
             <span>編集</span>
-            <img src="../storage/images/edit.png" />
+            <img src="storage/images/edit.png" />
           </Link>
           <div className="edit__btn delete-btn" onClick={() => this.handleDelete(giftId)}>
             <span>削除</span>
-            <img src="../storage/images/trash.png" />
+            <img src="storage/images/trash.png" />
           </div>
         </div>
       </div>
