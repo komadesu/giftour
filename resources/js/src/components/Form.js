@@ -225,7 +225,7 @@ class Form extends React.Component {
       <form className="form" encType="multipart/form-data">
         <div className="form__grid-container">
           <div className="title input">
-            <label htmlFor="title">あげたもの：</label>
+            <label htmlFor="title">プレゼントの内容：</label>
             <input
               type="text"
               id="title"
